@@ -10,7 +10,7 @@ public class Warrior extends Hero
         super(name, hp, baseDamage);
     }
 
-    // Metmods
+    // Methods
 
     @Override
     public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException {
