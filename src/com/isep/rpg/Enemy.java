@@ -7,4 +7,7 @@ public abstract class Enemy extends Combatant
     {
         super(name);
     }
+
+    // Methods
+    abstract void attack(Hero hero);
 }
