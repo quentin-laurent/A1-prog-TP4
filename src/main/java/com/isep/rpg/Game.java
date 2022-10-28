@@ -34,7 +34,7 @@ public class Game
             s.append("==== Hero ").append(i).append(" ====");
             System.out.println(s.toString());
             heroClass = this.inputParser.getHeroClass();
-            heroName = this.inputParser.getHeroName();
+            heroName = this.inputParser.getCombatantName();
 
             switch (heroClass)
             {
@@ -55,7 +55,7 @@ public class Game
             }
 
             // Initializing enemies
-            // TODO
+            
         }
     }
 }

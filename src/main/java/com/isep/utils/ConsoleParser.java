@@ -36,7 +36,7 @@ public class ConsoleParser implements InputParser
         return heroCount;
     }
 
-    public String getHeroName()
+    public String getCombatantName()
     {
         System.out.println("Select a name:");
         String name = this.getString();
