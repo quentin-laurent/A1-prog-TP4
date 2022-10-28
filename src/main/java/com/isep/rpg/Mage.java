@@ -6,8 +6,9 @@ public class Mage extends SpellCaster
 {
     // Attributes
     public static final int BASE_HP = 80;
-    public static final int BASE_DAMAGE = 25;
+    public static final int BASE_DAMAGE = 10;
     public static final int BASE_MANA = 100;
+    public static final int BASE_SPELL_DAMAGE = 25;
 
     // Constructor
     public Mage(String name, int hp, int baseDamage, int mana)

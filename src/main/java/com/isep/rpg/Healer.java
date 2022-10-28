@@ -8,6 +8,7 @@ public class Healer extends SpellCaster
     public static final int BASE_HP = 75;
     public static final int BASE_DAMAGE = 10;
     public static final int BASE_MANA = 100;
+    public static final int BASE_SPELL_HEAL = 30;
 
     // Constructor
     public Healer(String name, int hp, int baseDamage, int mana)
