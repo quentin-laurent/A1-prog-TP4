@@ -20,7 +20,7 @@ public class Game
     }
 
     // Methods
-    public void initialize() throws ExecutionControl.NotImplementedException
+    public void initializeHeroes() throws ExecutionControl.NotImplementedException
     {
         // Initializing the number of heroes
         this.heroCount = this.inputParser.getHeroCount();
@@ -30,9 +30,7 @@ public class Game
         String heroName;
         for(int i = 0; i < this.heroCount; i++)
         {
-            StringBuilder s = new StringBuilder("");
-            s.append("==== Hero ").append(i).append(" ====");
-            System.out.println(s.toString());
+            System.out.printf("==== Hero %d ====%n", i);
             heroClass = this.inputParser.getHeroClass();
             heroName = this.inputParser.getCombatantName();
 
@@ -53,9 +51,6 @@ public class Game
                 default:
                     throw new RuntimeException("Got an invalid hero class while creating heroes");
             }
-
-            // Initializing enemies
-            
         }
     }
 }
