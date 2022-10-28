@@ -7,9 +7,6 @@ import java.util.List;
 public abstract class Hero extends Combatant
 {
     // Attributes
-    protected final int hp;
-    protected final int baseDamage;
-
     protected Weapon weapon;
     protected Armor armor;
     protected List<Consumable> consumables;
@@ -17,9 +14,7 @@ public abstract class Hero extends Combatant
     // Constructor
     public Hero(String name, int hp, int baseDamage)
     {
-        super(name);
-        this.hp = hp;
-        this.baseDamage = baseDamage;
+        super(name, hp, baseDamage);
     }
 
     // Methods
