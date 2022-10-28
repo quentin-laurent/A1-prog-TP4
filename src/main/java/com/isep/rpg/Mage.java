@@ -4,6 +4,11 @@ import jdk.jshell.spi.ExecutionControl;
 
 public class Mage extends SpellCaster
 {
+    // Attributes
+    public static final int BASE_HP = 80;
+    public static final int BASE_DAMAGE = 25;
+    public static final int BASE_MANA = 100;
+
     // Constructor
     public Mage(String name, int hp, int baseDamage, int mana)
     {

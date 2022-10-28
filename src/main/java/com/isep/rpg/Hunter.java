@@ -4,6 +4,10 @@ import jdk.jshell.spi.ExecutionControl;
 
 public class Hunter extends Hero
 {
+    // Attributes
+    public static final int BASE_HP = 125;
+    public static final int BASE_DAMAGE = 15;
+
     // Constructor
     public Hunter(String name, int hp, int baseDamage)
     {

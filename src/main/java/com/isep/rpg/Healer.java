@@ -4,6 +4,11 @@ import jdk.jshell.spi.ExecutionControl;
 
 public class Healer extends SpellCaster
 {
+    // Attributes
+    public static final int BASE_HP = 75;
+    public static final int BASE_DAMAGE = 10;
+    public static final int BASE_MANA = 100;
+
     // Constructor
     public Healer(String name, int hp, int baseDamage, int mana)
     {
