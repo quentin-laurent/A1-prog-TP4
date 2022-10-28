@@ -4,14 +4,14 @@ public abstract class Combatant
 {
     // Attributes
     protected final String name;
-    protected final int hp;
-    protected final int baseDamage;
+    protected int maxHP;
+    protected int hp;
 
     // Constructor
-    public Combatant(String name, int hp, int baseDamage)
+    public Combatant(String name, int maxHP, int hp)
     {
         this.name = name;
+        this.maxHP = maxHP;
         this.hp = hp;
-        this.baseDamage = baseDamage;
     }
 }

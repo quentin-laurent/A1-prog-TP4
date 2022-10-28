@@ -9,9 +9,25 @@ public class Hunter extends Hero
     public static final int BASE_DAMAGE = 15;
 
     // Constructor
-    public Hunter(String name, int hp, int baseDamage)
+
+    /**
+     * Creates a Hunter with the default values for hp
+     * @param name The name of the Hunter
+     */
+    public Hunter(String name)
     {
-        super(name, hp, baseDamage);
+        super(name, Hunter.BASE_HP, Hunter.BASE_HP);
+    }
+
+    /**
+     * Creates a Hunter by specifying all its attributes
+     * @param name The name of the Hunter
+     * @param maxHP The maximum hp value
+     * @param hp The current hp value
+     */
+    public Hunter(String name, int maxHP, int hp)
+    {
+        super(name, maxHP, hp);
     }
 
     // Metmods

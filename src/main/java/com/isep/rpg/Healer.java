@@ -11,9 +11,27 @@ public class Healer extends SpellCaster
     public static final int BASE_SPELL_HEAL = 30;
 
     // Constructor
-    public Healer(String name, int hp, int baseDamage, int mana)
+
+    /**
+     * Creates a Healer with the default values for hp and mana
+     * @param name The name of the Healer
+     */
+    public Healer(String name)
     {
-        super(name, hp, baseDamage, mana);
+        super(name, Healer.BASE_HP, Healer.BASE_HP, Healer.BASE_MANA, Healer.BASE_MANA);
+    }
+
+    /**
+     * Creates a Healer by specifying all its attributes
+     * @param name The name of the Healer
+     * @param maxHP The maximum hp value
+     * @param hp The current hp value
+     * @param maxMana The maximum mana value
+     * @param mana The current mana value
+     */
+    public Healer(String name, int maxHP, int hp, int maxMana, int mana)
+    {
+        super(name, maxHP, hp, maxMana, mana);
     }
 
     // Metmods

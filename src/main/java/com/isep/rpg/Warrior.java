@@ -9,9 +9,25 @@ public class Warrior extends Hero
     public static final int BASE_DAMAGE = 35;
 
     // Constructor
-    public Warrior(String name, int hp, int baseDamage)
+
+    /**
+     * Creates a Warrior with the default values for hp
+     * @param name The name of the Warrior
+     */
+    public Warrior(String name)
     {
-        super(name, hp, baseDamage);
+        super(name, Warrior.BASE_HP, Warrior.BASE_HP);
+    }
+
+    /**
+     * Creates a Warrior by specifying all its attributes
+     * @param name The name of the Warrior
+     * @param maxHP The maximum hp value
+     * @param hp The current hp value
+     */
+    public Warrior(String name, int maxHP, int hp)
+    {
+        super(name, maxHP, hp);
     }
 
     // Methods

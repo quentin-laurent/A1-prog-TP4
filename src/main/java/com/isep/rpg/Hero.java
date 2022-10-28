@@ -11,10 +11,21 @@ public abstract class Hero extends Combatant
     protected Armor armor;
     protected List<Consumable> consumables;
 
-    // Constructor
-    public Hero(String name, int hp, int baseDamage)
+    // Getters & Setters
+    public void setWeapon(Weapon weapon)
     {
-        super(name, hp, baseDamage);
+        this.weapon = weapon;
+    }
+
+    public void setArmor(Armor armor)
+    {
+        this.armor = armor;
+    }
+
+    // Constructor
+    public Hero(String name, int maxHP, int hp)
+    {
+        super(name, maxHP, hp);
     }
 
     // Methods

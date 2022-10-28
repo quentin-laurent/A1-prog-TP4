@@ -5,9 +5,9 @@ import jdk.jshell.spi.ExecutionControl;
 public abstract class Enemy extends Combatant
 {
     // Constructor
-    public Enemy(String name, int hp, int baseDamage)
+    public Enemy(String name, int maxHP, int hp)
     {
-        super(name, hp, baseDamage);
+        super(name, maxHP, hp);
     }
 
     // Methods

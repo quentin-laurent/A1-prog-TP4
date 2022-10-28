@@ -11,9 +11,27 @@ public class Mage extends SpellCaster
     public static final int BASE_SPELL_DAMAGE = 25;
 
     // Constructor
-    public Mage(String name, int hp, int baseDamage, int mana)
+
+    /**
+     * Creates a Mage with the default values for hp and mana
+     * @param name The name of the Mage
+     */
+    public Mage(String name)
     {
-        super(name, hp, baseDamage, mana);
+        super(name, Mage.BASE_HP, Mage.BASE_HP, Mage.BASE_MANA, Mage.BASE_MANA);
+    }
+
+    /**
+     * Creates a mage by specifying all its attributes
+     * @param name The name of the Mage
+     * @param maxHP The maximum hp value
+     * @param hp The current hp value
+     * @param maxMana The maximum mana value
+     * @param mana The current mana value
+     */
+    public Mage(String name, int maxHP, int hp, int maxMana, int mana)
+    {
+        super(name, maxHP, hp, maxMana, mana);
     }
 
     // Metmods
