@@ -18,9 +18,10 @@ public class ConsoleParser implements InputParser
     // Methods
 
     /**
-     * Asks the user to provide the hero count though the standard input.
+     * Asks the user to provide the hero count through the standard input.
      * @return A non-zero positive integer representing the hero count.
      */
+    @Override
     public int getHeroCount()
     {
         System.out.println("Provide the number of heroes:");
@@ -36,6 +37,11 @@ public class ConsoleParser implements InputParser
         return heroCount;
     }
 
+    /**
+     * Asks the user to provide a name for a combattant through the standard input.
+     * @return A string representing the combattant name.
+     */
+    @Override
     public String getCombatantName()
     {
         System.out.println("Select a name:");
@@ -51,6 +57,11 @@ public class ConsoleParser implements InputParser
         return name;
     }
 
+    /**
+     * Asks the user to provide a valid hero class through the standard input.
+     * @return A string representing the hero class.
+     */
+    @Override
     public String getHeroClass()
     {
         ArrayList<String> validClasses = new ArrayList<>();
