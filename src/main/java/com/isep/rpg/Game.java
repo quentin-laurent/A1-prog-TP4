@@ -1,26 +1,34 @@
 package com.isep.rpg;
 
-import com.isep.utils.ConsoleParser;
 import com.isep.utils.InputParser;
-import jdk.jshell.spi.ExecutionControl;
 
-import java.util.List;
-
+import java.util.ArrayList;
+import java.util.Collection;
 public class Game
 {
     // Attributes
     private InputParser inputParser;
-    private List<Combatant> combatants;
+    private Collection<Combatant> combatants;
     private int heroCount;
 
     // Constructor
-    public Game()
+
+    /**
+     * Creates a new Game with the provided InputParser
+     * @param inputParser The input parser to be used in the Game
+     */
+    public Game(InputParser inputParser)
     {
-        this.inputParser = new ConsoleParser();
+        this.inputParser = inputParser;
+        this.combatants = new ArrayList<Combatant>();
     }
 
     // Methods
-    public void initializeHeroes() throws ExecutionControl.NotImplementedException
+
+    /**
+     * Creates the instances of the heroes that are going to participate in the game
+     */
+    private void initializeHeroes()
     {
         // Initializing the number of heroes
         this.heroCount = this.inputParser.getHeroCount();
@@ -28,6 +36,7 @@ public class Game
         // Initializing heroes
         String heroClass;
         String heroName;
+        Hero hero;
         for(int i = 0; i < this.heroCount; i++)
         {
             System.out.printf("==== Hero %d ====%n", i);
@@ -37,16 +46,20 @@ public class Game
             switch (heroClass)
             {
                 case "hunter":
-                    this.combatants.add(new Hunter(heroName, Hunter.BASE_HP, Hunter.BASE_DAMAGE));
+                    hero = new Hunter(heroName);
+                    this.combatants.add(hero);
                     break;
                 case "warrior":
-                    this.combatants.add(new Warrior(heroName, Warrior.BASE_HP, Warrior.BASE_DAMAGE));
+                    hero = new Warrior(heroName);
+                    this.combatants.add(hero);
                     break;
                 case "mage":
-                    this.combatants.add(new Mage(heroName, Mage.BASE_HP, Mage.BASE_DAMAGE, Mage.BASE_MANA));
+                    hero = new Mage(heroName);
+                    this.combatants.add(hero);
                     break;
                 case "Healer":
-                    this.combatants.add(new Healer(heroName, Healer.BASE_HP, Healer.BASE_DAMAGE, Mage.BASE_MANA));
+                    hero = new Healer(heroName);
+                    this.combatants.add(hero);
                     break;
                 default:
                     throw new RuntimeException("Got an invalid hero class while creating heroes");
