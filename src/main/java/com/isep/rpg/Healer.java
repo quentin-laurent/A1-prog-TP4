@@ -47,7 +47,7 @@ public class Healer extends SpellCaster
     }
 
     @Override
-    public void useConsumable(Consumable consumable) throws ExecutionControl.NotImplementedException
+    public void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
