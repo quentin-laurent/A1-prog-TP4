@@ -22,7 +22,7 @@ public class Mage extends SpellCaster
     }
 
     /**
-     * Creates a mage by specifying all its attributes
+     * Creates a Mage by specifying all its attributes
      * @param name The name of the Mage
      * @param maxHP The maximum hp value
      * @param hp The current hp value
@@ -37,8 +37,19 @@ public class Mage extends SpellCaster
     // Metmods
 
     @Override
-    public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("TODO");
+    public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException
+    {
+        if(!enemy.isAlive())
+            throw new RuntimeException("You can't attack a dead enemy !");
+
+        // Calculating damage output
+        int damage;
+        if(this.weapon != null)
+            damage = Math.round((BASE_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+        else
+            damage = BASE_DAMAGE;
+
+        enemy.setHp(enemy.getHp() - damage);
     }
 
     @Override
