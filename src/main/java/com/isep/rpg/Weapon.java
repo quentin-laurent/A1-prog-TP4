@@ -13,4 +13,16 @@ public class Weapon extends Item
         this.baseDamage = baseDamage;
         this.damageMultiplier = damageMultiplier;
     }
+
+    // Getters & Setters
+
+    public int getBaseDamage()
+    {
+        return this.baseDamage;
+    }
+
+    public float getDamageMultiplier()
+    {
+        return this.damageMultiplier;
+    }
 }

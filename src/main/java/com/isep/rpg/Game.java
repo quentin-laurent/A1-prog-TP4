@@ -39,7 +39,7 @@ public class Game
         Hero hero;
         for(int i = 0; i < this.heroCount; i++)
         {
-            System.out.printf("==== Hero %d ====%n", i);
+            System.out.printf("==== Hero n°%d ====%n", i);
             heroClass = this.inputParser.getHeroClass();
             heroName = this.inputParser.getCombatantName();
 
@@ -47,6 +47,7 @@ public class Game
             {
                 case "hunter":
                     hero = new Hunter(heroName);
+                    hero.items.put(new Arrow("Wooden Arrow", 5), 10);
                     this.combatants.add(hero);
                     break;
                 case "warrior":
@@ -57,7 +58,7 @@ public class Game
                     hero = new Mage(heroName);
                     this.combatants.add(hero);
                     break;
-                case "Healer":
+                case "healer":
                     hero = new Healer(heroName);
                     this.combatants.add(hero);
                     break;

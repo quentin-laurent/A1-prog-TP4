@@ -33,8 +33,19 @@ public class Warrior extends Hero
     // Methods
 
     @Override
-    public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("TODO");
+    public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException
+    {
+        if(enemy.isAlive())
+        {
+            // Calculating damage output
+            int damage;
+            if(this.weapon != null)
+                damage = Math.round((BASE_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+            else
+                damage = BASE_DAMAGE;
+
+            enemy.setHp(enemy.getHp() - damage);
+        }
     }
 
     @Override
@@ -43,7 +54,7 @@ public class Warrior extends Hero
     }
 
     @Override
-    public void useConsumable(Consumable consumable) throws ExecutionControl.NotImplementedException
+    public void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
