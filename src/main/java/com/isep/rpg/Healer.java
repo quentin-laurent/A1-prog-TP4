@@ -52,7 +52,8 @@ public class Healer extends SpellCaster
         else
             damage = BASE_DAMAGE;
 
-        enemy.setHp(enemy.getHp() - damage);
+        // Updating enemy hp
+        enemy.applyDamage(damage);
     }
 
     @Override
@@ -60,6 +61,10 @@ public class Healer extends SpellCaster
         throw new ExecutionControl.NotImplementedException("TODO");
     }
 
+    /**
+     * Heals the target
+     * @param target The Combattant to receive the heal
+     */
     @Override
     public void castSpell(Combatant target) throws ExecutionControl.NotImplementedException
     {

@@ -55,6 +55,10 @@ public class Mage extends SpellCaster
         enemy.setHp(enemy.getHp() - damage);
     }
 
+    /**
+     * Applies damage to the target using mana
+     * @param target The Combattant to receive the damage
+     */
     @Override
     public void castSpell(Combatant target) throws ExecutionControl.NotImplementedException
     {
@@ -77,7 +81,7 @@ public class Mage extends SpellCaster
             this.mana = mana;
 
         // Updating the target hp
-        target.setHp(target.getHp() - damage);
+        target.applyDamage(damage);
     }
 
     @Override
