@@ -1,5 +1,7 @@
 package com.isep.rpg;
 
+import jdk.jshell.spi.ExecutionControl;
+
 public abstract class SpellCaster extends Hero
 {
     // Attributes
@@ -13,4 +15,7 @@ public abstract class SpellCaster extends Hero
         this.maxMana = maxMana;
         this.mana = mana;
     }
+
+    // Methods
+    abstract void castSpell(Combatant combatant) throws ExecutionControl.NotImplementedException;
 }

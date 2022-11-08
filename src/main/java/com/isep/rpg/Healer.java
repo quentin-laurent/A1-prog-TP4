@@ -2,6 +2,8 @@ package com.isep.rpg;
 
 import jdk.jshell.spi.ExecutionControl;
 
+import java.util.concurrent.ExecutionException;
+
 public class Healer extends SpellCaster
 {
     // Attributes
@@ -9,6 +11,7 @@ public class Healer extends SpellCaster
     public static final int BASE_DAMAGE = 10;
     public static final int BASE_MANA = 100;
     public static final int BASE_SPELL_HEAL = 30;
+    public static final int SPELL_MANA_COST = 30;
 
     // Constructor
 
@@ -55,6 +58,29 @@ public class Healer extends SpellCaster
     @Override
     public void defend() throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("TODO");
+    }
+
+    @Override
+    public void castSpell(Combatant target) throws ExecutionControl.NotImplementedException
+    {
+        if(!target.isAlive())
+            throw new RuntimeException("You can't heal a dead combattant !");
+
+        // Updating the mana amount
+        int mana = this.mana - SPELL_MANA_COST;
+
+        if(mana < 0)
+            this.mana = 0;
+        else
+            this.mana = mana;
+
+        // Updating the target hp
+        int heal = BASE_SPELL_HEAL;
+
+        if((target.getHp() + heal) > target.getMaxHP())
+            target.setHp(target.getMaxHP());
+        else
+            target.setHp(target.getHp() + heal);
     }
 
     @Override

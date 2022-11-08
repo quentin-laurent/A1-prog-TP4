@@ -27,6 +27,11 @@ public abstract class Combatant
         this.hp = hp;
     }
 
+    public int getMaxHP()
+    {
+        return this.maxHP;
+    }
+
     // Methods
 
     /***
