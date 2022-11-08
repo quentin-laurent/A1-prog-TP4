@@ -2,14 +2,15 @@ package com.isep.rpg;
 
 import jdk.jshell.spi.ExecutionControl;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Hero extends Combatant
 {
     // Attributes
     protected Weapon weapon;
     protected Armor armor;
-    protected List<Consumable> consumables;
+    protected Map<Item, Integer> items;
 
     // Getters & Setters
     public void setWeapon(Weapon weapon)
@@ -26,10 +27,11 @@ public abstract class Hero extends Combatant
     public Hero(String name, int maxHP, int hp)
     {
         super(name, maxHP, hp);
+        this.items = new HashMap<Item, Integer>();
     }
 
     // Methods
     abstract void attack(Enemy enemy) throws ExecutionControl.NotImplementedException;
     abstract void defend() throws ExecutionControl.NotImplementedException;
-    abstract void useConsumable(Consumable consumable) throws ExecutionControl.NotImplementedException;
+    abstract void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException;
 }
