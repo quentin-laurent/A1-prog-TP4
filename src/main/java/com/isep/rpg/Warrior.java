@@ -44,7 +44,7 @@ public class Warrior extends Hero
             else
                 damage = BASE_DAMAGE;
 
-            enemy.setHp(enemy.getHp() - damage);
+            enemy.applyDamage(damage);
         }
     }
 
