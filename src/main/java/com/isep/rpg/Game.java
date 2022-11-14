@@ -1,6 +1,7 @@
 package com.isep.rpg;
 
 import com.isep.utils.InputParser;
+import jdk.jshell.spi.ExecutionControl;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,7 +29,7 @@ public class Game
     /**
      * Creates the instances of the heroes that are going to participate in the game
      */
-    private void initializeHeroes()
+    private void initializeHeroes() throws ExecutionControl.NotImplementedException
     {
         // Initializing the number of heroes
         this.heroCount = this.inputParser.getHeroCount();
