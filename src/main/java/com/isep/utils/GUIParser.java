@@ -10,4 +10,16 @@ public class GUIParser implements InputParser
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
+
+    @Override
+    public String getHeroClass() throws ExecutionControl.NotImplementedException
+    {
+        throw new ExecutionControl.NotImplementedException("TODO");
+    }
+
+    @Override
+    public String getCombatantName() throws ExecutionControl.NotImplementedException
+    {
+        throw new ExecutionControl.NotImplementedException("TODO");
+    }
 }
