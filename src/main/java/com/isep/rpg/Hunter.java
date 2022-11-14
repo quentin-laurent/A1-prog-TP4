@@ -53,11 +53,6 @@ public class Hunter extends Hero
     }
 
     @Override
-    public void defend() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("TODO");
-    }
-
-    @Override
     public void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");

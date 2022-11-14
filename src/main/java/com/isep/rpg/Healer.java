@@ -56,11 +56,6 @@ public class Healer extends SpellCaster
         enemy.applyDamage(damage);
     }
 
-    @Override
-    public void defend() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("TODO");
-    }
-
     /**
      * Heals the target
      * @param target The Combattant to receive the heal

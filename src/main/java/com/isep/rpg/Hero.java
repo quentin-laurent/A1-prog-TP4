@@ -32,6 +32,5 @@ public abstract class Hero extends Combatant
 
     // Methods
     abstract void attack(Enemy enemy) throws ExecutionControl.NotImplementedException;
-    abstract void defend() throws ExecutionControl.NotImplementedException;
     abstract void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException;
 }
