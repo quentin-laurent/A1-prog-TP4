@@ -12,10 +12,32 @@ public class Food extends Consumable
         this.healValue = healValue;
     }
 
+    // Getters & Setters
+    public int getHealValue()
+    {
+        return this.healValue;
+    }
+
     // Methods
     @Override
     public void applyEffect(Hero target)
     {
         target.applyHeal(this.healValue);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return (this.name.hashCode() + this.healValue);
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if(!(o instanceof Food))
+            return false;
+
+        Food food = (Food) o;
+        return ((this.name.equals(food.getName())) && (this.healValue == food.getHealValue()));
     }
 }
