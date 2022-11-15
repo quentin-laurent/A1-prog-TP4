@@ -1,6 +1,5 @@
 package com.isep.rpg;
 
-import jdk.jshell.spi.ExecutionControl;
 
 public class Boar extends Enemy
 {
@@ -16,8 +15,9 @@ public class Boar extends Enemy
 
     // Methods
     @Override
-    public void attack(Hero hero) throws ExecutionControl.NotImplementedException
+    public void attack(Hero hero)
     {
-        throw new ExecutionControl.NotImplementedException("TODO");
+        if(hero.isAlive())
+            hero.applyDamage(BASE_DAMAGE);
     }
 }

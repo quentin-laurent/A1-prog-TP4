@@ -1,6 +1,5 @@
 package com.isep.rpg;
 
-import jdk.jshell.spi.ExecutionControl;
 
 public abstract class Enemy extends Combatant
 {
@@ -11,5 +10,5 @@ public abstract class Enemy extends Combatant
     }
 
     // Methods
-    abstract void attack(Hero hero) throws ExecutionControl.NotImplementedException;
+    abstract void attack(Hero hero);
 }
