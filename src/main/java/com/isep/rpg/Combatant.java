@@ -75,6 +75,18 @@ public abstract class Combatant
     }
 
     /**
+     * Adds hp to a {@link Combatant}
+     * @param heal The hp amount to add to the {@link Combatant}
+     */
+    public void applyHeal(int heal)
+    {
+        if((this.hp + heal) > this.maxHP)
+            this.hp = this.maxHP;
+        else
+            this.hp += heal;
+    }
+
+    /**
      * Reduces the damage inflicted by the next attack randomly from 20 to 50%
      */
     public void defend()

@@ -17,5 +17,18 @@ public abstract class SpellCaster extends Hero
     }
 
     // Methods
+
+    /**
+     * Restores the mana of the SpellCaster
+     * @param mana The mana amount to restore
+     */
+    public void restoreMana(int mana)
+    {
+        if((this.mana + mana > this.maxMana))
+            this.mana = this.maxMana;
+        else
+            this.mana += mana;
+    }
+
     abstract void castSpell(Combatant combatant) throws ExecutionControl.NotImplementedException;
 }

@@ -47,10 +47,4 @@ public class Warrior extends Hero
             enemy.applyDamage(damage);
         }
     }
-
-    @Override
-    public void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException
-    {
-        throw new ExecutionControl.NotImplementedException("TODO");
-    }
 }

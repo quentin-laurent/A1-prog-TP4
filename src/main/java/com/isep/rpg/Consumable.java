@@ -7,4 +7,12 @@ public abstract class Consumable extends Item
     {
         super(name);
     }
+
+    // Methods
+
+    /**
+     * Applies a {@link Consumable} effect on a target
+     * @param target The {@link Hero} targeted by the item's effect
+     */
+    abstract void applyEffect(Hero target);
 }

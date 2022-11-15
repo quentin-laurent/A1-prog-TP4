@@ -31,6 +31,32 @@ public abstract class Hero extends Combatant
     }
 
     // Methods
+
+    /**
+     * Consumes a {@link Consumable} on a {@link Hero} and updates its inventory
+     * @param consumable The {@link Consumable} to consume
+     */
+    public void consumeItem(Consumable consumable)
+    {
+        if(this.items.entrySet().contains(consumable))
+            throw new RuntimeException("Consumble not in inventory !");
+
+        try
+        {
+            consumable.applyEffect(this);
+
+            // Updating the inventory
+            int quantity = this.items.get(consumable);
+            if(quantity > 1)
+                this.items.put(consumable, quantity - 1);
+            else
+                this.items.remove(consumable);
+        }
+        catch (RuntimeException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
     abstract void attack(Enemy enemy) throws ExecutionControl.NotImplementedException;
-    abstract void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException;
 }

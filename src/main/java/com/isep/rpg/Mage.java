@@ -83,10 +83,4 @@ public class Mage extends SpellCaster
         // Updating the target hp
         target.applyDamage(damage);
     }
-
-    @Override
-    public void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException
-    {
-        throw new ExecutionControl.NotImplementedException("TODO");
-    }
 }

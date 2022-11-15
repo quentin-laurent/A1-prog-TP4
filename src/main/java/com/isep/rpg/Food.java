@@ -11,4 +11,11 @@ public class Food extends Consumable
         super(name);
         this.healValue = healValue;
     }
+
+    // Methods
+    @Override
+    public void applyEffect(Hero target)
+    {
+        target.applyHeal(this.healValue);
+    }
 }

@@ -52,12 +52,6 @@ public class Hunter extends Hero
         enemy.applyDamage(damage);
     }
 
-    @Override
-    public void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException
-    {
-        throw new ExecutionControl.NotImplementedException("TODO");
-    }
-
     /**
      * Indicates if the Hero's items map contains at least one arrow
      * @return True if at least one arrow in contained in the Hero's items map, false otherwise

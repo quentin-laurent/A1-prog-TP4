@@ -82,10 +82,4 @@ public class Healer extends SpellCaster
         else
             target.setHp(target.getHp() + heal);
     }
-
-    @Override
-    public void useFood(Consumable consumable) throws ExecutionControl.NotImplementedException
-    {
-        throw new ExecutionControl.NotImplementedException("TODO");
-    }
 }

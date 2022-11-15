@@ -11,4 +11,14 @@ public class Potion extends Consumable
         super(name);
         this.manaValue = manaValue;
     }
+
+    // Methods
+    @Override
+    public void applyEffect(Hero target)
+    {
+        if(!(target instanceof SpellCaster))
+            throw new RuntimeException("You can't use a mana potion !");
+
+        ((SpellCaster)target).restoreMana(this.manaValue);
+    }
 }
