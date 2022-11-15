@@ -33,7 +33,7 @@ public class Warrior extends Hero
     // Methods
 
     @Override
-    public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException
+    public void attack(Enemy enemy)
     {
         if(enemy.isAlive())
         {

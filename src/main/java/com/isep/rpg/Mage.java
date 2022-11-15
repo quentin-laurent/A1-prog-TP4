@@ -1,7 +1,5 @@
 package com.isep.rpg;
 
-import jdk.jshell.spi.ExecutionControl;
-
 public class Mage extends SpellCaster
 {
     // Attributes
@@ -38,7 +36,7 @@ public class Mage extends SpellCaster
     // Metmods
 
     @Override
-    public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException
+    public void attack(Enemy enemy)
     {
         if(!enemy.isAlive())
             throw new RuntimeException("You can't attack a dead enemy !");
@@ -60,7 +58,7 @@ public class Mage extends SpellCaster
      * @param target The Combattant to receive the damage
      */
     @Override
-    public void castSpell(Combatant target) throws ExecutionControl.NotImplementedException
+    public void castSpell(Combatant target)
     {
         if(!target.isAlive())
             throw new RuntimeException("You can't attack a dead combattant !");

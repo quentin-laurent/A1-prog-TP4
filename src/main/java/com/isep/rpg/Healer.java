@@ -2,8 +2,6 @@ package com.isep.rpg;
 
 import jdk.jshell.spi.ExecutionControl;
 
-import java.util.concurrent.ExecutionException;
-
 public class Healer extends SpellCaster
 {
     // Attributes
@@ -40,7 +38,7 @@ public class Healer extends SpellCaster
     // Metmods
 
     @Override
-    public void attack(Enemy enemy) throws ExecutionControl.NotImplementedException
+    public void attack(Enemy enemy)
     {
         if(!enemy.isAlive())
             throw new RuntimeException("You can't attack a dead enemy !");
@@ -61,7 +59,7 @@ public class Healer extends SpellCaster
      * @param target The Combattant to receive the heal
      */
     @Override
-    public void castSpell(Combatant target) throws ExecutionControl.NotImplementedException
+    public void castSpell(Combatant target)
     {
         if(!target.isAlive())
             throw new RuntimeException("You can't heal a dead combattant !");

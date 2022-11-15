@@ -1,7 +1,5 @@
 package com.isep.rpg;
 
-import jdk.jshell.spi.ExecutionControl;
-
 public class Hunter extends Hero
 {
     // Attributes

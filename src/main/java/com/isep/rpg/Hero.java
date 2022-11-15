@@ -1,7 +1,5 @@
 package com.isep.rpg;
 
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,5 +56,5 @@ public abstract class Hero extends Combatant
         }
     }
 
-    abstract void attack(Enemy enemy) throws ExecutionControl.NotImplementedException;
+    abstract void attack(Enemy enemy);
 }
