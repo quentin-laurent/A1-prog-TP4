@@ -1,6 +1,7 @@
 package com.isep.rpg;
 
 import com.isep.utils.InputParser;
+import com.isep.utils.OutputManager;
 import jdk.jshell.spi.ExecutionControl;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ public class Game
 {
     // Attributes
     private InputParser inputParser;
+    private OutputManager outputManager;
     private Collection<Hero> heroes;
     private Collection<Enemy> enemies;
     private int heroCount;
@@ -19,9 +21,10 @@ public class Game
      * Creates a new Game with the provided InputParser
      * @param inputParser The input parser to be used in the Game
      */
-    public Game(InputParser inputParser)
+    public Game(InputParser inputParser, OutputManager outputManager)
     {
         this.inputParser = inputParser;
+        this.outputManager = outputManager;
         this.heroes = new ArrayList<Hero>();
         this.enemies = new ArrayList<Enemy>();
     }
