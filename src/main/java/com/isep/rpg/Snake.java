@@ -8,6 +8,11 @@ public class Snake extends Enemy
     public static final int BASE_DAMAGE = 30;
 
     // Constructor
+    public Snake(String name)
+    {
+        super(name, Snake.BASE_HP, Snake.BASE_HP);
+    }
+
     public Snake(String name, int hp, int baseDamage)
     {
         super(name, hp, baseDamage);
@@ -19,5 +24,18 @@ public class Snake extends Enemy
     {
         if(hero.isAlive())
             hero.applyDamage(BASE_DAMAGE);
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder s = new StringBuilder("");
+        if(!(this.isAlive()))
+            s.append("*dead* ");
+
+        s.append(this.name);
+        s.append(" (").append(this.getClass().getSimpleName()).append(")");
+
+        return s.toString();
     }
 }

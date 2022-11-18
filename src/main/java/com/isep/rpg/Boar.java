@@ -7,7 +7,12 @@ public class Boar extends Enemy
     public static final int BASE_HP = 30;
     public static final int BASE_DAMAGE = 8;
 
-    // Constructor
+    // Constructors
+    public Boar(String name)
+    {
+        super(name, Boar.BASE_HP, Boar.BASE_HP);
+    }
+
     public Boar(String name, int hp, int baseDamage)
     {
         super(name, hp, baseDamage);
@@ -19,5 +24,18 @@ public class Boar extends Enemy
     {
         if(hero.isAlive())
             hero.applyDamage(BASE_DAMAGE);
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder s = new StringBuilder("");
+        if(!(this.isAlive()))
+            s.append("*dead* ");
+
+        s.append(this.name);
+        s.append(" (").append(this.getClass().getSimpleName()).append(")");
+
+        return s.toString();
     }
 }
