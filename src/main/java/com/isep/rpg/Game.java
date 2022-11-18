@@ -45,7 +45,7 @@ public class Game
         Hero hero;
         for(int i = 0; i < this.heroCount; i++)
         {
-            System.out.printf("==== Hero n°%d ====%n", i);
+            System.out.printf("==== Hero n°%d ====%n", i+1);
             heroClass = this.inputParser.getHeroClass();
             heroName = this.inputParser.getCombatantName();
 
