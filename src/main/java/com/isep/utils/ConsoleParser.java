@@ -24,13 +24,13 @@ public class ConsoleParser implements InputParser
     @Override
     public int getHeroCount()
     {
-        System.out.println("Provide the number of heroes:");
+        System.out.print("Provide the number of heroes: ");
         int heroCount = this.getInt();
 
-        while(heroCount < 0)
+        while(heroCount <= 0)
         {
             System.out.println("You must use at least one hero !");
-            System.out.println("Provide the number of heroes:");
+            System.out.print("Provide the number of heroes: ");
             heroCount = this.getInt();
         }
 
@@ -44,13 +44,13 @@ public class ConsoleParser implements InputParser
     @Override
     public String getCombatantName()
     {
-        System.out.println("Select a name:");
+        System.out.print("Select a name: ");
         String name = this.getString();
 
         while(name.isBlank())
         {
             System.out.println("You must choose a non-blank name !");
-            System.out.println("Select a name:");
+            System.out.print("Select a name: ");
             name = this.getString();
         }
 
@@ -70,13 +70,13 @@ public class ConsoleParser implements InputParser
         validClasses.add("mage");
         validClasses.add("healer");
 
-        System.out.println("Select a class [Hunter, Warrior, Mage, Healer]:");
+        System.out.print("Select a class [Hunter, Warrior, Mage, Healer]: ");
         String heroClass = this.getString();
 
         while(!validClasses.contains(heroClass.toLowerCase()))
         {
             System.out.println("You must select a valid class !");
-            System.out.println("Select a class [Hunter, Warrior, Mage, Healer]:");
+            System.out.print("Select a class [Hunter, Warrior, Mage, Healer]: ");
             heroClass = this.getString();
         }
 
