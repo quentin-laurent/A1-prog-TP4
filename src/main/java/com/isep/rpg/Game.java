@@ -9,7 +9,8 @@ public class Game
 {
     // Attributes
     private InputParser inputParser;
-    private Collection<Combatant> combatants;
+    private Collection<Hero> heroes;
+    private Collection<Enemy> enemies;
     private int heroCount;
 
     // Constructor
@@ -21,7 +22,8 @@ public class Game
     public Game(InputParser inputParser)
     {
         this.inputParser = inputParser;
-        this.combatants = new ArrayList<Combatant>();
+        this.heroes = new ArrayList<Hero>();
+        this.enemies = new ArrayList<Enemy>();
     }
 
     // Methods
@@ -49,19 +51,19 @@ public class Game
                 case "hunter":
                     hero = new Hunter(heroName);
                     hero.items.put(new Arrow("Wooden Arrow", 5), 10);
-                    this.combatants.add(hero);
+                    this.heroes.add(hero);
                     break;
                 case "warrior":
                     hero = new Warrior(heroName);
-                    this.combatants.add(hero);
+                    this.heroes.add(hero);
                     break;
                 case "mage":
                     hero = new Mage(heroName);
-                    this.combatants.add(hero);
+                    this.heroes.add(hero);
                     break;
                 case "healer":
                     hero = new Healer(heroName);
-                    this.combatants.add(hero);
+                    this.heroes.add(hero);
                     break;
                 default:
                     throw new RuntimeException("Got an invalid hero class while creating heroes");
