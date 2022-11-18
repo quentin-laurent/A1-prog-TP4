@@ -81,4 +81,17 @@ public class Mage extends SpellCaster
         // Updating the target hp
         target.applyDamage(damage);
     }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder s = new StringBuilder("");
+        if(!(this.isAlive()))
+            s.append("*dead* ");
+
+        s.append(this.name);
+        s.append(" (").append(this.getClass().getSimpleName()).append(")");
+
+        return s.toString();
+    }
 }

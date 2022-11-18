@@ -80,4 +80,17 @@ public class Healer extends SpellCaster
         else
             target.setHp(target.getHp() + heal);
     }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder s = new StringBuilder("");
+        if(!(this.isAlive()))
+            s.append("*dead* ");
+
+        s.append(this.name);
+        s.append(" (").append(this.getClass().getSimpleName()).append(")");
+
+        return s.toString();
+    }
 }
