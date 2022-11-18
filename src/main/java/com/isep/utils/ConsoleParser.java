@@ -102,6 +102,8 @@ public class ConsoleParser implements InputParser
             try
             {
                 value = this.sc.nextInt();
+                // Consumming the \n char so it doesn't break the next call for nextLine()
+                this.sc.nextLine();
                 validInput = true;
             }
             catch (InputMismatchException e)
