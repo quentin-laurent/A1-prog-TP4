@@ -25,6 +25,11 @@ public abstract class Combatant
 
     // Getters & Setters
 
+    public String getName()
+    {
+        return this.name;
+    }
+
     public int getHp()
     {
         return this.hp;
