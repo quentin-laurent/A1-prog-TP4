@@ -22,7 +22,7 @@ public class ConsoleParser implements InputParser
      * @return A non-zero positive integer representing the hero count.
      */
     @Override
-    public int getHeroCount()
+    public int chooseHeroCount()
     {
         System.out.print("Provide the number of heroes: ");
         int heroCount = this.getInt();
@@ -42,7 +42,7 @@ public class ConsoleParser implements InputParser
      * @return A string representing the combattant name.
      */
     @Override
-    public String getCombatantName()
+    public String chooseCombatantName()
     {
         System.out.print("Select a name: ");
         String name = this.getString();
@@ -62,7 +62,7 @@ public class ConsoleParser implements InputParser
      * @return A string representing the hero class.
      */
     @Override
-    public String getHeroClass()
+    public String chooseHeroClass()
     {
         ArrayList<String> validClasses = new ArrayList<>();
         validClasses.add("hunter");

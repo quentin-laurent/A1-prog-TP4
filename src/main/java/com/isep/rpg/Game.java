@@ -37,7 +37,7 @@ public class Game
     private void initializeHeroes() throws ExecutionControl.NotImplementedException
     {
         // Initializing the number of heroes
-        this.heroCount = this.inputParser.getHeroCount();
+        this.heroCount = this.inputParser.chooseHeroCount();
 
         // Initializing heroes
         String heroClass;
@@ -46,8 +46,8 @@ public class Game
         for(int i = 0; i < this.heroCount; i++)
         {
             System.out.printf("==== Hero n°%d ====%n", i+1);
-            heroClass = this.inputParser.getHeroClass();
-            heroName = this.inputParser.getCombatantName();
+            heroClass = this.inputParser.chooseHeroClass();
+            heroName = this.inputParser.chooseCombatantName();
 
             switch (heroClass)
             {

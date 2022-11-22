@@ -6,19 +6,19 @@ public class GUIParser implements InputParser
 {
     // Methods
     @Override
-    public int getHeroCount() throws ExecutionControl.NotImplementedException
+    public int chooseHeroCount() throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
 
     @Override
-    public String getHeroClass() throws ExecutionControl.NotImplementedException
+    public String chooseHeroClass() throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
 
     @Override
-    public String getCombatantName() throws ExecutionControl.NotImplementedException
+    public String chooseCombatantName() throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
