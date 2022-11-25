@@ -50,8 +50,7 @@ public class Mage extends SpellCaster
         else
             damage = BASE_DAMAGE;
 
-        enemy.setHp(enemy.getHp() - damage);
-        return damage;
+        return enemy.applyDamage(damage);
     }
 
     /**

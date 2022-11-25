@@ -49,8 +49,7 @@ public class Healer extends SpellCaster
             damage = BASE_DAMAGE;
 
         // Updating enemy hp
-        enemy.applyDamage(damage);
-        return damage;
+        return enemy.applyDamage(damage);
     }
 
     /**

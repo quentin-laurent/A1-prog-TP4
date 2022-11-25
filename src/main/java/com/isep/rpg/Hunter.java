@@ -47,8 +47,7 @@ public class Hunter extends Hero
 
         this.useArrow();
 
-        enemy.applyDamage(damage);
-        return damage;
+        return enemy.applyDamage(damage);
     }
 
     @Override

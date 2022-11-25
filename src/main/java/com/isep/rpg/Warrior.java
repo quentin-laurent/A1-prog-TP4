@@ -43,8 +43,7 @@ public class Warrior extends Hero
             else
                 damage = BASE_DAMAGE;
 
-            enemy.applyDamage(damage);
-            return damage;
+            return enemy.applyDamage(damage);
         }
         return 0;
     }
