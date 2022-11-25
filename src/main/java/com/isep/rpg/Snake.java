@@ -20,10 +20,11 @@ public class Snake extends Enemy
 
     // Methods
     @Override
-    public void attack(Hero hero)
+    public int attack(Hero hero)
     {
         if(hero.isAlive())
-            hero.applyDamage(BASE_DAMAGE);
+            return hero.applyDamage(BASE_DAMAGE);
+        return 0;
     }
 
     @Override
