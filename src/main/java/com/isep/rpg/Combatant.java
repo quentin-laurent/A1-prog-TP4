@@ -60,7 +60,7 @@ public abstract class Combatant
      * Applies damage to the Combattant
      * @param damage The damage to applu to the Combattant
      */
-    public void applyDamage(int damage)
+    public int applyDamage(int damage)
     {
         // Applying damage reduction if the target is defending itself
         if(this.defend)
@@ -77,6 +77,8 @@ public abstract class Combatant
             this.hp = 0;
         else
             this.hp -= damage;
+
+        return damage;
     }
 
     /**

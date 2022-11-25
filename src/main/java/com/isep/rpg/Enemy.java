@@ -10,5 +10,5 @@ public abstract class Enemy extends Combatant
     }
 
     // Methods
-    abstract void attack(Hero hero);
+    abstract int attack(Hero hero);
 }
