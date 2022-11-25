@@ -1,5 +1,6 @@
 package com.isep.utils;
 
+import com.isep.rpg.Combatant;
 import com.isep.rpg.Enemy;
 import com.isep.rpg.Game;
 import com.isep.rpg.Hero;
@@ -46,5 +47,42 @@ public class ConsoleOutput implements OutputManager
         s.replace(lastIndex - 3, lastIndex, "]");
 
         System.out.println(s);
+    }
+
+    /**
+     * Displays the title of the current stage
+     * @param stageNumber The number of the current stage
+     */
+    @Override
+    public void displayStageTitle(int stageNumber)
+    {
+        System.out.printf("==== STAGE %d ====%n", stageNumber);
+    }
+
+    /**
+     * Displays the end screen of the current {@link Game}
+     */
+    @Override
+    public void displayEndScreen()
+    {
+        System.out.println("==== END ====");
+    }
+
+    /**
+     * Displays a message containing the information of the {@link Hero} currently playing
+     * @param hero The {@link Hero} currently plqying
+     */
+    public void displayHero(Hero hero)
+    {
+        System.out.printf("**** Now playing: %s (%d/%d) [%s]****%n",hero.getName(), hero.getHp(), hero.getMaxHP(),hero.getClass().getSimpleName());
+    }
+
+    public void displayAttackMessage(Combatant attacker, Combatant target, int damage)
+    {
+        System.out.printf("%s attacks %s !%n", attacker.getName(), target.getName());
+        if(target.isAlive())
+            System.out.printf("%s: -%dHP%n", target.getName(), damage);
+        else
+            System.out.printf("%s: -%dHP (dead)%n", target.getName(), damage);
     }
 }

@@ -1,8 +1,11 @@
 package com.isep.utils;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import com.isep.rpg.Consumable;
+import com.isep.rpg.Enemy;
+import com.isep.rpg.Item;
+import jdk.jshell.spi.ExecutionControl;
+
+import java.util.*;
 
 public class ConsoleParser implements InputParser
 {
@@ -81,6 +84,63 @@ public class ConsoleParser implements InputParser
         }
 
         return heroClass.toLowerCase();
+    }
+
+    @Override
+    public String chooseAction()
+    {
+        ArrayList<String> validActions = new ArrayList<String>();
+        validActions.add("attack");
+        validActions.add("defend");
+        validActions.add("consume");
+
+        System.out.print("Select an action [Attack, Defend, Consume]: ");
+        String action = this.getString();
+
+        while(!validActions.contains(action.toLowerCase()))
+        {
+            System.out.println("You must select a valid action !");
+            System.out.print("Select an action [Attack, Defend, Consume]: ");
+            action = this.getString();
+        }
+
+        return action.toLowerCase();
+    }
+
+    @Override
+    public Consumable chooseConsumable(Map<Item, Integer> items) throws ExecutionControl.NotImplementedException
+    {
+        throw new ExecutionControl.NotImplementedException("TODO");
+    }
+
+    @Override
+    public Enemy chooseEnemyTarget(List<Enemy> enemies) throws ExecutionControl.NotImplementedException
+    {
+        // Building the enemies list to be displayed
+        StringBuilder s = new StringBuilder("[");
+        int i = 0;
+        for(Enemy enemy: enemies)
+        {
+            s.append(String.format("[%d] %s (%d/%d) (%s) | ", i, enemy.getName(), enemy.getHp(), enemy.getMaxHP(), enemy.getClass().getSimpleName()));
+            i++;
+        }
+        int lastIndex = s.length();
+        s.replace(lastIndex - 3, lastIndex, "]");
+
+        int index;
+        System.out.printf("Choose a target %s:%n", s.toString());
+        index = this.getInt();
+
+        while(index < 0 || index >= enemies.size())
+        {
+            System.out.println("[DEBUG] i= " + i);
+            System.out.println("[DEBUG] index= " + index);
+            System.out.println("You must choose a valid target (use the number between the brackets) !");
+            System.out.printf("Choose a target %s:%n", s.toString());
+            index = this.getInt();
+        }
+
+        return enemies.get(index);
     }
 
     public void closeScanner()

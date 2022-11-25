@@ -1,6 +1,12 @@
 package com.isep.utils;
 
+import com.isep.rpg.Consumable;
+import com.isep.rpg.Enemy;
+import com.isep.rpg.Item;
 import jdk.jshell.spi.ExecutionControl;
+
+import java.util.List;
+import java.util.Map;
 
 public interface InputParser
 {
@@ -21,4 +27,16 @@ public interface InputParser
      * @return A string representing the hero class.
      */
     public String chooseHeroClass() throws ExecutionControl.NotImplementedException;
+
+    /**
+     * Asks the user to choose an action to perform.
+     * Possibles choices are: attack, defend, consume
+     * @return A string representing the chosen action
+     */
+    public String chooseAction() throws ExecutionControl.NotImplementedException;
+
+    public Consumable chooseConsumable(Map<Item, Integer> items) throws ExecutionControl.NotImplementedException;
+
+    public Enemy chooseEnemyTarget(List<Enemy> enemies) throws ExecutionControl.NotImplementedException;
+
 }
