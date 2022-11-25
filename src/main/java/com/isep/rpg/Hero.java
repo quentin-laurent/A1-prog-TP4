@@ -11,6 +11,11 @@ public abstract class Hero extends Combatant
     protected Map<Item, Integer> items;
 
     // Getters & Setters
+    public Map<Item, Integer> getItems()
+    {
+        return this.items;
+    }
+
     public void setWeapon(Weapon weapon)
     {
         this.weapon = weapon;
@@ -37,7 +42,7 @@ public abstract class Hero extends Combatant
     public void consumeItem(Consumable consumable)
     {
         if(this.items.entrySet().contains(consumable))
-            throw new RuntimeException("Consumble not in inventory !");
+            throw new RuntimeException("Consumable not in inventory !");
 
         try
         {
@@ -56,5 +61,5 @@ public abstract class Hero extends Combatant
         }
     }
 
-    abstract void attack(Enemy enemy);
+    abstract int attack(Enemy enemy);
 }

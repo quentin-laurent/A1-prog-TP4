@@ -1,7 +1,5 @@
 package com.isep.rpg;
 
-import jdk.jshell.spi.ExecutionControl;
-
 public class Warrior extends Hero
 {
     // Attributes
@@ -33,8 +31,9 @@ public class Warrior extends Hero
     // Methods
 
     @Override
-    public void attack(Enemy enemy)
+    public int attack(Enemy enemy)
     {
+        // TODO: throw exception when enemy is dead
         if(enemy.isAlive())
         {
             // Calculating damage output
@@ -45,7 +44,9 @@ public class Warrior extends Hero
                 damage = BASE_DAMAGE;
 
             enemy.applyDamage(damage);
+            return damage;
         }
+        return 0;
     }
 
     @Override

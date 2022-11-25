@@ -31,7 +31,7 @@ public class Hunter extends Hero
     // Metmods
 
     @Override
-    public void attack(Enemy enemy)
+    public int attack(Enemy enemy)
     {
         if(!enemy.isAlive())
             throw new RuntimeException("You can't attack a dead enemy !");
@@ -48,6 +48,7 @@ public class Hunter extends Hero
         this.useArrow();
 
         enemy.applyDamage(damage);
+        return damage;
     }
 
     @Override
