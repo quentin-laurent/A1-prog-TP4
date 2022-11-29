@@ -8,14 +8,33 @@ public class Boar extends Enemy
     public static final int BASE_DAMAGE = 8;
 
     // Constructors
+
+    /**
+     * Creates a new {@link Boar} using all default values and the class name as its name.
+     */
+    public Boar()
+    {
+        super(Boar.class.getSimpleName(), Boar.BASE_HP, Boar.BASE_HP);
+    }
+
+    /**
+     * Creates a new {@link Boar} using all default values.
+     * @param name The name of the new {@link Boar}.
+     */
     public Boar(String name)
     {
         super(name, Boar.BASE_HP, Boar.BASE_HP);
     }
 
-    public Boar(String name, int hp, int baseDamage)
+    /**
+     * Creates a new {@link Boar}.
+     * @param name The name of the new {@link Boar}.
+     * @param maxHp The maximum hp value of the new {@link Boar}.
+     * @param hp The hp value of the new {@link Boar}
+     */
+    public Boar(String name, int maxHp, int hp)
     {
-        super(name, hp, baseDamage);
+        super(name, maxHp, hp);
     }
 
     // Methods
