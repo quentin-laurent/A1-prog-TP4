@@ -75,7 +75,7 @@ class ConsoleOutputTest
         enemies.add(new Snake("snek"));
         enemies.add(new Snake("snek"));
 
-        String expectedOutput = "[borr (Boar) | snek (Snake) | snek (Snake)]";
+        String expectedOutput = "[borr | snek | snek]";
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayEnemies(enemies);
@@ -97,7 +97,7 @@ class ConsoleOutputTest
         enemies.add(s1);
         enemies.add(s2);
 
-        String expectedOutput = "[borr (Boar) | *dead* snek (Snake) | *dead* snek (Snake)]";
+        String expectedOutput = "[borr | *dead* snek | *dead* snek]";
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayEnemies(enemies);

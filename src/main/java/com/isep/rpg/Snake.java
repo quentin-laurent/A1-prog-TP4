@@ -54,8 +54,6 @@ public class Snake extends Enemy
             s.append("*dead* ");
 
         s.append(this.name);
-        s.append(" (").append(this.getClass().getSimpleName()).append(")");
-
         return s.toString();
     }
 }
