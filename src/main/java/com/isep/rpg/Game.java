@@ -247,9 +247,9 @@ public class Game
         for(int i = 0; i < this.heroCount; i++)
         {
             if(random.nextInt(2) == 0)
-                this.enemies.add(new Boar("Boar" + i));
+                this.enemies.add(new Boar());
             else
-                this.enemies.add(new Snake("Snake" + i));
+                this.enemies.add(new Snake());
         }
     }
 
