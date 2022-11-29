@@ -61,5 +61,5 @@ public abstract class Hero extends Combatant
         }
     }
 
-    abstract int attack(Enemy enemy);
+    abstract int[] attack(Enemy enemy);
 }

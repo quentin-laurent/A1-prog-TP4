@@ -43,6 +43,8 @@ public interface OutputManager
      */
     public void displayAttackMessage(Combatant attacker, Combatant target, int damage);
 
+    // TODO: integrate this into displayAttackMessage()
+    // TODO: add @Deprecated
     /**
      * Displays a message indicating the damage reduction percentage of a defending {@link Combatant}
      * @param combatant The {@link Combatant} defending itself

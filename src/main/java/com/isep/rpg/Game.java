@@ -80,7 +80,9 @@ public class Game
         Hero hero;
         Enemy enemy;
         Consumable consumable;
+        int[] damageAndReductionPercentage;
         int damage;
+        int reductionPercentage;
         Random random = new Random();
 
         for(Combatant combatant: this.combatants)
@@ -101,8 +103,12 @@ public class Game
                 {
                     case "attack":
                         enemyTarget = this.inputParser.chooseEnemyTarget(this.enemies);
-                        damage = hero.attack(enemyTarget);
+                        damageAndReductionPercentage = hero.attack(enemyTarget);
+                        damage = damageAndReductionPercentage[0];
+                        reductionPercentage = damageAndReductionPercentage[1];
+                        // TODO: add check for enemyTarget.isDefending()
                         this.outputManager.displayAttackMessage(hero, enemyTarget, damage);
+                        this.outputManager.displayDefendMessage(enemyTarget, reductionPercentage);
                         // If the Enemy dies from the attack, it is removed from the enemies list
                         if(!(enemyTarget.isAlive()))
                             this.enemies.remove(enemyTarget);
@@ -128,11 +134,15 @@ public class Game
                 if(!(enemy.isAlive()))
                     continue;
 
-                // TODO: add 20% change for the Enemy to defend itself
+                // TODO: add 20% chance for the Enemy to defend itself
                 // Choses a random Hero in the heroes list
                 heroTarget = this.heroes.get(random.nextInt(this.heroes.size()));
-                damage = enemy.attack(heroTarget);
+                damageAndReductionPercentage = enemy.attack(heroTarget);
+                damage = damageAndReductionPercentage[0];
+                reductionPercentage =  damageAndReductionPercentage[1];
+                // TODO: add check for heroTarget.isDefending()
                 this.outputManager.displayAttackMessage(enemy, heroTarget, damage);
+                this.outputManager.displayDefendMessage(heroTarget, reductionPercentage);
                 // If the Hero dies from the attack, it is removed the heroes list
                 if(!(heroTarget.isAlive()))
                     this.heroes.remove(heroTarget);

@@ -60,8 +60,12 @@ public abstract class Combatant
      * Applies damage to the Combattant
      * @param damage The damage to applu to the Combattant
      */
-    public int applyDamage(int damage)
+    public int[] applyDamage(int damage)
     {
+        // A 2-value array containing the damage inflicted and the applied damage reduction percentage
+        // TODO: it might be more scalable to use a Map here
+        int[] damageAndReductionPercentage = {0, 0};
+
         // Applying damage reduction if the target is defending itself
         if(this.defend)
         {
@@ -69,7 +73,7 @@ public abstract class Combatant
             float damageMultiplier = this.calculateDefendDamageMultiplier(reductionPercentage);
             damage *= damageMultiplier;
 
-            System.out.printf("%s reduced the damage by %d%% !%n", this.name, reductionPercentage);
+            damageAndReductionPercentage[1] = reductionPercentage;
             this.defend = false;
         }
 
@@ -78,7 +82,8 @@ public abstract class Combatant
         else
             this.hp -= damage;
 
-        return damage;
+        damageAndReductionPercentage[0] = damage;
+        return damageAndReductionPercentage;
     }
 
     /**
@@ -94,7 +99,8 @@ public abstract class Combatant
     }
 
     /**
-     * Reduces the damage inflicted by the next attack randomly from 20 to 50%
+     * Reduces the damage inflicted by the next attack randomly from {@value DEFEND_MIN_REDUCTION}% to {@value DEFEND_MAX_REDUCTION}%.
+     * This method sets the "defend" boolean to true
      */
     public void defend()
     {

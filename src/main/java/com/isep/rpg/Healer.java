@@ -36,7 +36,7 @@ public class Healer extends SpellCaster
     // Metmods
 
     @Override
-    public int attack(Enemy enemy)
+    public int[] attack(Enemy enemy)
     {
         if(!enemy.isAlive())
             throw new RuntimeException("You can't attack a dead enemy !");

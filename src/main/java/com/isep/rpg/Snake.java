@@ -20,11 +20,11 @@ public class Snake extends Enemy
 
     // Methods
     @Override
-    public int attack(Hero hero)
+    public int[] attack(Hero hero)
     {
         if(hero.isAlive())
             return hero.applyDamage(BASE_DAMAGE);
-        return 0;
+        return new int[]{0, 0};
     }
 
     @Override
