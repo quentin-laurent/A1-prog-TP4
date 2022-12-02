@@ -134,8 +134,6 @@ public class ConsoleParser implements InputParser
 
         while(index < 0 || index >= enemies.size())
         {
-            System.out.println("[DEBUG] i= " + i);
-            System.out.println("[DEBUG] index= " + index);
             System.out.println("You must choose a valid target (use the number between the brackets) !");
             System.out.printf("Choose a target %s:%n", s.toString());
             index = this.getInt();
