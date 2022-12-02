@@ -75,7 +75,7 @@ class ConsoleOutputTest
         enemies.add(new Snake("snek"));
         enemies.add(new Snake("snek"));
 
-        String expectedOutput = String.format("[[0] borr (%d/%d) | [1] snek (%d/%d) | [2] snek (%d/%d)]", Boar.BASE_HP, Boar.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP);
+        String expectedOutput = String.format("Enemies: [[0] borr (%d/%d) | [1] snek (%d/%d) | [2] snek (%d/%d)]", Boar.BASE_HP, Boar.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayEnemies(enemies);
@@ -97,7 +97,7 @@ class ConsoleOutputTest
         enemies.add(s1);
         enemies.add(s2);
 
-        String expectedOutput = String.format("[[0] borr (%d/%d) | [1] snek (*DEAD*) | [2] snek (*DEAD*)]", Boar.BASE_HP, Boar.BASE_HP);
+        String expectedOutput = String.format("Enemies: [[0] borr (%d/%d) | [1] snek (*DEAD*) | [2] snek (*DEAD*)]", Boar.BASE_HP, Boar.BASE_HP);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayEnemies(enemies);

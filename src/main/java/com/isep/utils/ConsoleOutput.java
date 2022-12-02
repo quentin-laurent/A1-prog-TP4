@@ -27,7 +27,7 @@ public class ConsoleOutput implements OutputManager
     @Override
     public void displayEnemies(Collection<Enemy> enemies)
     {
-        StringBuilder s = new StringBuilder("[");
+        StringBuilder s = new StringBuilder("Enemies: [");
         int i = 0;
         for(Enemy enemy: enemies)
         {
