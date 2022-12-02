@@ -28,15 +28,18 @@ public class ConsoleOutput implements OutputManager
     public void displayEnemies(Collection<Enemy> enemies)
     {
         StringBuilder s = new StringBuilder("[");
+        int i = 0;
         for(Enemy enemy: enemies)
         {
+            s.append(String.format("[%d] ", i));
             s.append(enemy.toString());
             s.append(" | ");
+            i++;
         }
         int lastIndex = s.length();
         s.replace(lastIndex - 3, lastIndex, "]");
 
-        System.out.println(s);
+        System.out.print(s);
     }
 
     @Override
