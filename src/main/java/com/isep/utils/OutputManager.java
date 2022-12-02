@@ -36,6 +36,12 @@ public interface OutputManager
     public void displayHero(Hero hero);
 
     /**
+     * Displays a message containing the information of the {@link Enemy} currently playing
+     * @param enemy The {@link Enemy} currently plqying
+     */
+    public void displayEnemy(Enemy enemy);
+
+    /**
      * Displays a message indicating who attacked who and the damage inflicted
      * @param attacker The {@link Combatant} attacking
      * @param target The {@link Combatant} being attacked

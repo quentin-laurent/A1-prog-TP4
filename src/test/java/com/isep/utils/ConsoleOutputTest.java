@@ -106,4 +106,28 @@ class ConsoleOutputTest
 
         assertEquals(expectedOutput, this.outContent.toString().trim());
     }
+
+    @Test
+    public void testDisplayHero()
+    {
+        Hero hero = new Hunter("Alice");
+        OutputManager consoleOutput = new ConsoleOutput();
+
+        String expectedOutput = String.format("**** Now playing: Alice (%d/%d) [Hunter] ****", Hunter.BASE_HP, Hunter.BASE_HP);
+
+        consoleOutput.displayHero(hero);
+        assertEquals(expectedOutput, this.outContent.toString().trim());
+    }
+
+    @Test
+    public void testDisplayEnemy()
+    {
+        Enemy enemy = new Boar();
+        OutputManager consoleOutput = new ConsoleOutput();
+
+        String expectedOutput = String.format("**** Now playing: Boar (%d/%d) ****", Boar.BASE_HP, Boar.BASE_HP);
+
+        consoleOutput.displayEnemy(enemy);
+        assertEquals(expectedOutput, this.outContent.toString().trim());
+    }
 }

@@ -39,7 +39,7 @@ public class ConsoleOutput implements OutputManager
         int lastIndex = s.length();
         s.replace(lastIndex - 3, lastIndex, "]");
 
-        System.out.print(s);
+        System.out.println(s);
     }
 
     @Override
@@ -57,7 +57,13 @@ public class ConsoleOutput implements OutputManager
     @Override
     public void displayHero(Hero hero)
     {
-        System.out.printf("**** Now playing: %s (%d/%d) [%s]****%n",hero.getName(), hero.getHp(), hero.getMaxHP(),hero.getClass().getSimpleName());
+        System.out.printf("**** Now playing: %s ****%n", hero.toString());
+    }
+
+    @Override
+    public void displayEnemy(Enemy enemy)
+    {
+        System.out.printf("**** Now playing: %s ****%n", enemy.toString());
     }
 
     @Override
