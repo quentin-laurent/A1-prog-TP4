@@ -50,19 +50,6 @@ public class Hunter extends Hero
         return enemy.applyDamage(damage);
     }
 
-    @Override
-    public String toString()
-    {
-        StringBuilder s = new StringBuilder("");
-        if(!(this.isAlive()))
-            s.append("*dead* ");
-
-        s.append(this.name);
-        s.append(" (").append(this.getClass().getSimpleName()).append(")");
-
-        return s.toString();
-    }
-
     /**
      * Indicates if the Hero's items map contains at least one arrow
      * @return True if at least one arrow in contained in the Hero's items map, false otherwise

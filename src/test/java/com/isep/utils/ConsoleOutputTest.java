@@ -35,7 +35,8 @@ class ConsoleOutputTest
         heroes.add(new Hunter("Charlie"));
         heroes.add(new Healer("David"));
 
-        String expectedOutput = "[Alice (Mage) | Bob (Warrior) | Charlie (Hunter) | David (Healer)]";
+        String expectedOutput = String.format("[Alice (%d/%d) [Mage] | Bob (%d/%d) [Warrior] | Charlie (%d/%d) [Hunter] | David (%d/%d) [Healer]]",
+                Mage.BASE_HP, Mage.BASE_HP, Warrior.BASE_HP, Warrior.BASE_HP, Hunter.BASE_HP, Hunter.BASE_HP, Healer.BASE_HP, Healer.BASE_HP);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayHeroes(heroes);
@@ -59,7 +60,8 @@ class ConsoleOutputTest
         heroes.add(c);
         heroes.add(d);
 
-        String expectedOutput = "[Alice (Mage) | *dead* Bob (Warrior) | Charlie (Hunter) | *dead* David (Healer)]";
+        String expectedOutput = String.format("[Alice (%d/%d) [Mage] | Bob (*DEAD*) [Warrior] | Charlie (%d/%d) [Hunter] | David (*DEAD*) [Healer]]",
+                Mage.BASE_HP, Mage.BASE_HP, Hunter.BASE_HP, Hunter.BASE_HP);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayHeroes(heroes);

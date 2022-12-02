@@ -67,6 +67,8 @@ public class Game
      */
     private void playRound() throws ExecutionControl.NotImplementedException
     {
+        this.outputManager.displayEnemies(this.enemies);
+
         combatants.clear();
         combatants.addAll(this.heroes);
         combatants.addAll(this.enemies);
@@ -134,6 +136,7 @@ public class Game
                 if(!(enemy.isAlive()))
                     continue;
 
+                this.outputManager.displayEnemy(enemy);
                 // TODO: add 20% chance for the Enemy to defend itself
                 // Choses a random Hero in the heroes list
                 heroTarget = this.heroes.get(random.nextInt(this.heroes.size()));
