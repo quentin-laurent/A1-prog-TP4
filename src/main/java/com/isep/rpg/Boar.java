@@ -45,15 +45,4 @@ public class Boar extends Enemy
             return hero.applyDamage(BASE_DAMAGE);
         return new int[]{0, 0};
     }
-
-    @Override
-    public String toString()
-    {
-        StringBuilder s = new StringBuilder("");
-        if(!(this.isAlive()))
-            s.append("*dead* ");
-
-        s.append(this.name);
-        return s.toString();
-    }
 }
