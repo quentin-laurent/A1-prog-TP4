@@ -57,16 +57,21 @@ public class Game
     {
         this.outputManager.displayStageTitle(stageNumber);
         this.generateEnemies();
+        int roundNumber = 1;
         while(this.oneHeroIsAlive() && this.oneEnemyIsAlive())
-            this.playRound();
+        {
+            this.playRound(roundNumber);
+            roundNumber++;
+        }
     }
 
     /**
-     * Plays a single iteration of the stage
-     * Each combatant will have the opportunity to attack/defend/use a consumable
+     * Plays a single iteration of the stage (aka a round)
+     * Each {@link Combatant} will have the opportunity to attack/defend/use a consumable
      */
-    private void playRound() throws ExecutionControl.NotImplementedException
+    private void playRound(int roundNumber) throws ExecutionControl.NotImplementedException
     {
+        this.outputManager.displayRoundTitle(roundNumber);
         this.outputManager.displayEnemies(this.enemies);
 
         combatants.clear();

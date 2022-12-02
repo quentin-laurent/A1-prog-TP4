@@ -45,7 +45,13 @@ public class ConsoleOutput implements OutputManager
     @Override
     public void displayStageTitle(int stageNumber)
     {
-        System.out.printf("==== STAGE %d ====%n", stageNumber);
+        System.out.printf("====== STAGE %d ======%n", stageNumber);
+    }
+
+    @Override
+    public void displayRoundTitle(int roundNumber)
+    {
+        System.out.printf("==== ROUND %d ====%n", roundNumber);
     }
 
     @Override

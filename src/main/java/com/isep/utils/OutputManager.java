@@ -30,6 +30,12 @@ public interface OutputManager
     public void displayStageTitle(int stageNumber);
 
     /**
+     * Displays the title of the current round
+     * @param roundNumber The number of the current round
+     */
+    public void displayRoundTitle(int roundNumber);
+
+    /**
      * Displays a message containing the information of the {@link Hero} currently playing
      * @param hero The {@link Hero} currently plqying
      */
