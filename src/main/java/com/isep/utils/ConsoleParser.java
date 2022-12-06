@@ -108,9 +108,51 @@ public class ConsoleParser implements InputParser
     }
 
     @Override
-    public Consumable chooseConsumable(Map<Item, Integer> items) throws ExecutionControl.NotImplementedException
+    public Consumable chooseConsumable(Map<Item, Integer> items)
     {
-        throw new ExecutionControl.NotImplementedException("TODO");
+        // Building the items list to be displayed
+        StringBuilder s = new StringBuilder("[");
+        int i = 0;
+        for(var entry: items.entrySet())
+        {
+            s.append(String.format("[%d] %s (qty: %d) | ", i, entry.getKey().toString(), entry.getValue()));
+            i++;
+        }
+
+        int lastIndex = s.length();
+        s.replace(lastIndex - 3, lastIndex, "]");
+
+        int index;
+        System.out.printf("Choose an item %s:%n", s.toString());
+        index = this.getInt();
+
+        while(index < 0 || index >= items.size())
+        {
+            System.out.println("You must choose a valid item (use the number between the brackets) !");
+            System.out.printf("Choose an item %s:%n", s.toString());
+            index = this.getInt();
+        }
+
+        // This is not ideal because entries are not ordered in a HashMap
+        // However , the order of the entries should not change between the printed output at the beginning
+        // of this method and the selection below.
+        int j = 0;
+        for(var entry: items.entrySet())
+        {
+            if(index == j)
+            {
+                Item item = entry.getKey();
+                if(item instanceof Consumable)
+                    return (Consumable) item;
+                else
+                {
+                    System.out.println("You must choose a consumable item !");
+                    this.chooseConsumable(items);
+                }
+            }
+            j++;
+        }
+        throw new RuntimeException("Couldn't find the requested item in the Items Map (index is out of bounds).");
     }
 
     @Override

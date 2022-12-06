@@ -1,9 +1,7 @@
 package com.isep.utils;
 
-import com.isep.rpg.Combatant;
-import com.isep.rpg.Enemy;
-import com.isep.rpg.Game;
-import com.isep.rpg.Hero;
+import com.isep.rpg.*;
+import jdk.jshell.spi.ExecutionControl;
 
 import java.util.Collection;
 
@@ -63,6 +61,19 @@ public interface OutputManager
      * @param damageReductionPercentage The percentage of damage being reduced
      */
     public void displayDefendMessage(Combatant combatant, int damageReductionPercentage);
+
+    /**
+     * Displays a message indicating the {@link Consumable} used and its effect
+     * @param target The {@link Combatant} consuming the {@link Consumable}
+     * @param consumable The {@link Consumable} used
+     */
+    public void displayConsumableUsed(Combatant target, Consumable consumable);
+
+    /**
+     * Displays a message indicating that the inventory of the {@link Hero} currently playing is empty.
+     * @throws ExecutionControl.NotImplementedException
+     */
+    public void displayNoConsumableItemInInventory() throws ExecutionControl.NotImplementedException;
 
     /**
      * Displays the end screen of the current {@link Game}

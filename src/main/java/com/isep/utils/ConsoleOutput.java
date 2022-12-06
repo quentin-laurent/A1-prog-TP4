@@ -1,9 +1,6 @@
 package com.isep.utils;
 
-import com.isep.rpg.Combatant;
-import com.isep.rpg.Enemy;
-import com.isep.rpg.Game;
-import com.isep.rpg.Hero;
+import com.isep.rpg.*;
 
 import java.util.Collection;
 
@@ -87,5 +84,21 @@ public class ConsoleOutput implements OutputManager
     {
         if(damageReductionPercentage != 0)
             System.out.printf("%s reduced the damage by %d%% !%n", combatant.getName(), damageReductionPercentage);
+    }
+
+    @Override
+    public void displayConsumableUsed(Combatant target, Consumable consumable)
+    {
+        System.out.printf("%s used %s !%n", target.getName(), consumable.getName());
+        if(consumable instanceof Food)
+            System.out.printf("%s: +%dHP%n", target.getName(), ((Food) consumable).getHealValue());
+        else if(consumable instanceof Potion)
+            System.out.printf("%s: +%d Mana%n", target.getName(), ((Potion) consumable).getManaValue());
+    }
+
+    @Override
+    public void displayNoConsumableItemInInventory()
+    {
+        System.out.println("Your don't have any consumable item !");
     }
 }

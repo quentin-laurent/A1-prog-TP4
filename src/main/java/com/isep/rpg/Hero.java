@@ -61,6 +61,16 @@ public abstract class Hero extends Combatant
         }
     }
 
+    public boolean hasAnyConsumableItem()
+    {
+        for(var entry: this.items.entrySet())
+        {
+            if(entry.getKey() instanceof Consumable)
+                return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString()
     {

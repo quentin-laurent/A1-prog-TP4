@@ -33,4 +33,10 @@ public abstract class Item
         Item item = (Item) o;
         return (this.name.equals(item.getName()));
     }
+
+    @Override
+    public String toString()
+    {
+        return this.name;
+    }
 }

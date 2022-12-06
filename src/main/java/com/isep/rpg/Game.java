@@ -105,30 +105,48 @@ public class Game
                     continue;
 
                 this.outputManager.displayHero(hero);
-                action = this.inputParser.chooseAction();
-                switch (action)
+
+                // Boolean used to re-parse the user action in case the chosen action can't be executed
+                // (e.g. if the hero's inventory is empty)
+                boolean repeat = true;
+                while(repeat)
                 {
-                    case "attack":
-                        enemyTarget = this.inputParser.chooseEnemyTarget(this.enemies);
-                        damageAndReductionPercentage = hero.attack(enemyTarget);
-                        damage = damageAndReductionPercentage[0];
-                        reductionPercentage = damageAndReductionPercentage[1];
-                        // TODO: add check for enemyTarget.isDefending()
-                        this.outputManager.displayAttackMessage(hero, enemyTarget, damage);
-                        this.outputManager.displayDefendMessage(enemyTarget, reductionPercentage);
-                        // If the Enemy dies from the attack, it is removed from the enemies list
-                        if(!(enemyTarget.isAlive()))
-                            this.enemies.remove(enemyTarget);
-                        break;
-                    case "defend":
-                        hero.defend();
-                        break;
-                    case "consume":
-                        consumable = this.inputParser.chooseConsumable(hero.getItems());
-                        hero.consumeItem(consumable);
-                        break;
-                    default:
-                        throw new RuntimeException("Got an invalid action when parsing hero's actions");
+                    repeat = false;
+                    action = this.inputParser.chooseAction();
+
+                    switch (action)
+                    {
+                        case "attack":
+                            enemyTarget = this.inputParser.chooseEnemyTarget(this.enemies);
+                            damageAndReductionPercentage = hero.attack(enemyTarget);
+                            damage = damageAndReductionPercentage[0];
+                            reductionPercentage = damageAndReductionPercentage[1];
+                            // TODO: add check for enemyTarget.isDefending()
+                            this.outputManager.displayAttackMessage(hero, enemyTarget, damage);
+                            this.outputManager.displayDefendMessage(enemyTarget, reductionPercentage);
+                            // If the Enemy dies from the attack, it is removed from the enemies list
+                            if(!(enemyTarget.isAlive()))
+                                this.enemies.remove(enemyTarget);
+                            break;
+                        case "defend":
+                            hero.defend();
+                            break;
+                        case "consume":
+                            if(!(hero.hasAnyConsumableItem()))
+                            {
+                                this.outputManager.displayNoConsumableItemInInventory();
+                                repeat = true;
+                            }
+                            else
+                            {
+                                consumable = this.inputParser.chooseConsumable(hero.getItems());
+                                hero.consumeItem(consumable);
+                                this.outputManager.displayConsumableUsed(hero, consumable);
+                            }
+                            break;
+                        default:
+                            throw new RuntimeException("Got an invalid action when parsing hero's actions");
+                    }
                 }
             }
             else
@@ -284,6 +302,7 @@ public class Game
                 case "hunter":
                     hero = new Hunter(heroName);
                     hero.items.put(new Arrow("Wooden Arrow", 5), 4);
+                    hero.items.put(new Food("Apple", 10), 2);
                     this.heroes.add(hero);
                     break;
                 case "warrior":
