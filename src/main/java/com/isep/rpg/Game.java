@@ -175,75 +175,7 @@ public class Game
             }
         }
     }
-
-    /*
-    private void playRound2() throws ExecutionControl.NotImplementedException
-    {
-        // Shuffling both lists to randomize the play order
-        Collections.shuffle(this.heroes);
-        Collections.shuffle(this.enemies);
-
-        int heroesIndex = 0;
-        int enemiesIndex = 0;
-        Random random = new Random();
-
-        // Looping until everyone has played
-        while((heroesIndex < this.heroes.size()) && (enemiesIndex < this.enemies.size()))
-        {
-            Hero hero;
-            Enemy enemy;
-            // 0 means a Hero gets to play
-            // 1 means an Enemy gets to play
-            if(random.nextInt(2) == 0)
-            {
-                hero = this.heroes.get(heroesIndex);
-                heroesIndex++;
-
-                // skips the turn if the hero is dead
-                if(!hero.isAlive())
-                    continue;
-
-                String action = this.inputParser.chooseAction();
-                switch (action)
-                {
-                    case "attack":
-                        Enemy target = this.inputParser.chooseEnemyTarget(this.enemies);
-                        hero.attack(target);
-                        break;
-                    case "defend":
-                        hero.defend();
-                        break;
-                    case "consume":
-                        Consumable consumable = this.inputParser.chooseConsumable(hero.getItems());
-                        hero.consumeItem(consumable);
-                        break;
-                    default:
-                        throw new RuntimeException("Got an invalid action when parsing hero's actions");
-                }
-            }
-            else
-            {
-                enemy = this.enemies.get(enemiesIndex);
-                enemiesIndex++;
-
-                // Skips the turn if the enemy is dead
-                if(!enemy.isAlive())
-                    continue;
-
-                // Chooses a random ALIVE target from the heroes list
-                // This is not optimized as this might select the same invalid index multiple times
-                Hero target;
-                do {
-                    target = this.heroes.get(random.nextInt(this.heroes.size()));
-                } while (!target.isAlive());
-
-                // Attacks the randomly selected target
-                this.enemies.get(enemiesIndex).attack(target);
-            }
-        }
-    }
-    */
-
+    
     /**
      * Indicates if at least on {@link Hero} is alive
      * @return True if at least one {@link Hero} is alive, false otherwise
