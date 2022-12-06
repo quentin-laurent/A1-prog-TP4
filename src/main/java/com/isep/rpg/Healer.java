@@ -55,9 +55,10 @@ public class Healer extends SpellCaster
     /**
      * Heals the target
      * @param target The Combattant to receive the heal
+     * @return The heal applied
      */
     @Override
-    public void castSpell(Combatant target)
+    public int castSpell(Combatant target)
     {
         if(!target.isAlive())
             throw new RuntimeException("You can't heal a dead combattant !");
@@ -70,12 +71,6 @@ public class Healer extends SpellCaster
         else
             this.mana = mana;
 
-        // Updating the target hp
-        int heal = BASE_SPELL_HEAL;
-
-        if((target.getHp() + heal) > target.getMaxHP())
-            target.setHp(target.getMaxHP());
-        else
-            target.setHp(target.getHp() + heal);
+        return target.applyHeal(BASE_SPELL_HEAL);
     }
 }

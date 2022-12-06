@@ -82,6 +82,7 @@ public class Game
         Collections.shuffle(combatants);
 
         String action;
+        Combatant combatantTarget;
         Enemy enemyTarget;
         Hero heroTarget;
         Hero hero;
@@ -90,6 +91,7 @@ public class Game
         int[] damageAndReductionPercentage;
         int damage;
         int reductionPercentage;
+        int damageOrHeal;
         Random random = new Random();
 
         for(Combatant combatant: this.combatants)
@@ -128,13 +130,24 @@ public class Game
                             if(!(enemyTarget.isAlive()))
                                 this.enemies.remove(enemyTarget);
                             break;
+                        case "spell":
+                            if(!(hero instanceof SpellCaster))
+                            {
+                                this.outputManager.displayErrorMessage("You don't know any spell ! (not a SpellCaster)");
+                                repeat = true;
+                            }
+                            // TODO: choose target and castSpell()
+                            combatantTarget = this.inputParser.chooseCombatantTarget(this.combatants);
+                            damageOrHeal = ((SpellCaster) hero).castSpell(combatantTarget);
+                            this.outputManager.displayCastSpellMessage((SpellCaster) hero, combatantTarget, damageOrHeal);
+                            break;
                         case "defend":
                             hero.defend();
                             break;
                         case "consume":
                             if(!(hero.hasAnyConsumableItem()))
                             {
-                                this.outputManager.displayNoConsumableItemInInventory();
+                                this.outputManager.displayErrorMessage("You don't have any consumable item !");
                                 repeat = true;
                             }
                             else
@@ -175,7 +188,7 @@ public class Game
             }
         }
     }
-    
+
     /**
      * Indicates if at least on {@link Hero} is alive
      * @return True if at least one {@link Hero} is alive, false otherwise

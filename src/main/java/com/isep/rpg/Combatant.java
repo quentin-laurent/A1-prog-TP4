@@ -59,6 +59,7 @@ public abstract class Combatant
     /**
      * Applies damage to the Combattant
      * @param damage The damage to applu to the Combattant
+     * @return An 2-value array containing the damage applied and the damage reduction percentage applied
      */
     public int[] applyDamage(int damage)
     {
@@ -83,19 +84,25 @@ public abstract class Combatant
             this.hp -= damage;
 
         damageAndReductionPercentage[0] = damage;
+        //TODO (to fix): this does not return the inflicted damage but rather the SUPPOSED inflicted damage
+        // (e.g. if a 10HP target gets inflicted 20 damage this method will return 20 instead of 10)
         return damageAndReductionPercentage;
     }
 
     /**
      * Adds hp to a {@link Combatant}
      * @param heal The hp amount to add to the {@link Combatant}
+     * @return The heal applied
      */
-    public void applyHeal(int heal)
+    public int applyHeal(int heal)
     {
+        int initialHp = this.hp;
         if((this.hp + heal) > this.maxHP)
             this.hp = this.maxHP;
         else
             this.hp += heal;
+
+        return (this.hp - initialHp);
     }
 
     /**

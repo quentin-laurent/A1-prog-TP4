@@ -1,8 +1,6 @@
 package com.isep.utils;
 
-import com.isep.rpg.Consumable;
-import com.isep.rpg.Enemy;
-import com.isep.rpg.Item;
+import com.isep.rpg.*;
 import jdk.jshell.spi.ExecutionControl;
 
 import java.util.*;
@@ -91,16 +89,17 @@ public class ConsoleParser implements InputParser
     {
         ArrayList<String> validActions = new ArrayList<String>();
         validActions.add("attack");
+        validActions.add("spell");
         validActions.add("defend");
         validActions.add("consume");
 
-        System.out.print("Select an action [Attack, Defend, Consume]: ");
+        System.out.print("Select an action [Attack, Spell, Defend, Consume]: ");
         String action = this.getString();
 
         while(!validActions.contains(action.toLowerCase()))
         {
             System.out.println("You must select a valid action !");
-            System.out.print("Select an action [Attack, Defend, Consume]: ");
+            System.out.print("Select an action [Attack, Spell, Defend, Consume]: ");
             action = this.getString();
         }
 
@@ -182,6 +181,34 @@ public class ConsoleParser implements InputParser
         }
 
         return enemies.get(index);
+    }
+
+    @Override
+    public Combatant chooseCombatantTarget(List<Combatant> combatants)
+    {
+        // Building the combatants list to be displayed
+        StringBuilder s = new StringBuilder("[");
+        int i = 0;
+        for(Combatant combatant: combatants)
+        {
+            s.append(String.format("[%d] %s (%d/%d) (%s) | ", i, combatant.getName(), combatant.getHp(), combatant.getMaxHP(), combatant.getClass().getSimpleName()));
+            i++;
+        }
+        int lastIndex = s.length();
+        s.replace(lastIndex - 3, lastIndex, "]");
+
+        int index;
+        System.out.printf("Choose a target %s:%n", s.toString());
+        index = this.getInt();
+
+        while(index < 0 || index >= combatants.size())
+        {
+            System.out.println("You must choose a valid target (use the number between the brackets) !");
+            System.out.printf("Choose a target %s:%n", s.toString());
+            index = this.getInt();
+        }
+
+        return combatants.get(index);
     }
 
     public void closeScanner()

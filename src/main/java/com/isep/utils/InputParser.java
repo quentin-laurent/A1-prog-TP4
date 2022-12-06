@@ -1,8 +1,6 @@
 package com.isep.utils;
 
-import com.isep.rpg.Consumable;
-import com.isep.rpg.Enemy;
-import com.isep.rpg.Item;
+import com.isep.rpg.*;
 import jdk.jshell.spi.ExecutionControl;
 
 import java.util.List;
@@ -39,4 +37,5 @@ public interface InputParser
 
     public Enemy chooseEnemyTarget(List<Enemy> enemies) throws ExecutionControl.NotImplementedException;
 
+    public Combatant chooseCombatantTarget(List<Combatant> combatants) throws ExecutionControl.NotImplementedException;
 }

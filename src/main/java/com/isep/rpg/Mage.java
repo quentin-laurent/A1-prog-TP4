@@ -56,19 +56,20 @@ public class Mage extends SpellCaster
     /**
      * Applies damage to the target using mana
      * @param target The Combattant to receive the damage
+     * @return The damage inflicted by the spell
      */
     @Override
-    public void castSpell(Combatant target)
+    public int castSpell(Combatant target)
     {
         if(!target.isAlive())
-            throw new RuntimeException("You can't attack a dead combattant !");
+            throw new RuntimeException("You can't attack a dead combatant !");
 
         // Calculating damage output
         int damage;
         if(this.weapon != null)
             damage = Math.round((BASE_SPELL_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
         else
-            damage = BASE_DAMAGE;
+            damage = BASE_SPELL_DAMAGE;
 
         // Updating the mana amount
         int mana = this.mana - SPELL_MANA_COST;
@@ -78,7 +79,6 @@ public class Mage extends SpellCaster
         else
             this.mana = mana;
 
-        // Updating the target hp
-        target.applyDamage(damage);
+        return target.applyDamage(damage)[0];
     }
 }

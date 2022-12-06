@@ -1,5 +1,6 @@
 package com.isep.utils;
 
+import com.isep.rpg.Combatant;
 import com.isep.rpg.Consumable;
 import com.isep.rpg.Enemy;
 import com.isep.rpg.Item;
@@ -43,6 +44,12 @@ public class GUIParser implements InputParser
 
     @Override
     public Enemy chooseEnemyTarget(List<Enemy> enemies) throws ExecutionControl.NotImplementedException
+    {
+        throw new ExecutionControl.NotImplementedException("TODO");
+    }
+
+    @Override
+    public Combatant chooseCombatantTarget(List<Combatant> combatants) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }

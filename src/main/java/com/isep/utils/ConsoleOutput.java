@@ -79,6 +79,20 @@ public class ConsoleOutput implements OutputManager
             System.out.printf("%s: -%dHP (dead)%n", target.getName(), damage);
     }
 
+    public void displayCastSpellMessage(SpellCaster caster, Combatant target, int damageOrHeal)
+    {
+        if(caster instanceof Mage)
+        {
+            System.out.printf("%s attacks %s with magic !%n", caster.getName(), target.getName());
+            System.out.printf("%s: -%dHP%n", target.getName(), damageOrHeal);
+        }
+        else if(caster instanceof Healer)
+        {
+            System.out.printf("%s heals %s with magic !%n", caster.getName(), target.getName());
+            System.out.printf("%s: +%dHP%n", target.getName(), damageOrHeal);
+        }
+    }
+
     @Override
     public void displayDefendMessage(Combatant combatant, int damageReductionPercentage)
     {
@@ -97,8 +111,8 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
-    public void displayNoConsumableItemInInventory()
+    public void displayErrorMessage(String message)
     {
-        System.out.println("Your don't have any consumable item !");
+        System.out.println(message);
     }
 }

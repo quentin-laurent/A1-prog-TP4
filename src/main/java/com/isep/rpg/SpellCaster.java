@@ -28,5 +28,5 @@ public abstract class SpellCaster extends Hero
             this.mana += mana;
     }
 
-    abstract void castSpell(Combatant combatant);
+    abstract int castSpell(Combatant combatant);
 }
