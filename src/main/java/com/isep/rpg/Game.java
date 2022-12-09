@@ -144,7 +144,15 @@ public class Game
                             damageOrHeal = damageOrHealAndManaCost[0];
                             manaCost = damageOrHealAndManaCost[1];
                             this.outputManager.displayCastSpellMessage((SpellCaster) hero, combatantTarget, damageOrHeal, manaCost);
-                            
+
+                            // If the Combatant dies from the attack, it is removed from the heroes or combatants list
+                            if(!(combatantTarget.isAlive()))
+                            {
+                                if(combatantTarget instanceof Hero)
+                                    this.heroes.remove(combatantTarget);
+                                else if(combatantTarget instanceof Enemy)
+                                    this.enemies.remove(combatantTarget);
+                            }
                             break;
                         case "defend":
                             hero.defend();
