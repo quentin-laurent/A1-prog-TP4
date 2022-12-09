@@ -54,11 +54,12 @@ public class Healer extends SpellCaster
 
     /**
      * Heals the target
+     *
      * @param target The Combattant to receive the heal
-     * @return The heal applied
+     * @return A 2-value array containing the damage applied and the mana cost of the spell
      */
     @Override
-    public int castSpell(Combatant target)
+    public int[] castSpell(Combatant target)
     {
         if(!target.isAlive())
             throw new RuntimeException("You can't heal a dead combattant !");
@@ -71,6 +72,9 @@ public class Healer extends SpellCaster
         else
             this.mana = mana;
 
-        return target.applyHeal(BASE_SPELL_HEAL);
+        int[] healAndManaCost = new int[2];
+        healAndManaCost[0] = target.applyHeal(BASE_SPELL_HEAL);
+        healAndManaCost[1] = SPELL_MANA_COST;
+        return healAndManaCost;
     }
 }

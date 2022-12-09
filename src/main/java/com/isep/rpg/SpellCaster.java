@@ -14,6 +14,17 @@ public abstract class SpellCaster extends Hero
         this.mana = mana;
     }
 
+    // Getters & Setters
+    public int getMaxMana()
+    {
+        return this.maxMana;
+    }
+
+    public int getMana()
+    {
+        return this.mana;
+    }
+
     // Methods
 
     /**
@@ -28,5 +39,17 @@ public abstract class SpellCaster extends Hero
             this.mana += mana;
     }
 
-    abstract int castSpell(Combatant combatant);
+    @Override
+    public String toString()
+    {
+        StringBuilder s = new StringBuilder("");
+        if(this.isAlive())
+            s.append(String.format("%s (%d/%d HP | %d/%d Mana) [%s]", this.name, this.hp, this.maxHP, this.getMana(), this.getMaxMana(), this.getClass().getSimpleName()));
+        else
+            s.append(String.format("%s (*DEAD*) [%s]", this.name, this.getClass().getSimpleName()));
+
+        return s.toString();
+    }
+
+    abstract int[] castSpell(Combatant combatant);
 }

@@ -79,7 +79,8 @@ public class ConsoleOutput implements OutputManager
             System.out.printf("%s: -%dHP (dead)%n", target.getName(), damage);
     }
 
-    public void displayCastSpellMessage(SpellCaster caster, Combatant target, int damageOrHeal)
+    @Override
+    public void displayCastSpellMessage(SpellCaster caster, Combatant target, int damageOrHeal, int manaCost)
     {
         if(caster instanceof Mage)
         {
@@ -91,6 +92,7 @@ public class ConsoleOutput implements OutputManager
             System.out.printf("%s heals %s with magic !%n", caster.getName(), target.getName());
             System.out.printf("%s: +%dHP%n", target.getName(), damageOrHeal);
         }
+        System.out.printf("%s: -%d Mana%n", caster.getName(), manaCost);
     }
 
     @Override

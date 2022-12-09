@@ -91,7 +91,9 @@ public class Game
         int[] damageAndReductionPercentage;
         int damage;
         int reductionPercentage;
+        int[] damageOrHealAndManaCost;
         int damageOrHeal;
+        int manaCost;
         Random random = new Random();
 
         for(Combatant combatant: this.combatants)
@@ -136,10 +138,13 @@ public class Game
                                 this.outputManager.displayErrorMessage("You don't know any spell ! (not a SpellCaster)");
                                 repeat = true;
                             }
-                            // TODO: choose target and castSpell()
+
                             combatantTarget = this.inputParser.chooseCombatantTarget(this.combatants);
-                            damageOrHeal = ((SpellCaster) hero).castSpell(combatantTarget);
-                            this.outputManager.displayCastSpellMessage((SpellCaster) hero, combatantTarget, damageOrHeal);
+                            damageOrHealAndManaCost = ((SpellCaster) hero).castSpell(combatantTarget);
+                            damageOrHeal = damageOrHealAndManaCost[0];
+                            manaCost = damageOrHealAndManaCost[1];
+                            this.outputManager.displayCastSpellMessage((SpellCaster) hero, combatantTarget, damageOrHeal, manaCost);
+                            
                             break;
                         case "defend":
                             hero.defend();

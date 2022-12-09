@@ -57,9 +57,10 @@ public interface OutputManager
      * Displays a message giving details on the cast spell (whether it is an attack spell or a heal spell)
      * @param caster The {@link SpellCaster} who cast the spell
      * @param target The {@link Combatant} being targeted by the spell
+     * @param manaCost The amount of mana consumed by the spell
      * @param damageOrHeal The damage inflicted if the spell is an attack spell or the heal applied is a healing spell
      */
-    public void displayCastSpellMessage(SpellCaster caster, Combatant target, int damageOrHeal);
+    public void displayCastSpellMessage(SpellCaster caster, Combatant target, int damageOrHeal, int manaCost);
 
     // TODO: integrate this into displayAttackMessage()
     // TODO: add @Deprecated
