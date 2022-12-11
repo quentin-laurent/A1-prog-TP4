@@ -13,6 +13,7 @@ public abstract class Consumable extends Item
     /**
      * Applies a {@link Consumable} effect on a target
      * @param target The {@link Hero} targeted by the item's effect
+     * @throws RuntimeException if the {@link Consumable}'s effect cannot be applied
      */
-    abstract void applyEffect(Hero target);
+    abstract void applyEffect(Hero target) throws RuntimeException;
 }

@@ -100,6 +100,10 @@ public class Game
 
         for(Combatant combatant: this.combatants)
         {
+            // Checking if the round can continue
+            if(!(this.oneHeroIsAlive() && this.oneEnemyIsAlive()))
+                return;
+
             if(combatant instanceof Hero)
             {
                 hero = (Hero) combatant;
@@ -167,9 +171,15 @@ public class Game
                             }
                             else
                             {
-                                consumable = this.inputParser.chooseConsumable(hero.getItems());
-                                hero.consumeItem(consumable);
-                                this.outputManager.displayConsumableUsed(hero, consumable);
+                                try {
+                                    consumable = this.inputParser.chooseConsumable(hero.getItems());
+                                    hero.consumeItem(consumable);
+                                    this.outputManager.displayConsumableUsed(hero, consumable);
+                                }
+                                catch (RuntimeException e) {
+                                    this.outputManager.displayErrorMessage(e.getMessage());
+                                    repeat = true;
+                                }
                             }
                             break;
                         default:
@@ -312,6 +322,7 @@ public class Game
                     break;
                 case "warrior":
                     hero = new Warrior(heroName);
+                    hero.addItem(new Potion("Small mana potion", 30), 1);
                     this.heroes.add(hero);
                     break;
                 case "mage":

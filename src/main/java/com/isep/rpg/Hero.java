@@ -56,26 +56,21 @@ public abstract class Hero extends Combatant
      * Consumes a {@link Consumable} on a {@link Hero} and updates its inventory
      * @param consumable The {@link Consumable} to consume
      */
-    public void consumeItem(Consumable consumable)
+    public void consumeItem(Consumable consumable) throws RuntimeException
     {
         if(this.items.entrySet().contains(consumable))
             throw new RuntimeException("Consumable not in inventory !");
 
-        try
-        {
-            consumable.applyEffect(this);
 
-            // Updating the inventory
-            int quantity = this.items.get(consumable);
-            if(quantity > 1)
-                this.items.put(consumable, quantity - 1);
-            else
-                this.items.remove(consumable);
-        }
-        catch (RuntimeException e)
-        {
-            System.out.println(e.getMessage());
-        }
+        consumable.applyEffect(this);
+
+        // Updating the inventory
+        int quantity = this.items.get(consumable);
+        if(quantity > 1)
+            this.items.put(consumable, quantity - 1);
+        else
+            this.items.remove(consumable);
+
     }
 
     public boolean hasAnyConsumableItem()

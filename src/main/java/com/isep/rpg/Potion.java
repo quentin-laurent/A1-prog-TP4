@@ -20,7 +20,7 @@ public class Potion extends Consumable
 
     // Methods
     @Override
-    public void applyEffect(Hero target)
+    public void applyEffect(Hero target) throws RuntimeException
     {
         if(!(target instanceof SpellCaster))
             throw new RuntimeException("You can't use a mana potion !");
