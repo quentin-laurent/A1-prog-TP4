@@ -148,7 +148,6 @@ public class Game
                             damageAndReductionPercentage = hero.attack(enemyTarget);
                             damage = damageAndReductionPercentage[0];
                             reductionPercentage = damageAndReductionPercentage[1];
-                            // TODO: add check for enemyTarget.isDefending()
                             this.outputManager.displayAttackMessage(hero, enemyTarget, damage);
                             this.outputManager.displayDefendMessage(enemyTarget, reductionPercentage);
                             // If the Enemy dies from the attack, it is removed from the enemies list
@@ -223,13 +222,11 @@ public class Game
                     continue;
 
                 this.outputManager.displayEnemy(enemy);
-                // TODO: add 20% chance for the Enemy to defend itself
                 // Choses a random Hero in the heroes list
                 heroTarget = this.heroes.get(random.nextInt(this.heroes.size()));
                 damageAndReductionPercentage = enemy.attack(heroTarget);
                 damage = damageAndReductionPercentage[0];
                 reductionPercentage =  damageAndReductionPercentage[1];
-                // TODO: add check for heroTarget.isDefending()
                 this.outputManager.displayAttackMessage(enemy, heroTarget, damage);
                 this.outputManager.displayDefendMessage(heroTarget, reductionPercentage);
                 // If the Hero dies from the attack, it is removed the heroes list
@@ -407,6 +404,7 @@ public class Game
 
             switch (heroClass)
             {
+                // TODO: give heroes items at the start of the game to adjust balance
                 case "hunter":
                     hero = new Hunter(heroName);
                     hero.items.put(new Arrow("Wooden Arrow", 5), 4);

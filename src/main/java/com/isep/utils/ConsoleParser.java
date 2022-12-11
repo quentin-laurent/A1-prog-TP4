@@ -188,7 +188,6 @@ public class ConsoleParser implements InputParser
     @Override
     public Enemy chooseEnemyTarget(List<Enemy> enemies) throws ExecutionControl.NotImplementedException
     {
-        // TODO: use displauyEnemies() instead
         // Building the enemies list to be displayed
         StringBuilder s = new StringBuilder("[");
         int i = 0;

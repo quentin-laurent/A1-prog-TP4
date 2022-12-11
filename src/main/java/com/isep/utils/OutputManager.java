@@ -68,8 +68,6 @@ public interface OutputManager
      */
     public void displayCastSpellMessage(SpellCaster caster, Combatant target, int damageOrHeal, int manaCost);
 
-    // TODO: integrate this into displayAttackMessage()
-    // TODO: add @Deprecated
     /**
      * Displays a message indicating the damage reduction percentage of a defending {@link Combatant}
      * @param combatant The {@link Combatant} defending itself
