@@ -51,7 +51,7 @@ public class Game
     }
 
     /**
-     * Plays an entire stage of of the game, which is made of multiple rounds
+     * Plays an entire stage of the game, which is made of multiple rounds
      */
     private void playStage(int stageNumber) throws ExecutionControl.NotImplementedException
     {
