@@ -5,13 +5,26 @@ public abstract class SpellCaster extends Hero
     // Attributes
     protected int maxMana;
     protected int mana;
+    protected int spellManaCost;
 
     // Constructor
-    public SpellCaster(String name, int maxHP, int hp, int maxMana, int mana)
+
+    /**
+     * Creates a new {@link SpellCaster}
+     * @param name The name of the SpellCaster
+     * @param baseDamage The base damage value
+     * @param maxHP The maximum hp value
+     * @param hp The hp value
+     * @param maxMana The maximum mana value
+     * @param mana The mana value
+     * @param spellManaCost The mana cost of the {@link SpellCaster}'s spell
+     */
+    public SpellCaster(String name, int baseDamage, int maxHP, int hp, int maxMana, int mana, int spellManaCost)
     {
-        super(name, maxHP, hp);
+        super(name, baseDamage, maxHP, hp);
         this.maxMana = maxMana;
         this.mana = mana;
+        this.spellManaCost = spellManaCost;
     }
 
     // Getters & Setters

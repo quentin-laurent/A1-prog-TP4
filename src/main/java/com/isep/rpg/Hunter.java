@@ -14,18 +14,19 @@ public class Hunter extends Hero
      */
     public Hunter(String name)
     {
-        super(name, Hunter.BASE_HP, Hunter.BASE_HP);
+        super(name, Hunter.BASE_DAMAGE, Hunter.BASE_HP, Hunter.BASE_HP);
     }
 
     /**
      * Creates a Hunter by specifying all its attributes
      * @param name The name of the Hunter
+     * @param baseDamage The base damage value
      * @param maxHP The maximum hp value
      * @param hp The current hp value
      */
-    public Hunter(String name, int maxHP, int hp)
+    public Hunter(String name, int baseDamage, int maxHP, int hp)
     {
-        super(name, maxHP, hp);
+        super(name, baseDamage, maxHP, hp);
     }
 
     // Metmods
@@ -41,9 +42,9 @@ public class Hunter extends Hero
         // Calculating damage output
         int damage;
         if(this.weapon != null)
-            damage = Math.round((BASE_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
         else
-            damage = BASE_DAMAGE;
+            damage = this.baseDamage;
 
         this.useArrow();
 

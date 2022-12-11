@@ -14,7 +14,7 @@ public class Boar extends Enemy
      */
     public Boar()
     {
-        super(Boar.class.getSimpleName(), Boar.BASE_HP, Boar.BASE_HP);
+        super(Boar.class.getSimpleName(), Boar.BASE_DAMAGE, Boar.BASE_HP, Boar.BASE_HP);
     }
 
     /**
@@ -23,18 +23,19 @@ public class Boar extends Enemy
      */
     public Boar(String name)
     {
-        super(name, Boar.BASE_HP, Boar.BASE_HP);
+        super(name, Boar.BASE_DAMAGE, Boar.BASE_HP, Boar.BASE_HP);
     }
 
     /**
      * Creates a new {@link Boar}.
      * @param name The name of the new {@link Boar}.
+     * @param baseDamage The base damage value of the new {@link Boar}
      * @param maxHp The maximum hp value of the new {@link Boar}.
      * @param hp The hp value of the new {@link Boar}
      */
-    public Boar(String name, int maxHp, int hp)
+    public Boar(String name, int baseDamage, int maxHp, int hp)
     {
-        super(name, maxHp, hp);
+        super(name, baseDamage, maxHp, hp);
     }
 
     // Methods

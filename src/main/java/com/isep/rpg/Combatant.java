@@ -8,6 +8,7 @@ public abstract class Combatant
 {
     // Attributes
     protected final String name;
+    protected int baseDamage;
     protected int maxHP;
     protected int hp;
     protected boolean defend;
@@ -16,7 +17,15 @@ public abstract class Combatant
     private static final int DEFEND_MAX_REDUCTION = 50;
 
     // Constructor
-    public Combatant(String name, int maxHP, int hp)
+
+    /**
+     * Creates a new {@link Combatant}
+     * @param name The name of the Combatant
+     * @param baseDamage The base damage value
+     * @param maxHP The maximum hp value
+     * @param hp The hp value
+     */
+    public Combatant(String name, int baseDamage, int maxHP, int hp)
     {
         this.name = name;
         this.maxHP = maxHP;

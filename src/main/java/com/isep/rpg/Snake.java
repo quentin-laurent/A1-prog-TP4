@@ -14,7 +14,7 @@ public class Snake extends Enemy
      */
     public Snake()
     {
-        super(Snake.class.getSimpleName(), Snake.BASE_HP, Snake.BASE_HP);
+        super(Snake.class.getSimpleName(), Snake.BASE_DAMAGE, Snake.BASE_HP, Snake.BASE_HP);
     }
 
     /**
@@ -23,18 +23,19 @@ public class Snake extends Enemy
      */
     public Snake(String name)
     {
-        super(name, Snake.BASE_HP, Snake.BASE_HP);
+        super(name, Snake.BASE_DAMAGE, Snake.BASE_HP, Snake.BASE_HP);
     }
 
     /**
      * Creates a new {@link Snake}.
      * @param name The name of the new {@link Snake}.
+     * @param baseDamage The base damage value of the new {@link Snake}
      * @param maxHp The maximum hp value of the new {@link Snake}.
      * @param hp The hp value of the new {@link Snake}
      */
-    public Snake(String name, int maxHp, int hp)
+    public Snake(String name, int baseDamage, int maxHp, int hp)
     {
-        super(name, maxHp, hp);
+        super(name, baseDamage, maxHp, hp);
     }
 
     // Methods

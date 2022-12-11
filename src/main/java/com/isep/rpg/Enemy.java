@@ -4,9 +4,17 @@ package com.isep.rpg;
 public abstract class Enemy extends Combatant
 {
     // Constructor
-    public Enemy(String name, int maxHP, int hp)
+
+    /**
+     * Creates a new {@link Enemy}
+     * @param name The name of the Enemy
+     * @param baseDamage The base damage value
+     * @param maxHP The maximum hp value
+     * @param hp The hp value
+     */
+    public Enemy(String name, int baseDamage, int maxHP, int hp)
     {
-        super(name, maxHP, hp);
+        super(name, baseDamage, maxHP, hp);
     }
 
     // Methods

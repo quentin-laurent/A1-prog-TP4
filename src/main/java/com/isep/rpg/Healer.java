@@ -3,6 +3,8 @@ package com.isep.rpg;
 public class Healer extends SpellCaster
 {
     // Attributes
+    protected int baseSpellHeal;
+
     public static final int BASE_HP = 75;
     public static final int BASE_DAMAGE = 10;
     public static final int BASE_MANA = 100;
@@ -17,20 +19,23 @@ public class Healer extends SpellCaster
      */
     public Healer(String name)
     {
-        super(name, Healer.BASE_HP, Healer.BASE_HP, Healer.BASE_MANA, Healer.BASE_MANA);
+        super(name, Healer.BASE_DAMAGE, Healer.BASE_HP, Healer.BASE_HP, Healer.BASE_MANA, Healer.BASE_MANA, Healer.SPELL_MANA_COST);
+        this.baseSpellHeal = BASE_SPELL_HEAL;
     }
 
     /**
      * Creates a Healer by specifying all its attributes
      * @param name The name of the Healer
+     * @param baseDamage The base damage value
      * @param maxHP The maximum hp value
      * @param hp The current hp value
      * @param maxMana The maximum mana value
      * @param mana The current mana value
      */
-    public Healer(String name, int maxHP, int hp, int maxMana, int mana)
+    public Healer(String name, int baseDamage, int maxHP, int hp, int maxMana, int mana)
     {
-        super(name, maxHP, hp, maxMana, mana);
+        super(name, baseDamage, maxHP, hp, maxMana, mana, Healer.SPELL_MANA_COST);
+        this.baseSpellHeal = BASE_SPELL_HEAL;
     }
 
     // Metmods
@@ -44,9 +49,9 @@ public class Healer extends SpellCaster
         // Calculating damage output
         int damage;
         if(this.weapon != null)
-            damage = Math.round((BASE_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
         else
-            damage = BASE_DAMAGE;
+            damage = this.baseDamage;
 
         // Updating enemy hp
         return enemy.applyDamage(damage);
@@ -65,7 +70,7 @@ public class Healer extends SpellCaster
             throw new RuntimeException("You can't heal a dead combattant !");
 
         // Updating the mana amount
-        int mana = this.mana - SPELL_MANA_COST;
+        int mana = this.mana - this.spellManaCost;
 
         if(mana < 0)
             this.mana = 0;
@@ -73,8 +78,8 @@ public class Healer extends SpellCaster
             this.mana = mana;
 
         int[] healAndManaCost = new int[2];
-        healAndManaCost[0] = target.applyHeal(BASE_SPELL_HEAL);
-        healAndManaCost[1] = SPELL_MANA_COST;
+        healAndManaCost[0] = target.applyHeal(this.baseSpellHeal);
+        healAndManaCost[1] = this.spellManaCost;
         return healAndManaCost;
     }
 }

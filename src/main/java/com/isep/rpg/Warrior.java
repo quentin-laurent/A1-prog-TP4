@@ -14,18 +14,19 @@ public class Warrior extends Hero
      */
     public Warrior(String name)
     {
-        super(name, Warrior.BASE_HP, Warrior.BASE_HP);
+        super(name, Hunter.BASE_DAMAGE, Warrior.BASE_HP, Warrior.BASE_HP);
     }
 
     /**
      * Creates a Warrior by specifying all its attributes
      * @param name The name of the Warrior
+     * @param baseDamage The base damage value
      * @param maxHP The maximum hp value
      * @param hp The current hp value
      */
-    public Warrior(String name, int maxHP, int hp)
+    public Warrior(String name, int baseDamage, int maxHP, int hp)
     {
-        super(name, maxHP, hp);
+        super(name, baseDamage, maxHP, hp);
     }
 
     // Methods
@@ -39,9 +40,9 @@ public class Warrior extends Hero
         // Calculating damage output
         int damage;
         if(this.weapon != null)
-            damage = Math.round((BASE_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
         else
-            damage = BASE_DAMAGE;
+            damage = this.baseDamage;
 
         return enemy.applyDamage(damage);
     }

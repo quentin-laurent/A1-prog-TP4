@@ -3,6 +3,8 @@ package com.isep.rpg;
 public class Mage extends SpellCaster
 {
     // Attributes
+    protected int baseSpellDamage;
+
     public static final int BASE_HP = 80;
     public static final int BASE_DAMAGE = 10;
     public static final int BASE_MANA = 100;
@@ -17,20 +19,23 @@ public class Mage extends SpellCaster
      */
     public Mage(String name)
     {
-        super(name, Mage.BASE_HP, Mage.BASE_HP, Mage.BASE_MANA, Mage.BASE_MANA);
+        super(name, Mage.BASE_DAMAGE, Mage.BASE_HP, Mage.BASE_HP, Mage.BASE_MANA, Mage.BASE_MANA, Mage.SPELL_MANA_COST);
+        this.baseSpellDamage = BASE_SPELL_DAMAGE;
     }
 
     /**
      * Creates a Mage by specifying all its attributes
      * @param name The name of the Mage
+     * @param baseDamage The base damage value
      * @param maxHP The maximum hp value
      * @param hp The current hp value
      * @param maxMana The maximum mana value
      * @param mana The current mana value
      */
-    public Mage(String name, int maxHP, int hp, int maxMana, int mana)
+    public Mage(String name, int baseDamage, int maxHP, int hp, int maxMana, int mana)
     {
-        super(name, maxHP, hp, maxMana, mana);
+        super(name, baseDamage, maxHP, hp, maxMana, mana, Mage.SPELL_MANA_COST);
+        this.baseSpellDamage = BASE_SPELL_DAMAGE;
     }
 
     // Metmods
@@ -40,15 +45,15 @@ public class Mage extends SpellCaster
     {
         if(!enemy.isAlive())
             throw new RuntimeException("You can't attack a dead enemy !");
-        if(this.mana < SPELL_MANA_COST)
+        if(this.mana < this.spellManaCost)
             throw new RuntimeException("You don't have enough mana !");
 
         // Calculating damage output
         int damage;
         if(this.weapon != null)
-            damage = Math.round((BASE_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
         else
-            damage = BASE_DAMAGE;
+            damage = this.baseDamage;
 
         return enemy.applyDamage(damage);
     }
@@ -68,12 +73,12 @@ public class Mage extends SpellCaster
         // Calculating damage output
         int damage;
         if(this.weapon != null)
-            damage = Math.round((BASE_SPELL_DAMAGE + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+            damage = Math.round((this.baseSpellDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
         else
-            damage = BASE_SPELL_DAMAGE;
+            damage = this.baseSpellDamage;
 
         // Updating the mana amount
-        int mana = this.mana - SPELL_MANA_COST;
+        int mana = this.mana - this.spellManaCost;
 
         if(mana < 0)
             this.mana = 0;
@@ -82,7 +87,7 @@ public class Mage extends SpellCaster
 
         int[] damageAndManaCost = new int[2];
         damageAndManaCost[0] = target.applyDamage(damage)[0];
-        damageAndManaCost[1] = SPELL_MANA_COST;
+        damageAndManaCost[1] = this.spellManaCost;
 
         return damageAndManaCost;
     }

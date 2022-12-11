@@ -10,6 +10,20 @@ public abstract class Hero extends Combatant
     protected Armor armor;
     protected Map<Item, Integer> items;
 
+    // Constructor
+    /**
+     * Creates a new {@link Hero}
+     * @param name The name of the Hero
+     * @param baseDamage The base damage value
+     * @param maxHP The maximum hp value
+     * @param hp The hp value
+     */
+    public Hero(String name, int baseDamage, int maxHP, int hp)
+    {
+        super(name, baseDamage, maxHP, hp);
+        this.items = new HashMap<Item, Integer>();
+    }
+
     // Getters & Setters
     public Map<Item, Integer> getItems()
     {
@@ -24,13 +38,6 @@ public abstract class Hero extends Combatant
     public void setArmor(Armor armor)
     {
         this.armor = armor;
-    }
-
-    // Constructor
-    public Hero(String name, int maxHP, int hp)
-    {
-        super(name, maxHP, hp);
-        this.items = new HashMap<Item, Integer>();
     }
 
     // Methods
