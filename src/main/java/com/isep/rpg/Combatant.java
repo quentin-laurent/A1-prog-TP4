@@ -28,6 +28,7 @@ public abstract class Combatant
     public Combatant(String name, int baseDamage, int maxHP, int hp)
     {
         this.name = name;
+        this.baseDamage = baseDamage;
         this.maxHP = maxHP;
         this.hp = hp;
     }
