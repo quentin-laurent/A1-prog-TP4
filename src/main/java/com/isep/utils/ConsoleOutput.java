@@ -52,6 +52,12 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
+    public void displayLootMessage()
+    {
+        System.out.println("==== REWARDS ====");
+    }
+
+    @Override
     public void displayEndScreen()
     {
         System.out.println("==== END ====");
@@ -110,6 +116,12 @@ public class ConsoleOutput implements OutputManager
             System.out.printf("%s: +%dHP%n", target.getName(), ((Food) consumable).getHealValue());
         else if(consumable instanceof Potion)
             System.out.printf("%s: +%d Mana%n", target.getName(), ((Potion) consumable).getManaValue());
+    }
+
+    @Override
+    public void displayItemAddMessage(Hero hero, Item item, int quantity)
+    {
+        System.out.printf("%s found %d %s !%n", hero.getName(), quantity, item.getName());
     }
 
     @Override

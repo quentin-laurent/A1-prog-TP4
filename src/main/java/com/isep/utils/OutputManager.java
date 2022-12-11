@@ -33,6 +33,8 @@ public interface OutputManager
      */
     public void displayRoundTitle(int roundNumber);
 
+    public void displayLootMessage();
+
     /**
      * Displays a message containing the information of the {@link Hero} currently playing
      * @param hero The {@link Hero} currently plqying
@@ -77,6 +79,8 @@ public interface OutputManager
      * @param consumable The {@link Consumable} used
      */
     public void displayConsumableUsed(Combatant target, Consumable consumable);
+
+    public void displayItemAddMessage(Hero hero, Item item, int quantity);
 
     /**
      * Displays a message indicating that the inventory of the {@link Hero} currently playing is empty.

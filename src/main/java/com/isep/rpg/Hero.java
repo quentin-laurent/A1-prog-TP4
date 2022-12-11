@@ -43,6 +43,16 @@ public abstract class Hero extends Combatant
     // Methods
 
     /**
+     * Adds an {@link Item} to the {@link Hero}'s inventory
+     * @param item The {@link Item} to add
+     * @param quantity The quantity of the {@link Item} to add
+     */
+    public void addItem(Item item, int quantity)
+    {
+        this.items.put(item, quantity);
+    }
+
+    /**
      * Consumes a {@link Consumable} on a {@link Hero} and updates its inventory
      * @param consumable The {@link Consumable} to consume
      */

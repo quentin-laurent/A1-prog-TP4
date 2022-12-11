@@ -63,6 +63,8 @@ public class Game
             this.playRound(roundNumber);
             roundNumber++;
         }
+        this.outputManager.displayLootMessage();
+        this.distributeLoot();
     }
 
     /**
@@ -218,6 +220,51 @@ public class Game
     private boolean oneEnemyIsAlive()
     {
         return (this.enemies.size() > 0);
+    }
+
+    /**
+     * Generates and distributes the loot earned at the end of a stage to each {@link Hero}
+     */
+    private void distributeLoot()
+    {
+        for(Hero hero: heroes)
+        {
+            Item item = this.generateItem();
+            hero.addItem(item, 1);
+            this.outputManager.displayItemAddMessage(hero, item, 1);
+        }
+    }
+
+    /**
+     * Generates a random {@link Item}
+     * This is used to generate the loot given to each {@link Hero} at the end of a stage
+     */
+    private Item generateItem()
+    {
+        Random random = new Random();
+        int randInt = random.nextInt(7);
+
+        // Each Item has the same probability to be generated
+        // (the game is not supposed to be balanced)
+        switch (randInt)
+        {
+            case 0:
+                return new Food("Potato", 10);
+            case 1:
+                return new Food("Apple", 20);
+            case 2:
+                return new Food("Steak", 30);
+            case 3:
+                return new Potion("Small mana potion", 30);
+            case 4:
+                return new Potion("Medium mana potion", 60);
+            case 5:
+                return new Potion("Large mana potion", 90);
+            case 6:
+                return new Arrow("Wooden arrow", 5);
+            default:
+                throw new RuntimeException("Got invalid random value when generating Item (value not in random range)");
+        }
     }
 
     /**
