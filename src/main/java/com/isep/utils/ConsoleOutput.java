@@ -124,13 +124,13 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
-    public void displayConsumableUsed(Combatant target, Consumable consumable)
+    public void displayConsumableUsed(Combatant target, Consumable consumable, int appliedEffectValue)
     {
         System.out.printf("%s used %s !%n", target.getName(), consumable.getName());
         if(consumable instanceof Food)
-            System.out.printf("%s: +%dHP%n", target.getName(), ((Food) consumable).getHealValue());
+            System.out.printf("%s: +%dHP%n", target.getName(), appliedEffectValue);
         else if(consumable instanceof Potion)
-            System.out.printf("%s: +%d Mana%n", target.getName(), ((Potion) consumable).getManaValue());
+            System.out.printf("%s: +%d Mana%n", target.getName(), appliedEffectValue);
     }
 
     @Override

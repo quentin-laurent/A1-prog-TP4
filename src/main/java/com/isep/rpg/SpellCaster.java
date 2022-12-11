@@ -53,13 +53,21 @@ public abstract class SpellCaster extends Hero
     /**
      * Restores the mana of the SpellCaster
      * @param mana The mana amount to restore
+     * @return The mana restored
      */
-    public void restoreMana(int mana)
+    public int restoreMana(int mana)
     {
+        int restoredMana = mana;
+
         if((this.mana + mana > this.maxMana))
+        {
+            restoredMana = this.maxMana - this.mana;
             this.mana = this.maxMana;
+        }
         else
             this.mana += mana;
+
+        return restoredMana;
     }
 
     @Override

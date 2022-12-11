@@ -20,9 +20,9 @@ public class Food extends Consumable
 
     // Methods
     @Override
-    public void applyEffect(Hero target)
+    public int applyEffect(Hero target)
     {
-        target.applyHeal(this.healValue);
+        return target.applyHeal(this.healValue);
     }
 
     @Override

@@ -112,6 +112,7 @@ public class Game
         int[] damageOrHealAndManaCost;
         int damageOrHeal;
         int manaCost;
+        int appliedEffectValue;
         Random random = new Random();
 
         for(Combatant combatant: this.combatants)
@@ -197,8 +198,8 @@ public class Game
                             {
                                 try {
                                     consumable = this.inputParser.chooseConsumable(hero.getItems());
-                                    hero.consumeItem(consumable);
-                                    this.outputManager.displayConsumableUsed(hero, consumable);
+                                    appliedEffectValue = hero.consumeItem(consumable);
+                                    this.outputManager.displayConsumableUsed(hero, consumable, appliedEffectValue);
                                 }
                                 catch (RuntimeException e) {
                                     this.outputManager.displayErrorMessage(e.getMessage());

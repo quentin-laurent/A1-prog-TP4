@@ -82,7 +82,7 @@ public interface OutputManager
      * @param target The {@link Combatant} consuming the {@link Consumable}
      * @param consumable The {@link Consumable} used
      */
-    public void displayConsumableUsed(Combatant target, Consumable consumable);
+    public void displayConsumableUsed(Combatant target, Consumable consumable, int appliedEffectValue);
 
     public void displayItemAddMessage(Hero hero, Item item, int quantity);
 
