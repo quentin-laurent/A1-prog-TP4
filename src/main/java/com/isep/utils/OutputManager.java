@@ -35,6 +35,10 @@ public interface OutputManager
 
     public void displayLootMessage();
 
+    public void displayUpgradesTitle();
+
+    public void displayUpgradeMessage(Hero hero);
+
     /**
      * Displays a message containing the information of the {@link Hero} currently playing
      * @param hero The {@link Hero} currently plqying

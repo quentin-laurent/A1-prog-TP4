@@ -38,6 +38,18 @@ public class Mage extends SpellCaster
         this.baseSpellDamage = BASE_SPELL_DAMAGE;
     }
 
+    // Getters & Setters
+
+    public int getBaseSpellDamage()
+    {
+        return this.baseSpellDamage;
+    }
+
+    public void setBaseSpellDamage(int baseSpellDamage)
+    {
+        this.baseSpellDamage = baseSpellDamage;
+    }
+
     // Metmods
 
     @Override

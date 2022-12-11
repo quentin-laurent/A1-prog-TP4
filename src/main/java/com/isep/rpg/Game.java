@@ -65,6 +65,8 @@ public class Game
         }
         this.outputManager.displayLootMessage();
         this.distributeLoot();
+        this.outputManager.displayUpgradesTitle();
+        this.upgradeHeroes();
     }
 
     /**
@@ -238,6 +240,65 @@ public class Game
     private boolean oneEnemyIsAlive()
     {
         return (this.enemies.size() > 0);
+    }
+
+    /**
+     * Offers each {@link Hero} the possibility to choose an upgrade
+     */
+    private void upgradeHeroes() throws ExecutionControl.NotImplementedException
+    {
+        for(Hero hero: this.heroes)
+        {
+            this.outputManager.displayUpgradeMessage(hero);
+            boolean repeat = true;
+            while(repeat)
+            {
+                repeat = false;
+                String upgrade = this.inputParser.chooseUpgrade();
+
+                switch (upgrade)
+                {
+                    case "increaseBaseDamage":
+                        hero.setBaseDamage((int) (hero.getBaseDamage()*1.10f));
+                        break;
+                    case "increaseMaxHp":
+                        hero.setMaxHp((int) (hero.getMaxHP()*1.15f));
+                        break;
+                    case "increaseSpellDamage":
+                        if(!(hero instanceof Mage))
+                        {
+                            this.outputManager.displayErrorMessage("You don't have any attack spell !");
+                            repeat = true;
+                            continue;
+                        }
+                        Mage mage = (Mage) hero;
+                        mage.setBaseSpellDamage((int) (mage.getBaseSpellDamage()*1.10f));
+                        break;
+                    case "increaseSpellHeal":
+                        if(!(hero instanceof Healer))
+                        {
+                            this.outputManager.displayErrorMessage("You don't have any heal spell !");
+                            repeat = true;
+                            continue;
+                        }
+                        Healer healer = (Healer) hero;
+                        healer.setBaseSpellHeal((int) (healer.getBaseSpellHeal()*1.15f));
+                        break;
+                    case "decreaseManaCost":
+                        if(!(hero instanceof SpellCaster))
+                        {
+                            this.outputManager.displayErrorMessage("You don't have any spell !");
+                            repeat = true;
+                            continue;
+                        }
+                        SpellCaster spellCaster = (SpellCaster) hero;
+                        spellCaster.setSpellManaCost((int) (spellCaster.getSpellManaCost()*0.90f));
+                        break;
+                    default:
+                        throw new RuntimeException("Got an invalid upgrade when parsing hero's upgrade choice !");
+                }
+            }
+        }
     }
 
     /**

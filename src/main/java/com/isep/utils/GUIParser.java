@@ -37,6 +37,12 @@ public class GUIParser implements InputParser
     }
 
     @Override
+    public String chooseUpgrade() throws ExecutionControl.NotImplementedException
+    {
+        throw new ExecutionControl.NotImplementedException("TODO");
+    }
+
+    @Override
     public Consumable chooseConsumable(Map<Item, Integer> items) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");

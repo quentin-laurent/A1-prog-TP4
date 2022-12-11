@@ -33,6 +33,8 @@ public interface InputParser
      */
     public String chooseAction() throws ExecutionControl.NotImplementedException;
 
+    public String chooseUpgrade() throws ExecutionControl.NotImplementedException;
+
     public Consumable chooseConsumable(Map<Item, Integer> items) throws ExecutionControl.NotImplementedException;
 
     public Enemy chooseEnemyTarget(List<Enemy> enemies) throws ExecutionControl.NotImplementedException;

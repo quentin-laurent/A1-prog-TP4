@@ -38,6 +38,17 @@ public class Healer extends SpellCaster
         this.baseSpellHeal = BASE_SPELL_HEAL;
     }
 
+    // Getters & Setters
+    public int getBaseSpellHeal()
+    {
+        return this.baseSpellHeal;
+    }
+
+    public void setBaseSpellHeal(int baseSpellHeal)
+    {
+        this.baseSpellHeal = baseSpellHeal;
+    }
+
     // Metmods
 
     @Override

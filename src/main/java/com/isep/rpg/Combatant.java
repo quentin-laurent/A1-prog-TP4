@@ -40,6 +40,16 @@ public abstract class Combatant
         return this.name;
     }
 
+    public int getBaseDamage()
+    {
+        return this.baseDamage;
+    }
+
+    public void setBaseDamage(int baseDamage)
+    {
+        this.baseDamage = baseDamage;
+    }
+
     public int getHp()
     {
         return this.hp;
@@ -53,6 +63,11 @@ public abstract class Combatant
     public int getMaxHP()
     {
         return this.maxHP;
+    }
+
+    public void setMaxHp(int maxHP)
+    {
+        this.maxHP = maxHP;
     }
 
     // Methods

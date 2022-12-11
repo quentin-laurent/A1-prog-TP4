@@ -38,6 +38,16 @@ public abstract class SpellCaster extends Hero
         return this.mana;
     }
 
+    public int getSpellManaCost()
+    {
+        return this.spellManaCost;
+    }
+
+    public void setSpellManaCost(int spellManaCost)
+    {
+        this.spellManaCost = spellManaCost;
+    }
+
     // Methods
 
     /**

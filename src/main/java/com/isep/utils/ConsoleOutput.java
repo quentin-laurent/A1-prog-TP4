@@ -58,6 +58,18 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
+    public void displayUpgradesTitle()
+    {
+        System.out.println("==== UPGRADES ====");
+    }
+
+    @Override
+    public void displayUpgradeMessage(Hero hero)
+    {
+        System.out.printf("==== UPGRADING: %s ====%n", hero.toString());
+    }
+
+    @Override
     public void displayEndScreen()
     {
         System.out.println("==== END ====");

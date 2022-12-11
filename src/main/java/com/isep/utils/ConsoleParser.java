@@ -107,6 +107,37 @@ public class ConsoleParser implements InputParser
     }
 
     @Override
+    public String chooseUpgrade()
+    {
+        ArrayList<String> upgrades = new ArrayList<String>();
+        upgrades.add("increaseBaseDamage");
+        upgrades.add("increaseMaxHp");
+        upgrades.add("increaseSpellDamage");
+        upgrades.add("increaseSpellHeal");
+        upgrades.add("decreaseManaCost");
+
+        StringBuilder s = new StringBuilder("Upgrades available:\n");
+        s.append("[0] Increase your base damage by 10%\n");
+        s.append("[1] Increase your maximum hp by 15%\n");
+        s.append("[2] Increase the damage of your spells by 10%\n");
+        s.append("[3] Increase the heal of your spells by 15%\n");
+        s.append("[4] Decrease the mana cost of your spells by 10%\n");
+        s.append("Choose an upgrade: ");
+
+        System.out.print(s);
+        int index = this.getInt();
+
+        while(index < 0 || index >= upgrades.size())
+        {
+            System.out.println("You must select a valid upgrade (use the number between the brackets) !");
+            System.out.print(s);
+            index = this.getInt();
+        }
+
+        return upgrades.get(index);
+    }
+
+    @Override
     public Consumable chooseConsumable(Map<Item, Integer> items)
     {
         // Building the items list to be displayed
