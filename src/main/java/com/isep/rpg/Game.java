@@ -55,18 +55,32 @@ public class Game
      */
     private void playStage(int stageNumber) throws ExecutionControl.NotImplementedException
     {
-        this.outputManager.displayStageTitle(stageNumber);
-        this.generateEnemies();
-        int roundNumber = 1;
-        while(this.oneHeroIsAlive() && this.oneEnemyIsAlive())
+        // Last stage (boss stage)
+        if(stageNumber == NUMBER_OF_STAGES)
         {
-            this.playRound(roundNumber);
-            roundNumber++;
+            this.generateBoss();
+            int roundNumber = 1;
+            while(this.oneHeroIsAlive() && this.oneEnemyIsAlive())
+            {
+                this.playRound(roundNumber);
+                roundNumber++;
+            }
         }
-        this.outputManager.displayLootMessage();
-        this.distributeLoot();
-        this.outputManager.displayUpgradesTitle();
-        this.upgradeHeroes();
+        else
+        {
+            this.outputManager.displayStageTitle(stageNumber);
+            this.generateEnemies();
+            int roundNumber = 1;
+            while(this.oneHeroIsAlive() && this.oneEnemyIsAlive())
+            {
+                this.playRound(roundNumber);
+                roundNumber++;
+            }
+            this.outputManager.displayLootMessage();
+            this.distributeLoot();
+            this.outputManager.displayUpgradesTitle();
+            this.upgradeHeroes();
+        }
     }
 
     /**
@@ -361,6 +375,15 @@ public class Game
             else
                 this.enemies.add(new Snake());
         }
+    }
+
+    /**
+     * Creates a single {@link Enemy} instance which is the final boss of the current {@link Game}
+     */
+    private void generateBoss()
+    {
+        this.enemies.clear();
+        this.enemies.add(new KingCobra());
     }
 
     /**
