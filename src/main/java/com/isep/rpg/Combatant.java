@@ -103,14 +103,18 @@ public abstract class Combatant
             this.defend = false;
         }
 
+        int inflictedDamage = damage;
+
         if((this.hp - damage) < 0)
+        {
+            inflictedDamage = this.getHp();
             this.hp = 0;
+        }
         else
             this.hp -= damage;
 
-        damageAndReductionPercentage[0] = damage;
-        //TODO (to fix): this does not return the inflicted damage but rather the SUPPOSED inflicted damage
-        // (e.g. if a 10HP target gets inflicted 20 damage this method will return 20 instead of 10)
+        damageAndReductionPercentage[0] = inflictedDamage;
+
         return damageAndReductionPercentage;
     }
 
