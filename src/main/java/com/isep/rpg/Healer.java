@@ -62,12 +62,16 @@ public class Healer extends SpellCaster
      *
      * @param target The Combattant to receive the heal
      * @return A 2-value array containing the damage applied and the mana cost of the spell
+     * @throws RuntimeException if the spell cannot be cast
      */
     @Override
     public int[] castSpell(Combatant target)
     {
         if(!target.isAlive())
             throw new RuntimeException("You can't heal a dead combattant !");
+
+        if(this.mana < this.spellManaCost)
+            throw new RuntimeException("You don't have enough mana !");
 
         // Updating the mana amount
         int mana = this.mana - this.spellManaCost;

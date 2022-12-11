@@ -146,11 +146,18 @@ public class Game
                                 continue;
                             }
 
-                            combatantTarget = this.inputParser.chooseCombatantTarget(this.combatants);
-                            damageOrHealAndManaCost = ((SpellCaster) hero).castSpell(combatantTarget);
-                            damageOrHeal = damageOrHealAndManaCost[0];
-                            manaCost = damageOrHealAndManaCost[1];
-                            this.outputManager.displayCastSpellMessage((SpellCaster) hero, combatantTarget, damageOrHeal, manaCost);
+                            try {
+                                combatantTarget = this.inputParser.chooseCombatantTarget(this.combatants);
+                                damageOrHealAndManaCost = ((SpellCaster) hero).castSpell(combatantTarget);
+                                damageOrHeal = damageOrHealAndManaCost[0];
+                                manaCost = damageOrHealAndManaCost[1];
+                                this.outputManager.displayCastSpellMessage((SpellCaster) hero, combatantTarget, damageOrHeal, manaCost);
+                            }
+                            catch(RuntimeException e) {
+                                this.outputManager.displayErrorMessage(e.getMessage());
+                                repeat = true;
+                                continue;
+                            }
 
                             // If the Combatant dies from the attack, it is removed from the heroes or combatants list
                             if(!(combatantTarget.isAlive()))

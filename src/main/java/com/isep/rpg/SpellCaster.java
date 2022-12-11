@@ -64,5 +64,5 @@ public abstract class SpellCaster extends Hero
         return s.toString();
     }
 
-    abstract int[] castSpell(Combatant combatant);
+    abstract int[] castSpell(Combatant combatant) throws RuntimeException;
 }

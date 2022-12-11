@@ -63,12 +63,16 @@ public class Mage extends SpellCaster
      *
      * @param target The Combattant to receive the damage
      * @return A 2-value array containing the damage applied and the mana cost of the spell
+     * @throws RuntimeException if the spell cannot be cast
      */
     @Override
-    public int[] castSpell(Combatant target)
+    public int[] castSpell(Combatant target) throws RuntimeException
     {
         if(!target.isAlive())
             throw new RuntimeException("You can't attack a dead combatant !");
+
+        if(this.mana < this.spellManaCost)
+            throw new RuntimeException("You don't have enough mana !");
 
         // Calculating damage output
         int damage;
