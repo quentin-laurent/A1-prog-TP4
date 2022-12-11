@@ -143,6 +143,7 @@ public class Game
                             {
                                 this.outputManager.displayErrorMessage("You don't know any spell ! (not a SpellCaster)");
                                 repeat = true;
+                                continue;
                             }
 
                             combatantTarget = this.inputParser.chooseCombatantTarget(this.combatants);
