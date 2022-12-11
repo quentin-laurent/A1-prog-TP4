@@ -70,9 +70,12 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
-    public void displayEndScreen()
+    public void displayEndScreen(boolean victory)
     {
-        System.out.println("==== END ====");
+        if(victory)
+            System.out.println("==== VICTORY ====");
+        else
+            System.out.println("==== DEFEAT ====");
     }
 
     @Override

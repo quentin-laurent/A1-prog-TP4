@@ -94,6 +94,7 @@ public interface OutputManager
 
     /**
      * Displays the end screen of the current {@link Game}
+     * @param victory A boolean indicating if the player won
      */
-    public void displayEndScreen();
+    public void displayEndScreen(boolean victory);
 }

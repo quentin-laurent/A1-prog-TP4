@@ -47,7 +47,7 @@ public class Game
         this.initializeHeroes();
         for(int i = 1; i <= Game.NUMBER_OF_STAGES; i++)
             this.playStage(i);
-        this.outputManager.displayEndScreen();
+        this.outputManager.displayEndScreen((this.oneHeroIsAlive() && !(this.oneEnemyIsAlive())));
     }
 
     /**
