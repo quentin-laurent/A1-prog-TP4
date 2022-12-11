@@ -14,7 +14,7 @@ public class Warrior extends Hero
      */
     public Warrior(String name)
     {
-        super(name, Hunter.BASE_DAMAGE, Warrior.BASE_HP, Warrior.BASE_HP);
+        super(name, Warrior.BASE_DAMAGE, Warrior.BASE_HP, Warrior.BASE_HP);
     }
 
     /**
