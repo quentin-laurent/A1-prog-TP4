@@ -9,6 +9,10 @@ import jdk.jshell.spi.ExecutionControl;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * An implementation of the {@link InputParser} interface that uses a graphical user interface (a.k.a a GUI)
+ * to parse the inputs of the player.
+ */
 public class GUIParser implements InputParser
 {
     // Methods

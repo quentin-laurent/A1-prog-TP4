@@ -1,16 +1,18 @@
 package com.isep.rpg;
 
+/**
+ * A class representing a hunter: a specific type of {@link Hero} that has the ability to attack using {@link Arrow}s.
+ */
 public class Hunter extends Hero
 {
     // Attributes
     public static final int BASE_HP = 125;
     public static final int BASE_DAMAGE = 15;
 
-    // Constructor
-
+    // Constructors
     /**
-     * Creates a Hunter with the default values for hp
-     * @param name The name of the Hunter
+     * Creates a new {@link Hunter} with the specified name and all values set to default.
+     * @param name The name of the hunter.
      */
     public Hunter(String name)
     {
@@ -18,19 +20,18 @@ public class Hunter extends Hero
     }
 
     /**
-     * Creates a Hunter by specifying all its attributes
-     * @param name The name of the Hunter
-     * @param baseDamage The base damage value
-     * @param maxHP The maximum hp value
-     * @param hp The current hp value
+     * Creates a new {@link Hunter}.
+     * @param name The name of the hunter.
+     * @param baseDamage The base damage inflicted by the hunter on each attack.
+     * @param maxHP The maximum hp of the hunter.
+     * @param hp The current hp of the hunter.
      */
     public Hunter(String name, int baseDamage, int maxHP, int hp)
     {
         super(name, baseDamage, maxHP, hp);
     }
 
-    // Metmods
-
+    // Methods
     @Override
     public int[] attack(Enemy enemy)
     {
@@ -55,6 +56,11 @@ public class Hunter extends Hero
      * Indicates if the Hero's items map contains at least one arrow
      * @return True if at least one arrow in contained in the Hero's items map, false otherwise
      */
+    /**
+     * Indicates if this {@link Hunter} has at least one {@link Arrow} in its inventory.
+     * @return true, if this {@link Hunter} has at least one {@link Arrow} in its inventory, false otherwise.
+     */
+    //TODO: rename method to hasAnyArrow
     private boolean hasArrow()
     {
         for(var entry: this.items.entrySet())
@@ -66,8 +72,9 @@ public class Hunter extends Hero
     }
 
     /**
-     * Finds the first available arrow in the Hero's items map and decreases its quantity by 1.
-     * If the quantity reaches 0, the arrow entry is removed from the map.
+     * Finds the first available {@link Arrow} in this {@link Hunter}'s inventory and uses it.
+     * The quantity of the {@link Arrow} is updated consequently.
+     * If the quantity reaches 0, the {@link Arrow} is removed from the {@link Hunter}'s inventory.
      */
     private void useArrow()
     {

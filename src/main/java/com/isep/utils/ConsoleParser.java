@@ -5,6 +5,10 @@ import jdk.jshell.spi.ExecutionControl;
 
 import java.util.*;
 
+/**
+ * An implementation of the {@link InputParser} interface that uses the standard input (a.k.a console or terminal)
+ * to parse the inputs of the player.
+ */
 public class ConsoleParser implements InputParser
 {
     // Attributes
@@ -17,11 +21,6 @@ public class ConsoleParser implements InputParser
     }
 
     // Methods
-
-    /**
-     * Asks the user to provide the hero count through the standard input.
-     * @return A non-zero positive integer representing the hero count.
-     */
     @Override
     public int chooseHeroCount()
     {
@@ -38,10 +37,6 @@ public class ConsoleParser implements InputParser
         return heroCount;
     }
 
-    /**
-     * Asks the user to provide a name for a combattant through the standard input.
-     * @return A string representing the combattant name.
-     */
     @Override
     public String chooseCombatantName()
     {
@@ -58,10 +53,6 @@ public class ConsoleParser implements InputParser
         return name;
     }
 
-    /**
-     * Asks the user to provide a valid hero class through the standard input.
-     * @return A string representing the hero class.
-     */
     @Override
     public String chooseHeroClass()
     {
@@ -241,14 +232,16 @@ public class ConsoleParser implements InputParser
         return combatants.get(index);
     }
 
+    //TODO: to remove. this is not necessary as this instance will die as soon as the game ends
     public void closeScanner()
     {
         this.sc.close();
     }
 
     /**
-     * Gets an integer provided by the user though the standard input
-     * @return An integer provided though the standard input
+     * Asks the player to provide an integer though the standard input.
+     * This checks for {@link InputMismatchException}.
+     * @return The integer provided by the player.
      */
     private int getInt()
     {
@@ -275,8 +268,9 @@ public class ConsoleParser implements InputParser
     }
 
     /**
-     * Gets a string provided by the user though the standard input
-     * @return A string provided though the standard input
+     * Asks the player to provide a {@link String} though the standard input.
+     * This checks for {@link InputMismatchException}.
+     * @return The String provided by the player.
      */
     private String getString()
     {

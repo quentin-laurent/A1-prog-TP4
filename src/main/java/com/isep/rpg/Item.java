@@ -1,11 +1,19 @@
 package com.isep.rpg;
 
+/**
+ * An abstract class representing an item: something that a {@link Hero} can store in its inventory.
+ */
 public abstract class Item
 {
     // Attributes
     protected final String name;
 
     // Constructor
+
+    /**
+     * Creates a new {@link Item}.
+     * @param name The name of the item.
+     */
     public Item(String name)
     {
         this.name = name;

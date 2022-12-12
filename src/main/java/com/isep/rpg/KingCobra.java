@@ -1,6 +1,9 @@
 package com.isep.rpg;
 
-
+/**
+ * A class representing a king cobra: a specific type of {@link Enemy}.
+ * It is a very strong enemy that has high hp and very high damage.
+ */
 public class KingCobra extends Enemy
 {
     // Attributes
@@ -8,9 +11,8 @@ public class KingCobra extends Enemy
     public static final int BASE_DAMAGE = 50;
 
     // Constructors
-
     /**
-     * Creates a new {@link KingCobra} using all default values and the class name as its name.
+     * Creates a new {@link KingCobra} with all values set to default.
      */
     public KingCobra()
     {
@@ -18,8 +20,8 @@ public class KingCobra extends Enemy
     }
 
     /**
-     * Creates a new {@link KingCobra} using all default values.
-     * @param name The name of the new {@link KingCobra}.
+     * Creates a new {@link KingCobra} with the specified name and all values set to default.
+     * @param name The name of the king cobra.
      */
     public KingCobra(String name)
     {
@@ -28,10 +30,10 @@ public class KingCobra extends Enemy
 
     /**
      * Creates a new {@link KingCobra}.
-     * @param name The name of the new {@link KingCobra}.
-     * @param baseDamage The base damage value of the new {@link KingCobra}
-     * @param maxHp The maximum hp value of the new {@link KingCobra}.
-     * @param hp The hp value of the new {@link KingCobra}
+     * @param name The name of the king cobra.
+     * @param baseDamage The base damage inflicted by the king cobra on each attack.
+     * @param maxHp The maximum hp of the king cobra.
+     * @param hp The current hp of the king cobra.
      */
     public KingCobra(String name, int baseDamage, int maxHp, int hp)
     {

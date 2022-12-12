@@ -1,11 +1,20 @@
 package com.isep.rpg;
 
+/**
+ * A class representing a potion: a specific type of {@link Consumable} that restores mana.
+ * It can only be used by {@link SpellCaster}s.
+ */
 public class Potion extends Consumable
 {
     // Attributes
     private final int manaValue;
 
     // Constructor
+    /**
+     * Creates a new {@link Potion}.
+     * @param name The name of the potion.
+     * @param manaValue The amount of mana restored when consumed.
+     */
     public Potion(String name, int manaValue)
     {
         super(name);

@@ -3,6 +3,11 @@ package com.isep.rpg;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * An abstract class representing a hero: a specific type of {@link Combatant} that is controlled by the player.
+ * It has the ability to attack, defend itself, use spells (if available) or use {@link Item}s or
+ * {@link Consumable}s.
+ */
 public abstract class Hero extends Combatant
 {
     // Attributes
@@ -12,11 +17,11 @@ public abstract class Hero extends Combatant
 
     // Constructor
     /**
-     * Creates a new {@link Hero}
-     * @param name The name of the Hero
-     * @param baseDamage The base damage value
-     * @param maxHP The maximum hp value
-     * @param hp The hp value
+     * Creates a new {@link Hero}.
+     * @param name The name of the hero.
+     * @param baseDamage The base damage inflicted by the hero on each attack.
+     * @param maxHP The maximum hp of the hero.
+     * @param hp The current hp of the hero.
      */
     public Hero(String name, int baseDamage, int maxHP, int hp)
     {
@@ -41,11 +46,10 @@ public abstract class Hero extends Combatant
     }
 
     // Methods
-
     /**
-     * Adds an {@link Item} to the {@link Hero}'s inventory
-     * @param item The {@link Item} to add
-     * @param quantity The quantity of the {@link Item} to add
+     * Adds an {@link Item} to this {@link Hero}'s inventory.
+     * @param item The {@link Item} to add.
+     * @param quantity The quantity of the {@link Item} to add.
      */
     public void addItem(Item item, int quantity)
     {
@@ -53,9 +57,11 @@ public abstract class Hero extends Combatant
     }
 
     /**
-     * Consumes a {@link Consumable} on a {@link Hero} and updates its inventory
-     * @param consumable The {@link Consumable} to consume
-     * @return The value of the applied effect
+     * Consumes a {@link Consumable} of this {@link Hero}'s inventory.
+     * This amount of the consumed {@link Consumable} is updated in the inventory.
+     * @param consumable The {@link Consumable} to consume.
+     * @return The value of the applied effect (e.g. the amount of hp/mana restored).
+     * @throws RuntimeException if the {@link Consumable} cannot be consumed.
      */
     public int consumeItem(Consumable consumable) throws RuntimeException
     {
@@ -74,6 +80,10 @@ public abstract class Hero extends Combatant
         return appliedEffectValue;
     }
 
+    /**
+     * Indicates if this {@link Hero} has any consumable item in its inventory.
+     * @return true if this {@link Hero} has at least one {@link Consumable} in its inventory, false otherwise.
+     */
     public boolean hasAnyConsumableItem()
     {
         for(var entry: this.items.entrySet())
@@ -96,5 +106,8 @@ public abstract class Hero extends Combatant
         return s.toString();
     }
 
+    //TODO: implemetend method body here instead of implementing it on subclasses
+    // (this method used to use sublasses-specific attributes but doesn't anymore, it can be moved up here)
+    //TODO: add a message indicating the weapon used by the hero
     abstract int[] attack(Enemy enemy);
 }

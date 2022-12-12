@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Random;
 
+/**
+ * An abstract class representing a combatant: an entity of the {@link Game} that has different attributes
+ * and is able to perform different actions such as attacking, defending, using {@link Consumable}s etc.
+ */
 public abstract class Combatant
 {
     // Attributes
@@ -17,13 +21,12 @@ public abstract class Combatant
     private static final int DEFEND_MAX_REDUCTION = 50;
 
     // Constructor
-
     /**
-     * Creates a new {@link Combatant}
-     * @param name The name of the Combatant
-     * @param baseDamage The base damage value
-     * @param maxHP The maximum hp value
-     * @param hp The hp value
+     * Creates a new {@link Combatant}.
+     * @param name The name of the combatant.
+     * @param baseDamage The base damage inflicted by the combatant on each attack.
+     * @param maxHP The maximum hp of the combatant.
+     * @param hp The current hp of the combatant.
      */
     public Combatant(String name, int baseDamage, int maxHP, int hp)
     {
@@ -34,7 +37,6 @@ public abstract class Combatant
     }
 
     // Getters & Setters
-
     public String getName()
     {
         return this.name;
@@ -71,10 +73,9 @@ public abstract class Combatant
     }
 
     // Methods
-
-    /***
-     * Indicates if the current Combattant is alive
-     * @return true if the current Combattant is alive, false otherwise
+    /**
+     * Indicates if this {@link Combatant} is alive.
+     * @return true if this {@link Combatant} is alive, false otherwise.
      */
     public boolean isAlive()
     {
@@ -82,9 +83,9 @@ public abstract class Combatant
     }
 
     /**
-     * Applies damage to the Combattant
-     * @param damage The damage to applu to the Combattant
-     * @return An 2-value array containing the damage applied and the damage reduction percentage applied
+     * Applies damage to this {@link Combatant}.
+     * @param damage The damage to apply to this {@link Combatant}.
+     * @return A 2-value array containing the damage applied and the damage reduction percentage applied.
      */
     public int[] applyDamage(int damage)
     {
@@ -119,10 +120,11 @@ public abstract class Combatant
     }
 
     /**
-     * Adds hp to a {@link Combatant}
-     * @param heal The hp amount to add to the {@link Combatant}
-     * @return The heal applied
+     * Restores hp to this {@link Combatant}.
+     * @param heal The amount of hp to restore.
+     * @return The actual amount of hp restored.
      */
+    //TODO: rename method to restoreHp and rename param to healValue
     public int applyHeal(int heal)
     {
         int initialHp = this.hp;
@@ -135,8 +137,8 @@ public abstract class Combatant
     }
 
     /**
-     * Reduces the damage inflicted by the next attack randomly from {@value DEFEND_MIN_REDUCTION}% to {@value DEFEND_MAX_REDUCTION}%.
-     * This method sets the "defend" boolean to true
+     * Enables this @{@link Combatant} to reduce the damage of the next attack from {@value DEFEND_MIN_REDUCTION}%
+     * to {@value DEFEND_MAX_REDUCTION}%.
      */
     public void defend()
     {
@@ -144,9 +146,11 @@ public abstract class Combatant
     }
 
     /**
-     * Calculates the percentage to be used in the {@link #calculateDefendDamageMultiplier(int)} method.
-     * @return An integer between {@value DEFEND_MIN_REDUCTION} and {@value DEFEND_MAX_REDUCTION} representing the percentage of damage to be absorbed by the combatant.
+     * Calculates the percentage to be used in the {@link #calculateDefendDamageMultiplier} method.
+     * @return An integer between {@value DEFEND_MIN_REDUCTION} and {@value DEFEND_MAX_REDUCTION} representing
+     * the damage reduction percentage.
      */
+    //TODO: rename method to calculateDamageReductionPercentage
     private int calculateDefendReductionPercentage()
     {
         Random random = new Random();
@@ -155,10 +159,12 @@ public abstract class Combatant
     }
 
     /**
-     * Converts a damage reduction percentage to a float value to be used as a multiplier.
-     * @param reductionPercentage The reduction percentage to apply to the damage.
-     * @return A float to be used as a multiplier with the damage taken by the combatant.
+     * Converts a damage reduction percentage (int) to a damage multiplier (float).
+     * @param reductionPercentage The damage reduction percentage to convert.
+     * @return The calculated damage multiplier.
      */
+    //TODO: rename method to calculateDamageMultiplier
+    //TODO: change param name to damageReductionPercentage
     private float calculateDefendDamageMultiplier(int reductionPercentage)
     {
         BigDecimal damageMultiplier = BigDecimal.valueOf(1 - (reductionPercentage / 100f));

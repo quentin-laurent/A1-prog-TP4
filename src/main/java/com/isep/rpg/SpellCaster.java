@@ -1,5 +1,8 @@
 package com.isep.rpg;
 
+/**
+ * An abstract class representing a spell caster: a specific type of {@link Healer} that has the ability to use spells.
+ */
 public abstract class SpellCaster extends Hero
 {
     // Attributes
@@ -8,16 +11,15 @@ public abstract class SpellCaster extends Hero
     protected int spellManaCost;
 
     // Constructor
-
     /**
-     * Creates a new {@link SpellCaster}
-     * @param name The name of the SpellCaster
-     * @param baseDamage The base damage value
-     * @param maxHP The maximum hp value
-     * @param hp The hp value
-     * @param maxMana The maximum mana value
-     * @param mana The mana value
-     * @param spellManaCost The mana cost of the {@link SpellCaster}'s spell
+     * Creates a new {@link SpellCaster}.
+     * @param name The name of the spell caster.
+     * @param baseDamage The base damage inflicted by the spell caster on each attack.
+     * @param maxHP The maximum hp of the spell caster.
+     * @param hp The current hp of the spell caster.
+     * @param maxMana The maximum mana of the spell caster.
+     * @param mana The current mana of the spell caster.
+     * @param spellManaCost The mana cost of the spell caster's spell.
      */
     public SpellCaster(String name, int baseDamage, int maxHP, int hp, int maxMana, int mana, int spellManaCost)
     {
@@ -49,11 +51,10 @@ public abstract class SpellCaster extends Hero
     }
 
     // Methods
-
     /**
-     * Restores the mana of the SpellCaster
-     * @param mana The mana amount to restore
-     * @return The mana restored
+     * Restores the mana of this {@link SpellCaster}.
+     * @param mana The amount of mana to restore.
+     * @return The actual amount of mana restored.
      */
     public int restoreMana(int mana)
     {

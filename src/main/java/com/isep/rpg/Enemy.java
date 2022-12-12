@@ -1,16 +1,18 @@
 package com.isep.rpg;
 
-
+/**
+ * An abstract class representing an enemy: a specific type of {@link Combatant} that cannot be controlled
+ * by the player. It has the ability to attack or defend itself.
+ */
 public abstract class Enemy extends Combatant
 {
     // Constructor
-
     /**
-     * Creates a new {@link Enemy}
-     * @param name The name of the Enemy
-     * @param baseDamage The base damage value
-     * @param maxHP The maximum hp value
-     * @param hp The hp value
+     * Creates a new {@link Enemy}.
+     * @param name The name of the enemy.
+     * @param baseDamage The base damage inflicted by the enemy of each attack.
+     * @param maxHP The maximum hp of the enemy.
+     * @param hp The current hp of the enemy.
      */
     public Enemy(String name, int baseDamage, int maxHP, int hp)
     {

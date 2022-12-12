@@ -1,16 +1,18 @@
 package com.isep.rpg;
 
-
+/**
+ * A class representing a snake: a specific type of {@link Enemy}.
+ * It is a relatively strong enemy that has low hp but high damage.
+ */
 public class Snake extends Enemy
 {
     // Attributes
     public static final int BASE_HP = 15;
     public static final int BASE_DAMAGE = 30;
 
-    // Constructor
-
+    // Constructors
     /**
-     * Creates a new {@link Snake} using all default values and the class name as its name.
+     * Creates a new {@link Snake} with all values set to default.
      */
     public Snake()
     {
@@ -18,8 +20,8 @@ public class Snake extends Enemy
     }
 
     /**
-     * Creates a new {@link Snake} using all default values.
-     * @param name The name of the new {@link Snake}.
+     * Creates a new {@link Snake} with the specified name and all values set to default.
+     * @param name The name of the snake.
      */
     public Snake(String name)
     {
@@ -28,10 +30,10 @@ public class Snake extends Enemy
 
     /**
      * Creates a new {@link Snake}.
-     * @param name The name of the new {@link Snake}.
-     * @param baseDamage The base damage value of the new {@link Snake}
-     * @param maxHp The maximum hp value of the new {@link Snake}.
-     * @param hp The hp value of the new {@link Snake}
+     * @param name The name of the snake.
+     * @param baseDamage The base damage inflicted by the snake on each attack.
+     * @param maxHp The maximum hp of the snake.
+     * @param hp The current hp of the snake.
      */
     public Snake(String name, int baseDamage, int maxHp, int hp)
     {

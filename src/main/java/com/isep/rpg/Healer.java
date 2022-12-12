@@ -1,5 +1,9 @@
 package com.isep.rpg;
 
+/**
+ * A class representing a healer: a specific type of {@link SpellCaster} that has the ability to use spells to heal
+ * any {@link Combatant}.
+ */
 public class Healer extends SpellCaster
 {
     // Attributes
@@ -11,11 +15,10 @@ public class Healer extends SpellCaster
     public static final int BASE_SPELL_HEAL = 30;
     public static final int SPELL_MANA_COST = 30;
 
-    // Constructor
-
+    // Constructors
     /**
-     * Creates a Healer with the default values for hp and mana
-     * @param name The name of the Healer
+     * Creates a new {@link Healer} with the specified name and all values set to default.
+     * @param name The name of the healer.
      */
     public Healer(String name)
     {
@@ -24,13 +27,13 @@ public class Healer extends SpellCaster
     }
 
     /**
-     * Creates a Healer by specifying all its attributes
-     * @param name The name of the Healer
-     * @param baseDamage The base damage value
-     * @param maxHP The maximum hp value
-     * @param hp The current hp value
-     * @param maxMana The maximum mana value
-     * @param mana The current mana value
+     * Creates a new {@link Healer}.
+     * @param name The name of the healer.
+     * @param baseDamage The base damage inflicted by the healer on each attack.
+     * @param maxHP The maximum hp of the healer.
+     * @param hp The current hp of the healer.
+     * @param maxMana The maximum mana of the healer.
+     * @param mana The current mana of the healer.
      */
     public Healer(String name, int baseDamage, int maxHP, int hp, int maxMana, int mana)
     {
@@ -49,8 +52,7 @@ public class Healer extends SpellCaster
         this.baseSpellHeal = baseSpellHeal;
     }
 
-    // Metmods
-
+    // Methods
     @Override
     public int[] attack(Enemy enemy)
     {
@@ -69,11 +71,10 @@ public class Healer extends SpellCaster
     }
 
     /**
-     * Heals the target
-     *
-     * @param target The Combattant to receive the heal
-     * @return A 2-value array containing the damage applied and the mana cost of the spell
-     * @throws RuntimeException if the spell cannot be cast
+     * Heals the specified target.
+     * @param target The {@link Combatant} to heal.
+     * @return The amount of hp restored.
+     * @throws RuntimeException if the healing spell cannot be cast.
      */
     @Override
     public int[] castSpell(Combatant target)

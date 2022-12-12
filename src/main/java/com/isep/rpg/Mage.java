@@ -1,5 +1,9 @@
 package com.isep.rpg;
 
+/**
+ * A class representing a mage: a specific type of {@link SpellCaster} that has the ability to use spells to inflict damage
+ * on any {@link Combatant};
+ */
 public class Mage extends SpellCaster
 {
     // Attributes
@@ -11,11 +15,10 @@ public class Mage extends SpellCaster
     public static final int BASE_SPELL_DAMAGE = 25;
     public static final int SPELL_MANA_COST = 40;
 
-    // Constructor
-
+    // Constructors
     /**
-     * Creates a Mage with the default values for hp and mana
-     * @param name The name of the Mage
+     * Creates a new {@link Mage} with the specified name and all values set to default.
+     * @param name The name of the mage.
      */
     public Mage(String name)
     {
@@ -24,13 +27,13 @@ public class Mage extends SpellCaster
     }
 
     /**
-     * Creates a Mage by specifying all its attributes
-     * @param name The name of the Mage
-     * @param baseDamage The base damage value
-     * @param maxHP The maximum hp value
-     * @param hp The current hp value
-     * @param maxMana The maximum mana value
-     * @param mana The current mana value
+     * Creates a new {@link Mage}.
+     * @param name The name of the mage.
+     * @param baseDamage The base damage inflicted by the mage on each attack.
+     * @param maxHP The maximum hp of the mage.
+     * @param hp The current hp of the mage.
+     * @param maxMana The maximum mana of the mage.
+     * @param mana The current mana of the mage.
      */
     public Mage(String name, int baseDamage, int maxHP, int hp, int maxMana, int mana)
     {
@@ -39,7 +42,6 @@ public class Mage extends SpellCaster
     }
 
     // Getters & Setters
-
     public int getBaseSpellDamage()
     {
         return this.baseSpellDamage;
@@ -50,8 +52,7 @@ public class Mage extends SpellCaster
         this.baseSpellDamage = baseSpellDamage;
     }
 
-    // Metmods
-
+    // Methods
     @Override
     public int[] attack(Enemy enemy)
     {
@@ -71,11 +72,10 @@ public class Mage extends SpellCaster
     }
 
     /**
-     * Applies damage to the target using mana
-     *
-     * @param target The Combattant to receive the damage
-     * @return A 2-value array containing the damage applied and the mana cost of the spell
-     * @throws RuntimeException if the spell cannot be cast
+     * Inflicts damage to the specified target.
+     * @param target The {@link Combatant} to attack.
+     * @return The damage inflicted.
+     * @throws RuntimeException if the attack spell cannot be cast.
      */
     @Override
     public int[] castSpell(Combatant target) throws RuntimeException

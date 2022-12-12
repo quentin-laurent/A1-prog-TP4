@@ -1,6 +1,9 @@
 package com.isep.rpg;
 
-
+/**
+ * A class representing a boar: a specific type of {@link Enemy}.
+ * It is a relatively weak enemy that has both low hp and damage.
+ */
 public class Boar extends Enemy
 {
     // Attributes
@@ -8,9 +11,8 @@ public class Boar extends Enemy
     public static final int BASE_DAMAGE = 8;
 
     // Constructors
-
     /**
-     * Creates a new {@link Boar} using all default values and the class name as its name.
+     * Creates a new {@link Boar} with all values set to default.
      */
     public Boar()
     {
@@ -18,8 +20,8 @@ public class Boar extends Enemy
     }
 
     /**
-     * Creates a new {@link Boar} using all default values.
-     * @param name The name of the new {@link Boar}.
+     * Creates a new {@link Boar} with the specified name and all values set to default.
+     * @param name The name of the boar.
      */
     public Boar(String name)
     {
@@ -28,10 +30,10 @@ public class Boar extends Enemy
 
     /**
      * Creates a new {@link Boar}.
-     * @param name The name of the new {@link Boar}.
-     * @param baseDamage The base damage value of the new {@link Boar}
-     * @param maxHp The maximum hp value of the new {@link Boar}.
-     * @param hp The hp value of the new {@link Boar}
+     * @param name The name of the boar.
+     * @param baseDamage The base damage inflicted by the boar on each attack.
+     * @param maxHp The maximum hp of the boar.
+     * @param hp The current hp of the boar.
      */
     public Boar(String name, int baseDamage, int maxHp, int hp)
     {

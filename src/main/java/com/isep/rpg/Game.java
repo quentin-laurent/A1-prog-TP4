@@ -9,6 +9,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * A class representing a game. A game consists of a chosen amount of stages, in which a team of {@link Hero}es
+ * (controlled by the player) are facing a team of {@link Enemy} (controlled automatically).
+ */
 public class Game
 {
     // Attributes
@@ -22,10 +26,9 @@ public class Game
     private static final int NUMBER_OF_STAGES = 5;
 
     // Constructor
-
     /**
-     * Creates a new Game with the provided InputParser
-     * @param inputParser The {@link  InputParser} to be used in the {@link Game}
+     * Creates a new {@link Game} with the provided {@link InputParser}.
+     * @param inputParser The {@link InputParser} to be used to parse the actions of the player during the game.
      */
     public Game(InputParser inputParser, OutputManager outputManager)
     {
@@ -37,9 +40,8 @@ public class Game
     }
 
     // Methods
-
     /**
-     * Launches the {@link Game} and
+     * Starts the {@link Game}: each stage is played successively.
      * @throws ExecutionControl.NotImplementedException
      */
     public void play() throws ExecutionControl.NotImplementedException
@@ -51,7 +53,8 @@ public class Game
     }
 
     /**
-     * Plays an entire stage of the game, which is made of multiple rounds
+     * Plays an entire stage of the game, which is itself made of multiple rounds.
+     * @param stageNumber The stage number.
      */
     private void playStage(int stageNumber) throws ExecutionControl.NotImplementedException
     {
@@ -84,8 +87,10 @@ public class Game
     }
 
     /**
-     * Plays a single iteration of the stage (aka a round)
-     * Each {@link Combatant} will have the opportunity to attack/defend/use a consumable
+     * Plays an entire round of a stage. This represents the smallest iteration happening in the game.
+     * During a round, each {@link Combatant} will play in a randomly determined order.
+     * @param roundNumber The round number.
+     * @throws ExecutionControl.NotImplementedException
      */
     private void playRound(int roundNumber) throws ExecutionControl.NotImplementedException
     {
@@ -237,8 +242,8 @@ public class Game
     }
 
     /**
-     * Indicates if at least on {@link Hero} is alive
-     * @return True if at least one {@link Hero} is alive, false otherwise
+     * Indicates if at least one {@link Hero} is alive.
+     * @return true if at least one {@link Hero} is alive, false otherwise.
      */
     private boolean oneHeroIsAlive()
     {
@@ -246,8 +251,8 @@ public class Game
     }
 
     /**
-     * Indicates if at least one {@link Enemy} is alive
-     * @return True if at least one {@link Enemy} is alive, false otherwise
+     * Indicates if at least one {@link Enemy} is alive.
+     * @return True if at least one {@link Enemy} is alive, false otherwise.
      */
     private boolean oneEnemyIsAlive()
     {
@@ -255,7 +260,9 @@ public class Game
     }
 
     /**
-     * Offers each {@link Hero} the possibility to choose an upgrade
+     * Plays the "upgrade" part of the stage, in which each {@link Hero} is given a possibility to choose
+     * an upgrade from a list.
+     * @throws ExecutionControl.NotImplementedException
      */
     private void upgradeHeroes() throws ExecutionControl.NotImplementedException
     {
@@ -314,7 +321,7 @@ public class Game
     }
 
     /**
-     * Generates and distributes the loot earned at the end of a stage to each {@link Hero}
+     * Generates and distributes the loot earned at the end of a stage to each {@link Hero}.
      */
     private void distributeLoot()
     {
@@ -327,8 +334,10 @@ public class Game
     }
 
     /**
-     * Generates a random {@link Item}
-     * This is used to generate the loot given to each {@link Hero} at the end of a stage
+     * Generates a random {@link Item}.
+     * This is used to generate the loot given to each {@link Hero} at the end of a stage.
+     * @return The generated item.
+     * @see #distributeLoot()
      */
     private Item generateItem()
     {
@@ -359,7 +368,8 @@ public class Game
     }
 
     /**
-     * Creates the {@link Enemy} instances (randomly) that are going to participate in a stage
+     * Creates a list of random {@link Enemy} that are going to face the player's {@link Hero}es in a stage.
+     * For each {@link Hero} in the game, one {@link Enemy} is generated.
      */
     private void generateEnemies()
     {
@@ -376,7 +386,7 @@ public class Game
     }
 
     /**
-     * Creates a single {@link Enemy} instance which is the final boss of the current {@link Game}
+     * Creates a single {@link Enemy} which is the final boss of this {@link Game}.
      */
     private void generateBoss()
     {
@@ -385,7 +395,8 @@ public class Game
     }
 
     /**
-     * Creates the instances of the {@link Hero}es that are going to participate in the {@link Game}
+     * Creates a list of random {@link Hero}es that are going to face the {@link Enemy}s in a stage.
+     * Each {@link Hero} is created by the player.
      */
     private void initializeHeroes() throws ExecutionControl.NotImplementedException
     {
