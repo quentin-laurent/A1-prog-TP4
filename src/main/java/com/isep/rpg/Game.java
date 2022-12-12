@@ -323,7 +323,7 @@ public class Game
     /**
      * Generates and distributes the loot earned at the end of a stage to each {@link Hero}.
      */
-    private void distributeLoot()
+    private void distributeLoot() throws ExecutionControl.NotImplementedException
     {
         for(Hero hero: heroes)
         {
