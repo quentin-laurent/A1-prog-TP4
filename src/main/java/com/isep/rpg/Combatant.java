@@ -1,5 +1,7 @@
 package com.isep.rpg;
 
+import com.isep.rpg.items.consumables.Consumable;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Random;

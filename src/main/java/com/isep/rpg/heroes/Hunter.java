@@ -1,4 +1,7 @@
-package com.isep.rpg;
+package com.isep.rpg.heroes;
+
+import com.isep.rpg.items.Arrow;
+import com.isep.rpg.enemies.Enemy;
 
 /**
  * A class representing a hunter: a specific type of {@link Hero} that has the ability to attack using {@link Arrow}s.

@@ -1,4 +1,6 @@
-package com.isep.rpg;
+package com.isep.rpg.heroes;
+
+import com.isep.rpg.Combatant;
 
 /**
  * An abstract class representing a spell caster: a specific type of {@link Healer} that has the ability to use spells.
@@ -83,5 +85,5 @@ public abstract class SpellCaster extends Hero
         return s.toString();
     }
 
-    abstract int[] castSpell(Combatant combatant) throws RuntimeException;
+    public abstract int[] castSpell(Combatant combatant) throws RuntimeException;
 }

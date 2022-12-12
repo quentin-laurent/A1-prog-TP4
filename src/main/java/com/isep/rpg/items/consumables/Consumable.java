@@ -1,4 +1,7 @@
-package com.isep.rpg;
+package com.isep.rpg.items.consumables;
+
+import com.isep.rpg.heroes.Hero;
+import com.isep.rpg.items.Item;
 
 /**
  * An abstract class representing a consumable: a specific type of {@link Item} that can be consumed by a {@link Hero}
@@ -23,5 +26,5 @@ public abstract class Consumable extends Item
      * @return The numeric value of the applied effect (e.g. the amount of health or mana restored).
      * @throws RuntimeException if the effect of this consumable cannot be applied to the target.
      */
-    abstract int applyEffect(Hero target) throws RuntimeException;
+    public abstract int applyEffect(Hero target) throws RuntimeException;
 }

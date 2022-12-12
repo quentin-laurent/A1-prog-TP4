@@ -1,4 +1,7 @@
-package com.isep.rpg;
+package com.isep.rpg.enemies;
+
+import com.isep.rpg.Combatant;
+import com.isep.rpg.heroes.Hero;
 
 /**
  * An abstract class representing an enemy: a specific type of {@link Combatant} that cannot be controlled
@@ -20,7 +23,8 @@ public abstract class Enemy extends Combatant
     }
 
     // Methods
-    abstract int[] attack(Hero hero);
+    //TODO: add method implemented here instead than in subclasses (same reason that for Hero)
+    public abstract int[] attack(Hero hero);
 
     @Override
     public String toString()

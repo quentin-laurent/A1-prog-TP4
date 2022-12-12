@@ -1,4 +1,7 @@
-package com.isep.rpg;
+package com.isep.rpg.heroes;
+
+import com.isep.rpg.Combatant;
+import com.isep.rpg.enemies.Enemy;
 
 /**
  * A class representing a mage: a specific type of {@link SpellCaster} that has the ability to use spells to inflict damage

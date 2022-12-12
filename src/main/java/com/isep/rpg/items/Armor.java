@@ -1,4 +1,6 @@
-package com.isep.rpg;
+package com.isep.rpg.items;
+
+import com.isep.rpg.heroes.Hero;
 
 /**
  * A class representing an armor: a specific type of {@link Item} that can be equipped by a {@link Hero}

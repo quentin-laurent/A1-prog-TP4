@@ -1,4 +1,6 @@
-package com.isep.rpg;
+package com.isep.rpg.items;
+
+import com.isep.rpg.heroes.Hero;
 
 /**
  * An abstract class representing an item: something that a {@link Hero} can store in its inventory.

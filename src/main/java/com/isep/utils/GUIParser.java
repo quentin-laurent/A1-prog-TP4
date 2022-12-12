@@ -1,9 +1,9 @@
 package com.isep.utils;
 
 import com.isep.rpg.Combatant;
-import com.isep.rpg.Consumable;
-import com.isep.rpg.Enemy;
-import com.isep.rpg.Item;
+import com.isep.rpg.items.consumables.Consumable;
+import com.isep.rpg.enemies.Enemy;
+import com.isep.rpg.items.Item;
 import jdk.jshell.spi.ExecutionControl;
 
 import java.util.List;

@@ -1,6 +1,9 @@
 package com.isep.utils;
 
-import com.isep.rpg.*;
+import com.isep.rpg.enemies.Boar;
+import com.isep.rpg.enemies.Enemy;
+import com.isep.rpg.enemies.Snake;
+import com.isep.rpg.heroes.*;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;

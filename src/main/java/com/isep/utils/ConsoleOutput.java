@@ -1,6 +1,15 @@
 package com.isep.utils;
 
 import com.isep.rpg.*;
+import com.isep.rpg.enemies.Enemy;
+import com.isep.rpg.heroes.Healer;
+import com.isep.rpg.heroes.Hero;
+import com.isep.rpg.heroes.Mage;
+import com.isep.rpg.heroes.SpellCaster;
+import com.isep.rpg.items.consumables.Consumable;
+import com.isep.rpg.items.consumables.Food;
+import com.isep.rpg.items.Item;
+import com.isep.rpg.items.consumables.Potion;
 
 import java.util.Collection;
 

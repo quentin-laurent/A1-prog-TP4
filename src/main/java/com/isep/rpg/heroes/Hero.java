@@ -1,4 +1,11 @@
-package com.isep.rpg;
+package com.isep.rpg.heroes;
+
+import com.isep.rpg.Combatant;
+import com.isep.rpg.enemies.Enemy;
+import com.isep.rpg.items.Armor;
+import com.isep.rpg.items.consumables.Consumable;
+import com.isep.rpg.items.Item;
+import com.isep.rpg.items.Weapon;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -109,5 +116,5 @@ public abstract class Hero extends Combatant
     //TODO: implemetend method body here instead of implementing it on subclasses
     // (this method used to use sublasses-specific attributes but doesn't anymore, it can be moved up here)
     //TODO: add a message indicating the weapon used by the hero
-    abstract int[] attack(Enemy enemy);
+    public abstract int[] attack(Enemy enemy);
 }

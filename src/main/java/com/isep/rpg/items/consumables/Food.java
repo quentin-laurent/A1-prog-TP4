@@ -1,4 +1,6 @@
-package com.isep.rpg;
+package com.isep.rpg.items.consumables;
+
+import com.isep.rpg.heroes.Hero;
 
 /**
  * A class representing a food item: a specific type of {@link Consumable} that restores hp.

@@ -1,4 +1,6 @@
-package com.isep.rpg;
+package com.isep.rpg.heroes;
+
+import com.isep.rpg.enemies.Enemy;
 
 /**
  * A class representing a warrior: a specific type of {@link Hero} that has a high damage potential.

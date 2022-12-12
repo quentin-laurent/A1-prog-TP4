@@ -1,5 +1,14 @@
 package com.isep.rpg;
 
+import com.isep.rpg.enemies.Boar;
+import com.isep.rpg.enemies.Enemy;
+import com.isep.rpg.enemies.KingCobra;
+import com.isep.rpg.enemies.Snake;
+import com.isep.rpg.heroes.*;
+import com.isep.rpg.items.*;
+import com.isep.rpg.items.consumables.Consumable;
+import com.isep.rpg.items.consumables.Food;
+import com.isep.rpg.items.consumables.Potion;
 import com.isep.utils.InputParser;
 import com.isep.utils.OutputManager;
 import jdk.jshell.spi.ExecutionControl;
@@ -418,8 +427,8 @@ public class Game
                 // TODO: give heroes items at the start of the game to adjust balance
                 case "hunter":
                     hero = new Hunter(heroName);
-                    hero.items.put(new Arrow("Wooden Arrow", 5), 4);
-                    hero.items.put(new Food("Apple", 10), 2);
+                    hero.getItems().put(new Arrow("Wooden Arrow", 5), 4);
+                    hero.getItems().put(new Food("Apple", 10), 2);
                     this.heroes.add(hero);
                     break;
                 case "warrior":

@@ -1,4 +1,7 @@
-package com.isep.rpg;
+package com.isep.rpg.items.consumables;
+
+import com.isep.rpg.heroes.Hero;
+import com.isep.rpg.heroes.SpellCaster;
 
 /**
  * A class representing a potion: a specific type of {@link Consumable} that restores mana.

@@ -1,4 +1,6 @@
-package com.isep.rpg;
+package com.isep.rpg.enemies;
+
+import com.isep.rpg.heroes.Hero;
 
 /**
  * A class representing a boar: a specific type of {@link Enemy}.

@@ -1,4 +1,6 @@
-package com.isep.rpg;
+package com.isep.rpg.items;
+
+import com.isep.rpg.heroes.Hunter;
 
 /**
  * A class representing an arrow: a specific type of {@link Item} that is required by a {@link Hunter} to attack.
