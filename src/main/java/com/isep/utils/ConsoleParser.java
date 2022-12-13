@@ -151,25 +151,24 @@ public class ConsoleParser implements InputParser
     public Consumable chooseConsumable(Map<Item, Integer> items)
     {
         // Building the items list to be displayed
-        StringBuilder s = new StringBuilder("[");
+        StringBuilder s = new StringBuilder("Inventory:\n");
         int i = 0;
         for(var entry: items.entrySet())
         {
-            s.append(String.format("[%d] %s (qty: %d) | ", i, entry.getKey().toString(), entry.getValue()));
+            s.append(String.format("[%d] %s x%d%n", i, entry.getKey().toString(), entry.getValue()));
             i++;
         }
 
-        int lastIndex = s.length();
-        s.replace(lastIndex - 3, lastIndex, "]");
-
         int index;
-        System.out.printf("Choose an item %s:%n", s.toString());
+        System.out.print(s);
+        System.out.print("Choose an item: ");
         index = this.getInt();
 
         while(index < 0 || index >= items.size())
         {
             System.out.println("You must choose a valid item (use the number between the brackets) !");
-            System.out.printf("Choose an item %s:%n", s.toString());
+            System.out.print(s);
+            System.out.print("Choose an item: ");
             index = this.getInt();
         }
 
@@ -199,24 +198,24 @@ public class ConsoleParser implements InputParser
     public Enemy chooseEnemyTarget(List<Enemy> enemies) throws ExecutionControl.NotImplementedException
     {
         // Building the enemies list to be displayed
-        StringBuilder s = new StringBuilder("[");
+        StringBuilder s = new StringBuilder("Enemies:\n");
         int i = 0;
         for(Enemy enemy: enemies)
         {
-            s.append(String.format("[%d] %s (%d/%d) (%s) | ", i, enemy.getName(), enemy.getHp(), enemy.getMaxHP(), enemy.getClass().getSimpleName()));
+            s.append(String.format("[%d] %s%n", i, enemy.toString()));
             i++;
         }
-        int lastIndex = s.length();
-        s.replace(lastIndex - 3, lastIndex, "]");
 
         int index;
-        System.out.printf("Choose a target %s:%n", s.toString());
+        System.out.print(s);
+        System.out.print("Choose a target: ");
         index = this.getInt();
 
         while(index < 0 || index >= enemies.size())
         {
             System.out.println("You must choose a valid target (use the number between the brackets) !");
-            System.out.printf("Choose a target %s:%n", s.toString());
+            System.out.print(s);
+            System.out.print("Choose a target: ");
             index = this.getInt();
         }
 
@@ -227,24 +226,24 @@ public class ConsoleParser implements InputParser
     public Combatant chooseCombatantTarget(List<Combatant> combatants)
     {
         // Building the combatants list to be displayed
-        StringBuilder s = new StringBuilder("[");
+        StringBuilder s = new StringBuilder("Combatants\n");
         int i = 0;
         for(Combatant combatant: combatants)
         {
-            s.append(String.format("[%d] %s (%d/%d) (%s) | ", i, combatant.getName(), combatant.getHp(), combatant.getMaxHP(), combatant.getClass().getSimpleName()));
+            s.append(String.format("[%d] %s%n", i, combatant.toString()));
             i++;
         }
-        int lastIndex = s.length();
-        s.replace(lastIndex - 3, lastIndex, "]");
 
         int index;
-        System.out.printf("Choose a target %s:%n", s.toString());
+        System.out.print(s);
+        System.out.print("Choose a target: ");
         index = this.getInt();
 
         while(index < 0 || index >= combatants.size())
         {
             System.out.println("You must choose a valid target (use the number between the brackets) !");
-            System.out.printf("Choose a target %s:%n", s.toString());
+            System.out.print(s);
+            System.out.print("Choose a target: ");
             index = this.getInt();
         }
 
@@ -272,7 +271,7 @@ public class ConsoleParser implements InputParser
             }
             catch (InputMismatchException e)
             {
-                System.out.println("/!\\ Invalid value (not a number).\nPlease provide a number:");
+                System.out.print("/!\\ Invalid value (not a number).\nPlease provide a number: ");
                 sc.nextLine();
             }
         } while(!validInput);
