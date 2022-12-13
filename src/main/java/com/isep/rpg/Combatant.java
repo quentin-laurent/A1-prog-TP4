@@ -123,16 +123,16 @@ public abstract class Combatant
 
     /**
      * Restores hp to this {@link Combatant}.
-     * @param heal The amount of hp to restore.
+     * @param healValue The amount of hp to restore.
      * @return The actual amount of hp restored.
      */
     public int restoreHp(int healValue)
     {
         int initialHp = this.hp;
-        if((this.hp + heal) > this.maxHP)
+        if((this.hp + healValue) > this.maxHP)
             this.hp = this.maxHP;
         else
-            this.hp += heal;
+            this.hp += healValue;
 
         return (this.hp - initialHp);
     }
