@@ -38,21 +38,10 @@ public class Hunter extends Hero
     @Override
     public int[] attack(Enemy enemy)
     {
-        if(!enemy.isAlive())
-            throw new RuntimeException("You can't attack a dead enemy !");
         if(!this.hasArrow())
             throw new RuntimeException("You don't have any arrow !");
 
-        // Calculating damage output
-        int damage;
-        if(this.weapon != null)
-            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
-        else
-            damage = this.baseDamage;
-
-        this.useArrow();
-
-        return enemy.applyDamage(damage);
+        return super.attack(enemy);
     }
 
     /**

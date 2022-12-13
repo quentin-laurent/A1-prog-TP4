@@ -113,8 +113,23 @@ public abstract class Hero extends Combatant
         return s.toString();
     }
 
-    //TODO: implemetend method body here instead of implementing it on subclasses
-    // (this method used to use sublasses-specific attributes but doesn't anymore, it can be moved up here)
-    //TODO: add a message indicating the weapon used by the hero
-    public abstract int[] attack(Enemy enemy);
+    /**
+     * Attacks an {@link Enemy};
+     * @param enemy The targeted {@link Enemy};
+     * @return A 2-value array containing the damage inflicted and the damage reduction percentage applied.
+     */
+    public int[] attack(Enemy enemy)
+    {
+        if(!enemy.isAlive())
+            throw new RuntimeException("You can't attack a dead enemy !");
+
+        // Calculating damage output
+        int damage;
+        if(this.weapon != null)
+            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
+        else
+            damage = this.baseDamage;
+
+        return enemy.applyDamage(damage);
+    }
 }

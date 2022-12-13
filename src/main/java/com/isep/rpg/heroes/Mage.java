@@ -56,24 +56,6 @@ public class Mage extends SpellCaster
     }
 
     // Methods
-    @Override
-    public int[] attack(Enemy enemy)
-    {
-        if(!enemy.isAlive())
-            throw new RuntimeException("You can't attack a dead enemy !");
-        if(this.mana < this.spellManaCost)
-            throw new RuntimeException("You don't have enough mana !");
-
-        // Calculating damage output
-        int damage;
-        if(this.weapon != null)
-            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
-        else
-            damage = this.baseDamage;
-
-        return enemy.applyDamage(damage);
-    }
-
     /**
      * Inflicts damage to the specified target.
      * @param target The {@link Combatant} to attack.

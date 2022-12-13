@@ -32,21 +32,4 @@ public class Warrior extends Hero
     {
         super(name, baseDamage, maxHP, hp);
     }
-
-    // Methods
-    @Override
-    public int[] attack(Enemy enemy)
-    {
-        if(!enemy.isAlive())
-            throw new RuntimeException("You can't attack a dead enemy !");
-
-        // Calculating damage output
-        int damage;
-        if(this.weapon != null)
-            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
-        else
-            damage = this.baseDamage;
-
-        return enemy.applyDamage(damage);
-    }
 }

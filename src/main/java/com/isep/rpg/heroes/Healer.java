@@ -56,23 +56,6 @@ public class Healer extends SpellCaster
     }
 
     // Methods
-    @Override
-    public int[] attack(Enemy enemy)
-    {
-        if(!enemy.isAlive())
-            throw new RuntimeException("You can't attack a dead enemy !");
-
-        // Calculating damage output
-        int damage;
-        if(this.weapon != null)
-            damage = Math.round((this.baseDamage + this.weapon.getBaseDamage())*this.weapon.getDamageMultiplier());
-        else
-            damage = this.baseDamage;
-
-        // Updating enemy hp
-        return enemy.applyDamage(damage);
-    }
-
     /**
      * Heals the specified target.
      * @param target The {@link Combatant} to heal.
