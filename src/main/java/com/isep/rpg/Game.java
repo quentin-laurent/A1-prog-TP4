@@ -30,9 +30,8 @@ public class Game
     private List<Hero> heroes;
     private List<Enemy> enemies;
     private List<Combatant> combatants;
+    private int numberOfStages;
     private int heroCount;
-
-    private static final int NUMBER_OF_STAGES = 5;
 
     // Constructor
     /**
@@ -56,7 +55,7 @@ public class Game
     public void play() throws ExecutionControl.NotImplementedException
     {
         this.initializeHeroes();
-        for(int i = 1; i <= Game.NUMBER_OF_STAGES; i++)
+        for(int i = 1; i <= this.numberOfStages; i++)
             this.playStage(i);
         this.outputManager.displayEndScreen((this.oneHeroIsAlive() && !(this.oneEnemyIsAlive())));
     }
@@ -68,7 +67,7 @@ public class Game
     private void playStage(int stageNumber) throws ExecutionControl.NotImplementedException
     {
         // Last stage (boss stage)
-        if(stageNumber == NUMBER_OF_STAGES)
+        if(stageNumber == this.numberOfStages)
         {
             this.generateBoss();
             int roundNumber = 1;
@@ -409,7 +408,8 @@ public class Game
      */
     private void initializeHeroes() throws ExecutionControl.NotImplementedException
     {
-        // Initializing the number of heroes
+        // Initializing the number stages and heroes
+        this.numberOfStages = this.inputParser.chooseNumberOfStages();
         this.heroCount = this.inputParser.chooseHeroCount();
 
         // Initializing heroes

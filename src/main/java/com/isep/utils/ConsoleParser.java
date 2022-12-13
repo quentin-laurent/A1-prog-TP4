@@ -25,6 +25,22 @@ public class ConsoleParser implements InputParser
 
     // Methods
     @Override
+    public int chooseNumberOfStages() throws ExecutionControl.NotImplementedException
+    {
+        System.out.print("Provide the number of stages: ");
+        int numberOfStages = this.getInt();
+
+        while(numberOfStages <= 0)
+        {
+            System.out.println("You must play at least one stage !");
+            System.out.print("Provide the number of stages: ");
+            numberOfStages = this.getInt();
+        }
+
+        return numberOfStages;
+    }
+
+    @Override
     public int chooseHeroCount()
     {
         System.out.print("Provide the number of heroes: ");

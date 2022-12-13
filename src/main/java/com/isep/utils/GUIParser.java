@@ -17,6 +17,12 @@ public class GUIParser implements InputParser
 {
     // Methods
     @Override
+    public int chooseNumberOfStages() throws ExecutionControl.NotImplementedException
+    {
+        throw new ExecutionControl.NotImplementedException("TODO");
+    }
+
+    @Override
     public int chooseHeroCount() throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");

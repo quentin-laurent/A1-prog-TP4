@@ -16,6 +16,13 @@ import java.util.Map;
 public interface InputParser
 {
     /**
+     * Asks the player to provide the number of stages to create in the {@link Game}.
+     * @return The number of stages chosen by the player.
+     * @throws ExecutionControl.NotImplementedException
+     */
+    public int chooseNumberOfStages() throws ExecutionControl.NotImplementedException;
+
+    /**
      * Asks the player to provide the number of heroes to use in the {@link Game}.
      * @return The number of heroes chosen by the player.
      * @throws ExecutionControl.NotImplementedException
