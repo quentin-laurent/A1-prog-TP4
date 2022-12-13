@@ -41,13 +41,4 @@ public class Boar extends Enemy
     {
         super(name, baseDamage, maxHp, hp);
     }
-
-    // Methods
-    @Override
-    public int[] attack(Hero hero)
-    {
-        if(hero.isAlive())
-            return hero.applyDamage(BASE_DAMAGE);
-        return new int[]{0, 0};
-    }
 }

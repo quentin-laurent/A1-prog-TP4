@@ -23,8 +23,17 @@ public abstract class Enemy extends Combatant
     }
 
     // Methods
-    //TODO: add method implemented here instead than in subclasses (same reason that for Hero)
-    public abstract int[] attack(Hero hero);
+    /**
+     * Attacks a {@link Hero};
+     * @param hero The targeted {@link Hero};
+     * @return A 2-value array containing the damage inflicted and the damage reduction percentage applied.
+     */
+    public int[] attack(Hero hero)
+    {
+        if(hero.isAlive())
+            return hero.applyDamage(this.baseDamage);
+        return new int[]{0, 0};
+    }
 
     @Override
     public String toString()
