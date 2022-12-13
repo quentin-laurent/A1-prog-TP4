@@ -8,7 +8,7 @@ import com.isep.rpg.items.consumables.Consumable;
 import com.isep.rpg.items.Item;
 import jdk.jshell.spi.ExecutionControl;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * An interface used to display information about the actions happening in the {@link Game}.
@@ -20,16 +20,14 @@ public interface OutputManager
      * @param heroes The list containing the {@link Hero}es to display.
      * @throws ExecutionControl.NotImplementedException
      */
-    //TODO: change param type to List<Hero>
-    public void displayHeroes(Collection<Hero> heroes) throws ExecutionControl.NotImplementedException;
+    public void displayHeroes(List<Hero> heroes) throws ExecutionControl.NotImplementedException;
 
     /**
      * Displays all the {@link Enemy}s contained in the provided list.
      * @param enemies The list containing the {@link Enemy}s to display.
      * @throws ExecutionControl.NotImplementedException
      */
-    //TODO: change param type to List<Enemy>
-    public void displayEnemies(Collection<Enemy> enemies) throws ExecutionControl.NotImplementedException;
+    public void displayEnemies(List<Enemy> enemies) throws ExecutionControl.NotImplementedException;
 
     /**
      * Displays the title of a stage.

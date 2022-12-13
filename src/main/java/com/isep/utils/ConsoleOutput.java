@@ -11,7 +11,7 @@ import com.isep.rpg.items.consumables.Food;
 import com.isep.rpg.items.Item;
 import com.isep.rpg.items.consumables.Potion;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * An implementation of the {@link OutputManager} interface that uses the standard output (a.k.a console or terminal)
@@ -20,7 +20,7 @@ import java.util.Collection;
 public class ConsoleOutput implements OutputManager
 {
     @Override
-    public void displayHeroes(Collection<Hero> heroes)
+    public void displayHeroes(List<Hero> heroes)
     {
         StringBuilder s = new StringBuilder("[");
         for(Hero hero: heroes)
@@ -35,7 +35,7 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
-    public void displayEnemies(Collection<Enemy> enemies)
+    public void displayEnemies(List<Enemy> enemies)
     {
         StringBuilder s = new StringBuilder("Enemies: [");
         int i = 0;

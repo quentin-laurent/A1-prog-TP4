@@ -8,7 +8,7 @@ import com.isep.rpg.items.consumables.Consumable;
 import com.isep.rpg.items.Item;
 import jdk.jshell.spi.ExecutionControl;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * An implementation of the {@link OutputManager} interface that uses a graphical user interface (a.k.a a GUI)
@@ -17,13 +17,13 @@ import java.util.Collection;
 public class GUIOutput implements OutputManager
 {
     @Override
-    public void displayHeroes(Collection<Hero> heroes) throws ExecutionControl.NotImplementedException
+    public void displayHeroes(List<Hero> heroes) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
 
     @Override
-    public void displayEnemies(Collection<Enemy> enemies) throws ExecutionControl.NotImplementedException
+    public void displayEnemies(List<Enemy> enemies) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
