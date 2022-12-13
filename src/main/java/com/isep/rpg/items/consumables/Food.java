@@ -33,7 +33,7 @@ public class Food extends Consumable
     @Override
     public int applyEffect(Hero target)
     {
-        return target.applyHeal(this.healValue);
+        return target.restoreHp(this.healValue);
     }
 
     @Override

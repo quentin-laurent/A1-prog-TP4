@@ -1,7 +1,6 @@
 package com.isep.rpg.heroes;
 
 import com.isep.rpg.Combatant;
-import com.isep.rpg.enemies.Enemy;
 
 /**
  * A class representing a healer: a specific type of {@link SpellCaster} that has the ability to use spells to heal
@@ -80,7 +79,7 @@ public class Healer extends SpellCaster
             this.mana = mana;
 
         int[] healAndManaCost = new int[2];
-        healAndManaCost[0] = target.applyHeal(this.baseSpellHeal);
+        healAndManaCost[0] = target.restoreHp(this.baseSpellHeal);
         healAndManaCost[1] = this.spellManaCost;
         return healAndManaCost;
     }

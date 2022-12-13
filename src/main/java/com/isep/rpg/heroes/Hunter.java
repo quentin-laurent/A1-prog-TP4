@@ -38,7 +38,7 @@ public class Hunter extends Hero
     @Override
     public int[] attack(Enemy enemy)
     {
-        if(!this.hasArrow())
+        if(!this.hasAnyArrow())
             throw new RuntimeException("You don't have any arrow !");
 
         return super.attack(enemy);
@@ -52,8 +52,7 @@ public class Hunter extends Hero
      * Indicates if this {@link Hunter} has at least one {@link Arrow} in its inventory.
      * @return true, if this {@link Hunter} has at least one {@link Arrow} in its inventory, false otherwise.
      */
-    //TODO: rename method to hasAnyArrow
-    private boolean hasArrow()
+    private boolean hasAnyArrow()
     {
         for(var entry: this.items.entrySet())
         {

@@ -98,8 +98,8 @@ public abstract class Combatant
         // Applying damage reduction if the target is defending itself
         if(this.defend)
         {
-            int reductionPercentage = this.calculateDefendReductionPercentage();
-            float damageMultiplier = this.calculateDefendDamageMultiplier(reductionPercentage);
+            int reductionPercentage = this.calculateDamagReductionPercentage();
+            float damageMultiplier = this.calculateDamageMultiplier(reductionPercentage);
             damage *= damageMultiplier;
 
             damageAndReductionPercentage[1] = reductionPercentage;
@@ -126,8 +126,7 @@ public abstract class Combatant
      * @param heal The amount of hp to restore.
      * @return The actual amount of hp restored.
      */
-    //TODO: rename method to restoreHp and rename param to healValue
-    public int applyHeal(int heal)
+    public int restoreHp(int healValue)
     {
         int initialHp = this.hp;
         if((this.hp + heal) > this.maxHP)
@@ -148,12 +147,11 @@ public abstract class Combatant
     }
 
     /**
-     * Calculates the percentage to be used in the {@link #calculateDefendDamageMultiplier} method.
+     * Calculates the percentage to be used in the {@link #calculateDamageMultiplier} method.
      * @return An integer between {@value DEFEND_MIN_REDUCTION} and {@value DEFEND_MAX_REDUCTION} representing
      * the damage reduction percentage.
      */
-    //TODO: rename method to calculateDamageReductionPercentage
-    private int calculateDefendReductionPercentage()
+    private int calculateDamagReductionPercentage()
     {
         Random random = new Random();
         int reductionPercentage = DEFEND_MIN_REDUCTION + random.nextInt(DEFEND_MAX_REDUCTION - DEFEND_MIN_REDUCTION + 1);
@@ -162,14 +160,12 @@ public abstract class Combatant
 
     /**
      * Converts a damage reduction percentage (int) to a damage multiplier (float).
-     * @param reductionPercentage The damage reduction percentage to convert.
+     * @param damageReductionPercentage The damage reduction percentage to convert.
      * @return The calculated damage multiplier.
      */
-    //TODO: rename method to calculateDamageMultiplier
-    //TODO: change param name to damageReductionPercentage
-    private float calculateDefendDamageMultiplier(int reductionPercentage)
+    private float calculateDamageMultiplier(int damageReductionPercentage)
     {
-        BigDecimal damageMultiplier = BigDecimal.valueOf(1 - (reductionPercentage / 100f));
+        BigDecimal damageMultiplier = BigDecimal.valueOf(1 - (damageReductionPercentage / 100f));
         damageMultiplier = damageMultiplier.setScale(2, RoundingMode.HALF_EVEN);
         return damageMultiplier.floatValue();
     }
