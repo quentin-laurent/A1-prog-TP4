@@ -41,6 +41,7 @@ public class Hunter extends Hero
         if(!this.hasAnyArrow())
             throw new RuntimeException("You don't have any arrow !");
 
+        this.useArrow();
         return super.attack(enemy);
     }
 

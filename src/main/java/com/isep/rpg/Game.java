@@ -164,15 +164,21 @@ public class Game
                     switch (action)
                     {
                         case "attack":
-                            enemyTarget = this.inputParser.chooseEnemyTarget(this.enemies);
-                            damageAndReductionPercentage = hero.attack(enemyTarget);
-                            damage = damageAndReductionPercentage[0];
-                            reductionPercentage = damageAndReductionPercentage[1];
-                            this.outputManager.displayAttackMessage(hero, enemyTarget, damage);
-                            this.outputManager.displayDefendMessage(enemyTarget, reductionPercentage);
-                            // If the Enemy dies from the attack, it is removed from the enemies list
-                            if(!(enemyTarget.isAlive()))
-                                this.enemies.remove(enemyTarget);
+                            try {
+                                enemyTarget = this.inputParser.chooseEnemyTarget(this.enemies);
+                                damageAndReductionPercentage = hero.attack(enemyTarget);
+                                damage = damageAndReductionPercentage[0];
+                                reductionPercentage = damageAndReductionPercentage[1];
+                                this.outputManager.displayAttackMessage(hero, enemyTarget, damage);
+                                this.outputManager.displayDefendMessage(enemyTarget, reductionPercentage);
+                                // If the Enemy dies from the attack, it is removed from the enemies list
+                                if(!(enemyTarget.isAlive()))
+                                    this.enemies.remove(enemyTarget);
+                            }
+                            catch (RuntimeException e) {
+                                this.outputManager.displayErrorMessage(e.getMessage());
+                                repeat = true;
+                            }
                             break;
                         case "spell":
                             if(!(hero instanceof SpellCaster))
@@ -434,7 +440,7 @@ public class Game
                 // TODO: give heroes items at the start of the game to adjust balance
                 case "hunter":
                     hero = new Hunter(heroName);
-                    hero.getItems().put(new Arrow("Wooden Arrow", 5), 4);
+                    //hero.getItems().put(new Arrow("Wooden Arrow", 5), 4);
                     hero.getItems().put(new Food("Apple", 10), 2);
                     this.heroes.add(hero);
                     break;
