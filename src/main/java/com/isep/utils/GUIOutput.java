@@ -41,7 +41,7 @@ public class GUIOutput implements OutputManager
     }
 
     @Override
-    public void displayLootMessage() throws ExecutionControl.NotImplementedException
+    public void displayLootTitle() throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }
@@ -95,7 +95,7 @@ public class GUIOutput implements OutputManager
     }
 
     @Override
-    public void displayItemAddMessage(Hero hero, Item item, int quantity) throws ExecutionControl.NotImplementedException
+    public void displayRewardMessage(Hero hero, Item item, int quantity) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
     }

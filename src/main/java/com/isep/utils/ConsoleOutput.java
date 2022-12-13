@@ -65,7 +65,7 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
-    public void displayLootMessage()
+    public void displayLootTitle()
     {
         System.out.println("==== REWARDS ====");
     }
@@ -147,7 +147,7 @@ public class ConsoleOutput implements OutputManager
     }
 
     @Override
-    public void displayItemAddMessage(Hero hero, Item item, int quantity)
+    public void displayRewardMessage(Hero hero, Item item, int quantity)
     {
         System.out.printf("%s found %d %s !%n", hero.getName(), quantity, item.getName());
     }

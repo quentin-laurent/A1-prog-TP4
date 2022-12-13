@@ -88,7 +88,7 @@ public class Game
                 this.playRound(roundNumber);
                 roundNumber++;
             }
-            this.outputManager.displayLootMessage();
+            this.outputManager.displayLootTitle();
             this.distributeLoot();
             this.outputManager.displayUpgradesTitle();
             this.upgradeHeroes();
@@ -338,7 +338,7 @@ public class Game
         {
             Item item = this.generateItem();
             hero.addItem(item, 1);
-            this.outputManager.displayItemAddMessage(hero, item, 1);
+            this.outputManager.displayRewardMessage(hero, item, 1);
         }
     }
 

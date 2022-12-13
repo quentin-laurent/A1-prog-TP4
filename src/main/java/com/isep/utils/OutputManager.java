@@ -47,8 +47,7 @@ public interface OutputManager
      * Displays the title of the "rewards" part of a stage.
      * @throws ExecutionControl.NotImplementedException
      */
-    //TODO: rename method to displayLootTitle
-    public void displayLootMessage() throws ExecutionControl.NotImplementedException;
+    public void displayLootTitle() throws ExecutionControl.NotImplementedException;
 
     /**
      * Displays the title of the "upgrades" part of a stage.
@@ -120,8 +119,7 @@ public interface OutputManager
      * @param quantity The {@link Item}'s quantity.
      * @throws ExecutionControl.NotImplementedException
      */
-    //TODO: rename method to displayRewardMessage
-    public void displayItemAddMessage(Hero hero, Item item, int quantity) throws ExecutionControl.NotImplementedException;
+    public void displayRewardMessage(Hero hero, Item item, int quantity) throws ExecutionControl.NotImplementedException;
 
     /**
      * Displays the provided error message.
