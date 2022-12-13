@@ -235,12 +235,6 @@ public class ConsoleParser implements InputParser
         return combatants.get(index);
     }
 
-    //TODO: to remove. this is not necessary as this instance will die as soon as the game ends
-    public void closeScanner()
-    {
-        this.sc.close();
-    }
-
     /**
      * Asks the player to provide an integer though the standard input.
      * This checks for {@link InputMismatchException}.
