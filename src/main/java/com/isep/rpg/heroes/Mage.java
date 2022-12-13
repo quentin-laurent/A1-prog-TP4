@@ -59,7 +59,7 @@ public class Mage extends SpellCaster
     /**
      * Inflicts damage to the specified target.
      * @param target The {@link Combatant} to attack.
-     * @return The damage inflicted.
+     * @return A 2-value array containing the inflicted damage and the mana cost of the spell;
      * @throws RuntimeException if the attack spell cannot be cast.
      */
     @Override

@@ -59,7 +59,7 @@ public class Healer extends SpellCaster
     /**
      * Heals the specified target.
      * @param target The {@link Combatant} to heal.
-     * @return The amount of hp restored.
+     * @return A 2-value array containing the amount of hp restored and the mana cost of the spell;
      * @throws RuntimeException if the healing spell cannot be cast.
      */
     @Override
