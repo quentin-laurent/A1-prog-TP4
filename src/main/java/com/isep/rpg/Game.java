@@ -66,6 +66,13 @@ public class Game
      */
     private void playStage(int stageNumber) throws ExecutionControl.NotImplementedException
     {
+        // Regenerating mana of spell casters
+        for(Hero hero: this.heroes)
+        {
+            if(hero instanceof SpellCaster)
+                ((SpellCaster)hero).restoreMana(15);
+        }
+
         // Last stage (boss stage)
         if(stageNumber == this.numberOfStages)
         {
