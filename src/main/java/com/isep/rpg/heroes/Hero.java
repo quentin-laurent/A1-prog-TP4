@@ -42,6 +42,11 @@ public abstract class Hero extends Combatant
         return this.items;
     }
 
+    public Weapon getWeapon()
+    {
+        return this.weapon;
+    }
+
     public void setWeapon(Weapon weapon)
     {
         this.weapon = weapon;
@@ -106,7 +111,7 @@ public abstract class Hero extends Combatant
     {
         StringBuilder s = new StringBuilder("");
         if(this.isAlive())
-            s.append(String.format("%s (%d/%d) [%s]", this.name, this.hp, this.maxHP, this.getClass().getSimpleName()));
+            s.append(String.format("%s (%d/%d HP) [%s]", this.name, this.hp, this.maxHP, this.getClass().getSimpleName()));
         else
             s.append(String.format("%s (*DEAD*) [%s]", this.name, this.getClass().getSimpleName()));
 

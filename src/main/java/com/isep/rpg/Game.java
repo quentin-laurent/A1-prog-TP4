@@ -74,6 +74,7 @@ public class Game
         }
 
         // Last stage (boss stage)
+        this.outputManager.displayStageTitle(stageNumber);
         if(stageNumber == this.numberOfStages)
         {
             this.generateBoss();
@@ -86,7 +87,6 @@ public class Game
         }
         else
         {
-            this.outputManager.displayStageTitle(stageNumber);
             this.generateEnemies();
             int roundNumber = 1;
             while(this.oneHeroIsAlive() && this.oneEnemyIsAlive())

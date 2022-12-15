@@ -22,14 +22,14 @@ public class ConsoleOutput implements OutputManager
     @Override
     public void displayHeroes(List<Hero> heroes)
     {
-        StringBuilder s = new StringBuilder("[");
+        StringBuilder s = new StringBuilder();
         for(Hero hero: heroes)
         {
             s.append(hero.toString());
             s.append(" | ");
         }
         int lastIndex = s.length();
-        s.replace(lastIndex - 3, lastIndex, "]");
+        s.replace(lastIndex - 3, lastIndex, "");
 
         System.out.println(s);
     }
@@ -37,17 +37,16 @@ public class ConsoleOutput implements OutputManager
     @Override
     public void displayEnemies(List<Enemy> enemies)
     {
-        StringBuilder s = new StringBuilder("Enemies: [");
+        StringBuilder s = new StringBuilder("Enemies: ");
         int i = 0;
         for(Enemy enemy: enemies)
         {
-            s.append(String.format("[%d] ", i));
             s.append(enemy.toString());
             s.append(" | ");
             i++;
         }
         int lastIndex = s.length();
-        s.replace(lastIndex - 3, lastIndex, "]");
+        s.replace(lastIndex - 3, lastIndex, "");
 
         System.out.println(s);
     }
@@ -56,9 +55,9 @@ public class ConsoleOutput implements OutputManager
     public void displayStageTitle(int stageNumber)
     {
         String s =
-                "################################\n" +
+                "\n################################\n" +
                 "#            STAGE %d           #\n" +
-                "################################%n";
+                "################################\n";
         System.out.printf(s, stageNumber);
     }
 
@@ -66,9 +65,9 @@ public class ConsoleOutput implements OutputManager
     public void displayRoundTitle(int roundNumber)
     {
         String s =
-                "================================\n" +
+                "\n================================\n" +
                 "|            ROUND %d           |\n" +
-                "================================%n";
+                "================================\n\n";
         System.out.printf(s, roundNumber);
     }
 
@@ -76,7 +75,7 @@ public class ConsoleOutput implements OutputManager
     public void displayLootTitle()
     {
         String s =
-                "################################\n" +
+                "\n################################\n" +
                 "#            REWARDS           #\n" +
                 "################################\n";
         System.out.println(s);
@@ -86,7 +85,7 @@ public class ConsoleOutput implements OutputManager
     public void displayUpgradesTitle()
     {
         String s =
-                "################################\n" +
+                "\n################################\n" +
                 "#           UPGRADES           #\n" +
                 "################################";
         System.out.println(s);
@@ -143,7 +142,7 @@ public class ConsoleOutput implements OutputManager
     public void displayHero(Hero hero)
     {
         StringBuilder s = new StringBuilder();
-        s.append("************************************************\n");
+        s.append("\n************************************************\n");
         s.append("*                  NOW PLAYING                 *\n");
         s.append("*                                              *\n");
 
@@ -167,7 +166,7 @@ public class ConsoleOutput implements OutputManager
     public void displayEnemy(Enemy enemy)
     {
         StringBuilder s = new StringBuilder();
-        s.append("************************************************\n");
+        s.append("\n************************************************\n");
         s.append("*                  NOW PLAYING                 *\n");
         s.append("*                                              *\n");
 
@@ -190,7 +189,11 @@ public class ConsoleOutput implements OutputManager
     @Override
     public void displayAttackMessage(Combatant attacker, Combatant target, int damage)
     {
-        System.out.printf("%s attacks %s !%n", attacker.getName(), target.getName());
+        if(attacker instanceof Hero && ((Hero) attacker).getWeapon() != null)
+            System.out.printf("%s attacks %s with %s !%n", attacker.getName(), target.getName(), ((Hero) attacker).getWeapon().getName());
+        else
+            System.out.printf("%s attacks %s !%n", attacker.getName(), target.getName());
+
         if(target.isAlive())
             System.out.printf("%s: -%dHP%n", target.getName(), damage);
         else
