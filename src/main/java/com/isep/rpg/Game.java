@@ -442,12 +442,16 @@ public class Game
                     hero.getItems().put(new Arrow("Wooden Arrow", 10), 6);
                     hero.getItems().put(new Food("Apple", 20), 2);
                     hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.setWeapon(new Weapon("Wooden bow", 8, 1f));
+                    hero.setArmor(new Armor("Leather armor", 0.92f));
                     this.heroes.add(hero);
                     break;
                 case "warrior":
                     hero = new Warrior(heroName);
                     hero.getItems().put(new Food("Apple", 20), 2);
                     hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.setWeapon(new Weapon("Wooden sword", 8, 1f));
+                    hero.setArmor(new Armor("Leather armor", 0.92f));
                     this.heroes.add(hero);
                     break;
                 case "mage":
@@ -457,6 +461,8 @@ public class Game
                     hero.addItem(new Potion("Medium mana potion", 60), 1);
                     hero.getItems().put(new Food("Apple", 20), 2);
                     hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.setWeapon(new Weapon("Wooden staff", 8, 1f));
+                    hero.setArmor(new Armor("Leather armor", 0.92f));
                     break;
                 case "healer":
                     hero = new Healer(heroName);
@@ -465,6 +471,8 @@ public class Game
                     hero.addItem(new Potion("Medium mana potion", 60), 1);
                     hero.getItems().put(new Food("Apple", 20), 2);
                     hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.setWeapon(new Weapon("Wooden staff", 8, 1f));
+                    hero.setArmor(new Armor("Leather armor", 0.92f));
                     break;
                 default:
                     throw new RuntimeException("Got an invalid hero class while creating heroes");
