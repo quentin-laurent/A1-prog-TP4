@@ -440,22 +440,32 @@ public class Game
                 // TODO: give heroes items at the start of the game to adjust balance
                 case "hunter":
                     hero = new Hunter(heroName);
-                    //hero.getItems().put(new Arrow("Wooden Arrow", 5), 4);
-                    hero.getItems().put(new Food("Apple", 10), 2);
+                    hero.getItems().put(new Arrow("Wooden Arrow", 10), 6);
+                    hero.getItems().put(new Food("Apple", 20), 2);
+                    hero.getItems().put(new Food("Steak", 30), 1);
                     this.heroes.add(hero);
                     break;
                 case "warrior":
                     hero = new Warrior(heroName);
-                    hero.addItem(new Potion("Small mana potion", 30), 1);
+                    hero.getItems().put(new Food("Apple", 20), 2);
+                    hero.getItems().put(new Food("Steak", 30), 1);
                     this.heroes.add(hero);
                     break;
                 case "mage":
                     hero = new Mage(heroName);
                     this.heroes.add(hero);
+                    hero.addItem(new Potion("Small mana potion", 30), 2);
+                    hero.addItem(new Potion("Medium mana potion", 60), 1);
+                    hero.getItems().put(new Food("Apple", 20), 2);
+                    hero.getItems().put(new Food("Steak", 30), 1);
                     break;
                 case "healer":
                     hero = new Healer(heroName);
                     this.heroes.add(hero);
+                    hero.addItem(new Potion("Small mana potion", 30), 2);
+                    hero.addItem(new Potion("Medium mana potion", 60), 1);
+                    hero.getItems().put(new Food("Apple", 20), 2);
+                    hero.getItems().put(new Food("Steak", 30), 1);
                     break;
                 default:
                     throw new RuntimeException("Got an invalid hero class while creating heroes");
