@@ -4,6 +4,7 @@ import com.isep.rpg.enemies.Boar;
 import com.isep.rpg.enemies.Enemy;
 import com.isep.rpg.enemies.Snake;
 import com.isep.rpg.heroes.*;
+import jdk.jshell.spi.ExecutionControl;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
@@ -30,7 +31,7 @@ class ConsoleOutputTest
     }
 
     @Test
-    public void testDisplayHeroesAllAlive()
+    public void testDisplayHeroesAllAlive() throws ExecutionControl.NotImplementedException
     {
         ArrayList<Hero> heroes = new ArrayList<>();
         heroes.add(new Mage("Alice"));
@@ -38,8 +39,9 @@ class ConsoleOutputTest
         heroes.add(new Hunter("Charlie"));
         heroes.add(new Healer("David"));
 
-        String expectedOutput = String.format("[Alice (%d/%d) [Mage] | Bob (%d/%d) [Warrior] | Charlie (%d/%d) [Hunter] | David (%d/%d) [Healer]]",
-                Mage.BASE_HP, Mage.BASE_HP, Warrior.BASE_HP, Warrior.BASE_HP, Hunter.BASE_HP, Hunter.BASE_HP, Healer.BASE_HP, Healer.BASE_HP);
+        String expectedOutput = String.format("Alice (%d/%d HP | %d/%d Mana) [Mage] | Bob (%d/%d HP) [Warrior] | Charlie (%d/%d HP) [Hunter] | David (%d/%d HP | %d/%d Mana) [Healer]",
+                Mage.BASE_HP, Mage.BASE_HP, Mage.BASE_MANA, Mage.BASE_MANA, Warrior.BASE_HP, Warrior.BASE_HP,
+                Hunter.BASE_HP, Hunter.BASE_HP, Healer.BASE_HP, Healer.BASE_HP, Healer.BASE_MANA, Healer.BASE_MANA);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayHeroes(heroes);
@@ -48,7 +50,7 @@ class ConsoleOutputTest
     }
 
     @Test
-    public void testDisplayHeroesSomeDead()
+    public void testDisplayHeroesSomeDead() throws ExecutionControl.NotImplementedException
     {
         ArrayList<Hero> heroes = new ArrayList<>();
         Mage a = new Mage("Alice");
@@ -63,8 +65,8 @@ class ConsoleOutputTest
         heroes.add(c);
         heroes.add(d);
 
-        String expectedOutput = String.format("[Alice (%d/%d) [Mage] | Bob (*DEAD*) [Warrior] | Charlie (%d/%d) [Hunter] | David (*DEAD*) [Healer]]",
-                Mage.BASE_HP, Mage.BASE_HP, Hunter.BASE_HP, Hunter.BASE_HP);
+        String expectedOutput = String.format("Alice (%d/%d HP | %d/%d Mana) [Mage] | Bob (*DEAD*) [Warrior] | Charlie (%d/%d HP) [Hunter] | David (*DEAD*) [Healer]",
+                Mage.BASE_HP, Mage.BASE_HP, Mage.BASE_MANA, Mage.BASE_MANA, Hunter.BASE_HP, Hunter.BASE_HP);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayHeroes(heroes);
@@ -73,14 +75,15 @@ class ConsoleOutputTest
     }
 
     @Test
-    public void testDisplayEnemiesAllAlive()
+    public void testDisplayEnemiesAllAlive() throws ExecutionControl.NotImplementedException
     {
         ArrayList<Enemy> enemies = new ArrayList<>();
         enemies.add(new Boar("borr"));
         enemies.add(new Snake("snek"));
         enemies.add(new Snake("snek"));
 
-        String expectedOutput = String.format("Enemies: [[0] borr (%d/%d) | [1] snek (%d/%d) | [2] snek (%d/%d)]", Boar.BASE_HP, Boar.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP);
+        String expectedOutput = String.format("Enemies: borr (%d/%d HP) | snek (%d/%d HP) | snek (%d/%d HP)",
+                Boar.BASE_HP, Boar.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP, Snake.BASE_HP);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayEnemies(enemies);
@@ -89,7 +92,7 @@ class ConsoleOutputTest
     }
 
     @Test
-    public void testDisplayEnemiesSomeDead()
+    public void testDisplayEnemiesSomeDead() throws ExecutionControl.NotImplementedException
     {
         ArrayList<Enemy> enemies = new ArrayList<>();
         Boar b1 = new Boar("borr");
@@ -102,7 +105,7 @@ class ConsoleOutputTest
         enemies.add(s1);
         enemies.add(s2);
 
-        String expectedOutput = String.format("Enemies: [[0] borr (%d/%d) | [1] snek (*DEAD*) | [2] snek (*DEAD*)]", Boar.BASE_HP, Boar.BASE_HP);
+        String expectedOutput = String.format("Enemies: borr (%d/%d HP) | snek (*DEAD*) | snek (*DEAD*)", Boar.BASE_HP, Boar.BASE_HP);
 
         OutputManager consoleOutput = new ConsoleOutput();
         consoleOutput.displayEnemies(enemies);
@@ -111,24 +114,37 @@ class ConsoleOutputTest
     }
 
     @Test
-    public void testDisplayHero()
+    public void testDisplayHero() throws ExecutionControl.NotImplementedException
     {
         Hero hero = new Hunter("Alice");
         OutputManager consoleOutput = new ConsoleOutput();
 
-        String expectedOutput = String.format("**** Now playing: Alice (%d/%d) [Hunter] ****", Hunter.BASE_HP, Hunter.BASE_HP);
+        String expectedOutput = String.format(
+                "************************************************\n" +
+                "*                  NOW PLAYING                 *\n" +
+                "*                                              *\n" +
+                "*         Alice (%d/%d HP) [Hunter]          *\n" +
+                "************************************************"
+                        ,Hunter.BASE_HP, Hunter.BASE_HP);
 
         consoleOutput.displayHero(hero);
         assertEquals(expectedOutput, this.outContent.toString().trim());
     }
 
     @Test
-    public void testDisplayEnemy()
+    public void testDisplayEnemy() throws ExecutionControl.NotImplementedException
     {
         Enemy enemy = new Boar();
         OutputManager consoleOutput = new ConsoleOutput();
 
-        String expectedOutput = String.format("**** Now playing: Boar (%d/%d) ****", Boar.BASE_HP, Boar.BASE_HP);
+
+        String expectedOutput = String.format(
+                "************************************************\n" +
+                "*                  NOW PLAYING                 *\n" +
+                "*                                              *\n" +
+                "*               Boar (%d/%d HP)                *\n" +
+                "************************************************"
+                        ,Boar.BASE_HP, Boar.BASE_HP);
 
         consoleOutput.displayEnemy(enemy);
         assertEquals(expectedOutput, this.outContent.toString().trim());
