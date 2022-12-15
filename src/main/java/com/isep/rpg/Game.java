@@ -439,17 +439,17 @@ public class Game
             {
                 case "hunter":
                     hero = new Hunter(heroName);
-                    hero.getItems().put(new Arrow("Wooden Arrow", 10), 6);
-                    hero.getItems().put(new Food("Apple", 20), 2);
-                    hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.addItem(new Arrow("Wooden Arrow", 10), 6);
+                    hero.addItem(new Food("Apple", 20), 2);
+                    hero.addItem(new Food("Steak", 30), 1);
                     hero.setWeapon(new Weapon("Wooden bow", 8, 1f));
                     hero.setArmor(new Armor("Leather armor", 0.92f));
                     this.heroes.add(hero);
                     break;
                 case "warrior":
                     hero = new Warrior(heroName);
-                    hero.getItems().put(new Food("Apple", 20), 2);
-                    hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.addItem(new Food("Apple", 20), 2);
+                    hero.addItem(new Food("Steak", 30), 1);
                     hero.setWeapon(new Weapon("Wooden sword", 8, 1f));
                     hero.setArmor(new Armor("Leather armor", 0.92f));
                     this.heroes.add(hero);
@@ -459,8 +459,8 @@ public class Game
                     this.heroes.add(hero);
                     hero.addItem(new Potion("Small mana potion", 30), 2);
                     hero.addItem(new Potion("Medium mana potion", 60), 1);
-                    hero.getItems().put(new Food("Apple", 20), 2);
-                    hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.addItem(new Food("Apple", 20), 2);
+                    hero.addItem(new Food("Steak", 30), 1);
                     hero.setWeapon(new Weapon("Wooden staff", 8, 1f));
                     hero.setArmor(new Armor("Leather armor", 0.92f));
                     break;
@@ -469,8 +469,8 @@ public class Game
                     this.heroes.add(hero);
                     hero.addItem(new Potion("Small mana potion", 30), 2);
                     hero.addItem(new Potion("Medium mana potion", 60), 1);
-                    hero.getItems().put(new Food("Apple", 20), 2);
-                    hero.getItems().put(new Food("Steak", 30), 1);
+                    hero.addItem(new Food("Apple", 20), 2);
+                    hero.addItem(new Food("Steak", 30), 1);
                     hero.setWeapon(new Weapon("Wooden staff", 8, 1f));
                     hero.setArmor(new Armor("Leather armor", 0.92f));
                     break;

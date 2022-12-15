@@ -65,7 +65,13 @@ public abstract class Hero extends Combatant
      */
     public void addItem(Item item, int quantity)
     {
-        this.items.put(item, quantity);
+        if(this.items.containsKey(item))
+        {
+            int oldQuantity = this.items.get(item);
+            this.items.replace(item, oldQuantity + quantity);
+        }
+        else
+            this.items.put(item, quantity);
     }
 
     /**
