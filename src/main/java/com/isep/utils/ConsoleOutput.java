@@ -122,7 +122,7 @@ public class ConsoleOutput implements OutputManager
         if(victory)
         {
             s =
-                    "################################\n" +
+                    "\n################################\n" +
                     "#                              #\n" +
                     "#            VICTORY           #\n" +
                     "#                              #\n" +
@@ -130,7 +130,7 @@ public class ConsoleOutput implements OutputManager
         }
         else
             s =
-                    "################################\n" +
+                    "\n################################\n" +
                     "#                              #\n" +
                     "#            DEFEAT            #\n" +
                     "#                              #\n" +
