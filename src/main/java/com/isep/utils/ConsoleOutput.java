@@ -55,52 +55,136 @@ public class ConsoleOutput implements OutputManager
     @Override
     public void displayStageTitle(int stageNumber)
     {
-        System.out.printf("====== STAGE %d ======%n", stageNumber);
+        String s =
+                "################################\n" +
+                "#            STAGE %d           #\n" +
+                "################################%n";
+        System.out.printf(s, stageNumber);
     }
 
     @Override
     public void displayRoundTitle(int roundNumber)
     {
-        System.out.printf("==== ROUND %d ====%n", roundNumber);
+        String s =
+                "================================\n" +
+                "|            ROUND %d           |\n" +
+                "================================%n";
+        System.out.printf(s, roundNumber);
     }
 
     @Override
     public void displayLootTitle()
     {
-        System.out.println("==== REWARDS ====");
+        String s =
+                "################################\n" +
+                "#            REWARDS           #\n" +
+                "################################\n";
+        System.out.println(s);
     }
 
     @Override
     public void displayUpgradesTitle()
     {
-        System.out.println("==== UPGRADES ====");
+        String s =
+                "################################\n" +
+                "#           UPGRADES           #\n" +
+                "################################";
+        System.out.println(s);
     }
 
     @Override
     public void displayUpgradeMessage(Hero hero)
     {
-        System.out.printf("==== UPGRADING: %s ====%n", hero.toString());
+        StringBuilder s = new StringBuilder();
+        s.append("************************************************\n");
+        s.append("*                   UPGRADING                  *\n");
+        s.append("*                                              *\n");
+
+        String heroString = hero.toString();
+        int spaces = 46 - heroString.length();
+        int spacesLeft = spaces / 2;
+        int spacesRight = spaces - spacesLeft;
+
+        s.append("*");
+        s.append(" ".repeat(Math.max(0, spacesLeft)));
+        s.append(heroString);
+        s.append(" ".repeat(Math.max(0, spacesRight)));
+        s.append("*\n");
+
+        s.append("************************************************\n");
+
+        System.out.println(s);
     }
 
     @Override
     public void displayEndScreen(boolean victory)
     {
+        String s;
         if(victory)
-            System.out.println("==== VICTORY ====");
+        {
+            s =
+                    "################################\n" +
+                    "#                              #\n" +
+                    "#            VICTORY           #\n" +
+                    "#                              #\n" +
+                    "################################";
+        }
         else
-            System.out.println("==== DEFEAT ====");
+            s =
+                    "################################\n" +
+                    "#                              #\n" +
+                    "#            DEFEAT            #\n" +
+                    "#                              #\n" +
+                    "################################";
+        System.out.println(s);
     }
 
     @Override
     public void displayHero(Hero hero)
     {
-        System.out.printf("**** Now playing: %s ****%n", hero.toString());
+        StringBuilder s = new StringBuilder();
+        s.append("************************************************\n");
+        s.append("*                  NOW PLAYING                 *\n");
+        s.append("*                                              *\n");
+
+        String heroString = hero.toString();
+        int spaces = 46 - heroString.length();
+        int spacesLeft = spaces / 2;
+        int spacesRight = spaces - spacesLeft;
+
+        s.append("*");
+        s.append(" ".repeat(Math.max(0, spacesLeft)));
+        s.append(heroString);
+        s.append(" ".repeat(Math.max(0, spacesRight)));
+        s.append("*\n");
+
+        s.append("************************************************\n");
+
+        System.out.println(s);
     }
 
     @Override
     public void displayEnemy(Enemy enemy)
     {
-        System.out.printf("**** Now playing: %s ****%n", enemy.toString());
+        StringBuilder s = new StringBuilder();
+        s.append("************************************************\n");
+        s.append("*                  NOW PLAYING                 *\n");
+        s.append("*                                              *\n");
+
+        String enemyString = enemy.toString();
+        int spaces = 46 - enemyString.length();
+        int spacesLeft = spaces / 2;
+        int spacesRight = spaces - spacesLeft;
+
+        s.append("*");
+        s.append(" ".repeat(Math.max(0, spacesLeft)));
+        s.append(enemyString);
+        s.append(" ".repeat(Math.max(0, spacesRight)));
+        s.append("*\n");
+
+        s.append("************************************************\n");
+
+        System.out.println(s);
     }
 
     @Override

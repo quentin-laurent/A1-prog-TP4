@@ -17,6 +17,8 @@ public class ConsoleParser implements InputParser
     // Attributes
     private Scanner sc;
 
+    private static final int NAME_CHAR_LIMIT = 20;
+
     // Constructor
     public ConsoleParser()
     {
@@ -59,15 +61,25 @@ public class ConsoleParser implements InputParser
     @Override
     public String chooseCombatantName()
     {
-        System.out.print("Select a name: ");
-        String name = this.getString();
-
-        while(name.isBlank())
+        String name;
+        boolean repeat = true;
+        do
         {
-            System.out.println("You must choose a non-blank name !");
+            repeat = false;
             System.out.print("Select a name: ");
             name = this.getString();
-        }
+
+            if(name.isBlank())
+            {
+                System.out.println("You must choose a non-blank name !");
+                repeat = true;
+            }
+            else if(name.length() > NAME_CHAR_LIMIT)
+            {
+                System.out.println("Name must not exceed 20 characters !");
+                repeat = true;
+            }
+        } while(repeat);
 
         return name;
     }
