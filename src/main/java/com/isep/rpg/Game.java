@@ -437,7 +437,6 @@ public class Game
 
             switch (heroClass)
             {
-                // TODO: give heroes items at the start of the game to adjust balance
                 case "hunter":
                     hero = new Hunter(heroName);
                     hero.getItems().put(new Arrow("Wooden Arrow", 10), 6);
