@@ -11,6 +11,12 @@ public class Armor extends Item
     // Attributes
     private final float damageMultiplier;
 
+    // Getters & Setters
+    public float getDamageMultiplier()
+    {
+        return this.damageMultiplier;
+    }
+
     // Constructor
     /**
      * Creates a new {@link Armor}.

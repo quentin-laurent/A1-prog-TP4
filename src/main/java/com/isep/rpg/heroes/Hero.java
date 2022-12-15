@@ -137,4 +137,13 @@ public abstract class Hero extends Combatant
 
         return enemy.applyDamage(damage);
     }
+
+    @Override
+    public int[] applyDamage(int damage)
+    {
+        // Applying the armor's damage reduction before applying the damage
+        if(this.armor != null)
+            return super.applyDamage((int) (damage*this.armor.getDamageMultiplier()));
+        return super.applyDamage(damage);
+    }
 }
