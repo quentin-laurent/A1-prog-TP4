@@ -21,6 +21,8 @@ The game obeys to the following rules:
   - `consume`, which allows the `Hero` to use an `Consumable` (a specific type of `Item`) from its inventory
 - On its turn, each `Enemy` attacks a random `Hero`
 - A `SpellCaster` regenerates 15 mana on each stage
-- A `Hunter` needs to have at least one `Arrow` (a specific type of `Item`) in its inventory in order to `attack`
 - A `Hero` can only target an `Enemy` when choosing the `attack` action
 - A `SpellCaster` can target any `Combatant` when choosing the `spell` action
+- A `Hunter` needs to have at least one `Arrow` (a specific type of `Item`) in its inventory in order to `attack`
+- `Food` (a specific type of `Consumable`) can be used by a `Hero` to regenerate HP
+- A `Potion` (a specific type of `Consumable`) can be used by a `SpellCaster` to regenerate Mana
