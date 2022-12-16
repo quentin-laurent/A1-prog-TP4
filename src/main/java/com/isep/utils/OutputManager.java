@@ -30,6 +30,12 @@ public interface OutputManager
     public void displayEnemies(List<Enemy> enemies) throws ExecutionControl.NotImplementedException;
 
     /**
+     * Displays the main title of the Game.
+     * @throws ExecutionControl.NotImplementedException
+     */
+    public void displayMainTitle() throws ExecutionControl.NotImplementedException;
+
+    /**
      * Displays the title of a stage.
      * @param stageNumber The number of the stage.
      * @throws ExecutionControl.NotImplementedException

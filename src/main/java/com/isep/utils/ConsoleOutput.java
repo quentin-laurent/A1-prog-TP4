@@ -10,6 +10,7 @@ import com.isep.rpg.items.consumables.Consumable;
 import com.isep.rpg.items.consumables.Food;
 import com.isep.rpg.items.Item;
 import com.isep.rpg.items.consumables.Potion;
+import jdk.jshell.spi.ExecutionControl;
 
 import java.util.List;
 
@@ -47,6 +48,19 @@ public class ConsoleOutput implements OutputManager
         }
         int lastIndex = s.length();
         s.replace(lastIndex - 3, lastIndex, "");
+
+        System.out.println(s);
+    }
+
+    @Override
+    public void displayMainTitle()
+    {
+        String s =
+                "************************************************\n" +
+                "*                                              *\n" +
+                "*              MINI RPG LITE 3000              *\n" +
+                "*                                              *\n" +
+                "************************************************\n";
 
         System.out.println(s);
     }

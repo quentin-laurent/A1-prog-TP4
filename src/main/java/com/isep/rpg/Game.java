@@ -54,6 +54,7 @@ public class Game
      */
     public void play() throws ExecutionControl.NotImplementedException
     {
+        this.outputManager.displayMainTitle();
         this.initializeHeroes();
         for(int i = 1; i <= this.numberOfStages; i++)
             this.playStage(i);

@@ -29,6 +29,12 @@ public class GUIOutput implements OutputManager
     }
 
     @Override
+    public void displayMainTitle() throws ExecutionControl.NotImplementedException
+    {
+        throw new ExecutionControl.NotImplementedException("TODO");
+    }
+
+    @Override
     public void displayStageTitle(int stageNumber) throws ExecutionControl.NotImplementedException
     {
         throw new ExecutionControl.NotImplementedException("TODO");
